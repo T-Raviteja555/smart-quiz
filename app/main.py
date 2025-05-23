@@ -1,17 +1,14 @@
 import os
 import sys
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 import structlog
 import logging
 from typing import List, Dict, Optional
-from app.questions import  load_questions, get_question_by_id, generate_questions, QuizQuestion
+from app.questions import load_questions, generate_questions, QuizQuestion
 from app.utils.config_loader import CONFIG
 from app.utils.exceptions import ErrorResponse, exception_handlers
 import random
-
-
-#sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Configure structlog for JSON logging
 structlog.configure(
@@ -44,14 +41,22 @@ for exc_type, handler in exception_handlers.items():
 
 # Pydantic models
 class GenerateQuestionsRequest(BaseModel):
-    goal: str = Field(..., description="Goal of the questions (e.g., 'GATE AE', 'Amazon SDE')", example="GATE AE")
+    goal: str = Field(..., description="Goal of the questions (e.g., 'GATE AE', 'Amazon SDE')", example="GATE AE", enum=["GATE AE", "Amazon SDE"])
     num_questions: int = Field(..., ge=1, le=10, description="Number of questions to generate", example=5)
-    difficulty: str = Field(..., description="Difficulty level (e.g., 'beginner', 'intermediate', 'advanced')", example="beginner")
+    difficulty: str = Field(..., description="Difficulty level (e.g., 'beginner', 'intermediate', 'advanced')", example="beginner", enum=["beginner", "intermediate", "advanced"])
+
+class QuestionResponse(BaseModel):
+    type: str
+    question: str
+    options: List[str]
+    answer: str
+    difficulty: str
+    topic: str
 
 class GenerateQuestionsResponse(BaseModel):
-    quiz_id: str = Field(..., description="QuizId of the questions (e.g., 'Quiz_1234')", example="Quiz_1234")
-    goal: str= Field(..., description="Goal of the questions (e.g., 'GATE AE', 'Amazon SDE')", example="GATE AE")
-    questions: List[QuizQuestion] = Field(..., description="List of generated questions")
+    quiz_id: str = Field(..., description="Unique identifier for the quiz", example="quiz_1234")
+    goal: str = Field(..., description="Goal of the quiz", example="GATE AE")
+    questions: List[QuestionResponse] = Field(..., description="List of generated questions")
 
 class HealthCheckResponse(BaseModel):
     status: str
@@ -85,24 +90,23 @@ def display_questions(questions: List[QuizQuestion]):
 )
 async def get_questions():
     questions = load_questions()
-    quizId= quizId = f"Quiz_{random.randint(1000, 9999)}"
-    return GenerateQuestionsResponse(questions=questions, quiz_id=quizId,goal=f"{questions[0].goal}")
-
-@app.get(
-    "/questions/{question_id}",
-    response_model=GenerateQuestionsResponse,
-    tags=["questions"],
-    summary="Retrieve a specific question by ID",
-    description="Returns the Question model or a 404 if not found."
-)
-async def get_question_by_id_endpoint(question_id: int):
-    question = get_question_by_id(question_id)
-    if question is None:
-        raise HTTPException(status_code=404, detail=f"Question with ID {question_id} not found")
+    quiz_id = f"quiz_{random.randint(1000, 9999)}"
+    # Convert to response model without goal in questions
+    response_questions = [
+        QuestionResponse(
+            type=q.type,
+            question=q.question,
+            options=q.options,
+            answer=q.answer,
+            difficulty=q.difficulty,
+            topic=q.topic
+        ) for q in questions
+    ]
     return GenerateQuestionsResponse(
-        questions=[question],
-        quiz_id=f"Quiz_{random.randint(1000, 9999)}",
-        goal=question.goal)
+        quiz_id=quiz_id,
+        goal=questions[0].goal if questions else "GATE AE",
+        questions=response_questions
+    )
 
 @app.post(
     "/generate",
@@ -119,24 +123,16 @@ async def get_question_by_id_endpoint(question_id: int):
         "Generates a specified number of questions based on goal and difficulty.\n\n"
         "### Parameters\n"
         "- **goal**: Supported values: `GATE AE`, `Amazon SDE`\n"
-        "- **difficulty**: Supported values: `beginner`, `intermediate`, 'advanced`\n"
+        "- **difficulty**: Supported values: `beginner`, `intermediate`, `advanced`\n"
         "- **num_questions**: Integer between 1 and 10\n\n"
         "### Error Handling\n"
         "- Returns standardized JSON errors (`{\"detail\": \"Error message\"}` or `{\"detail\": [\"Error messages\"]}`) for invalid inputs or server errors.\n"
-        "- Common status codes: `400` (invalid input), `422` (validation error), `500` (server error).\n\n"
-        "### Example Request\n"
-        "```json\n"
-        "{\"goal\": \"GATE AE\", \"num_questions\": 5, \"difficulty\": \"beginner\"}\n"
-        "```\n\n"
-        "### Example Response\n"
-        "```json\n"
-        "{\"total\": 10, \"questions\": [{\"question_no\": 1, \"goal\": \"GATE AE\", ...}]}\n"
-        "```"
+        "- Common status codes: `400` (invalid input), `422` (validation error), `500` (server error).\n"
     )
 )
 async def generate_questions_post(request: GenerateQuestionsRequest):
     try:
-        supported_goals = CONFIG.get('supported_goals', ['GATE AE', 'Amazon SDE'])
+        supported_goals = ["GATE AE", "Amazon SDE"]
         if request.goal not in supported_goals:
             raise HTTPException(status_code=400, detail=f"Goal must be one of {supported_goals}")
         if request.difficulty not in CONFIG['supported_difficulties']:
@@ -144,10 +140,22 @@ async def generate_questions_post(request: GenerateQuestionsRequest):
         if not questions_cache:
             raise HTTPException(status_code=500, detail="Question bank not available")
         questions = generate_questions(request.goal, request.difficulty, request.num_questions)
-        total = len(
-            [q for q in questions_cache if q.goal == request.goal and q.difficulty == request.difficulty]
+        # Convert to response model without goal in questions
+        response_questions = [
+            QuestionResponse(
+                type=q.type,
+                question=q.question,
+                options=q.options,
+                answer=q.answer,
+                difficulty=q.difficulty,
+                topic=q.topic
+            ) for q in questions
+        ]
+        return GenerateQuestionsResponse(
+            quiz_id=f"quiz_{random.randint(1000, 9999)}",
+            goal=request.goal,
+            questions=response_questions
         )
-        return GenerateQuestionsResponse(questions=questions, quiz_id=f"Quiz_{random.randint(1000, 9999)}", goal=request.goal)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
@@ -165,21 +173,7 @@ async def generate_questions_post(request: GenerateQuestionsRequest):
         "Checks the health of the API by verifying critical dependencies.\n\n"
         "### Response\n"
         "- **status**: `healthy` if all dependencies are operational, `unhealthy` otherwise.\n"
-        "- **details**: Information about checked dependencies (e.g., question bank, configuration).\n\n"
-        "### Dependencies Checked\n"
-        "- **Question Bank**: Ensures questions are loaded in cache.\n"
-        "- **Configuration**: Verifies required configuration keys are present.\n\n"
-        "### Error Handling\n"
-        "- Returns standardized JSON errors for server errors (`500`).\n"
-        "- Robust against unexpected request types.\n\n"
-        "### Example Response (Healthy)\n"
-        "```json\n"
-        "{\"status\": \"healthy\", \"details\": {\"question_bank\": \"Available (10 questions)\", \"configuration\": \"Loaded successfully\"}}\n"
-        "```\n\n"
-        "### Example Response (Unhealthy)\n"
-        "```json\n"
-        "{\"status\": \"unhealthy\", \"details\": {\"question_bank\": \"Not available\", \"configuration\": \"Loaded successfully\"}}\n"
-        "```"
+        "- **details**: Information about checked dependencies (e.g., question bank, configuration).\n"
     )
 )
 async def health_check():

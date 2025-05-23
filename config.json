@@ -11,7 +11,7 @@
   "CACHE_MAXSIZE": 1000,
   "MAX_WORKERS": 4,
   "DATA_DIR": "/app/data",
-  "DATASET": "All_Questions.json",
+  "DATASET": "consolidated_questions_updated.json",
   "LOG_FILE": "app.log",
   "logging": {
     "level": "INFO",

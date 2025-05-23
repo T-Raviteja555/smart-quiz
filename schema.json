@@ -1,180 +1,105 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.com/quiz-api.schema.json",
-  "title": "Quiz API Schema",
-  "description": "Schema for the Quiz API input and output formats",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Smart Quiz API Input and Output Schema",
   "type": "object",
-  "properties": {
-    "request": {
-      "$ref": "#/$defs/QuizRequest"
-    },
-    "response": {
-      "$ref": "#/$defs/QuizResponse"
-    }
-  },
-  "$defs": {
-    "QuizRequest": {
+  "definitions": {
+    "question": {
       "type": "object",
-      "required": [
-        "goal",
-        "num_questions",
-        "difficulty"
-      ],
       "properties": {
         "goal": {
           "type": "string",
-          "enum": [
-            "GATE AE",
-            "Amazon SDE",
-            "Google SWE"
-          ],
-          "description": "The goal of the quiz (e.g., 'Amazon SDE')",
-          "example": "Amazon SDE"
+          "enum": ["GATE AE", "Amazon SDE"],
+          "description": "The target exam or role for the question."
         },
-        "num_questions": {
-          "type": "integer",
-          "minimum": 1,
-          "maximum": 10,
-          "description": "Number of questions to generate",
-          "example": 5
-        },
-        "difficulty": {
-          "type": "string",
-          "enum": [
-            "beginner",
-            "intermediate",
-            "advanced",
-            "expert"
-          ],
-          "description": "Difficulty level of the questions",
-          "example": "intermediate"
-        }
-      },
-      "additionalProperties": false
-    },
-    "QuizResponse": {
-      "type": "object",
-      "required": [
-        "quiz_id",
-        "goal",
-        "questions"
-      ],
-      "properties": {
-        "quiz_id": {
-          "type": "string",
-          "pattern": "^quiz_[a-zA-Z0-9]+$",
-          "description": "Unique identifier for the quiz",
-          "example": "quiz_1234"
-        },
-        "goal": {
-          "type": "string",
-          "enum": [
-            "GATE AE",
-            "Amazon SDE",
-            "Google SWE"
-          ],
-          "description": "The goal of the quiz",
-          "example": "Amazon SDE"
-        },
-        "questions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/Question"
-          },
-          "description": "List of quiz questions",
-          "minItems": 1
-        }
-      },
-      "additionalProperties": false
-    },
-    "Question": {
-      "type": "object",
-      "required": [
-        "type",
-        "question",
-        "answer",
-        "difficulty",
-        "topic"
-      ],
-      "properties": {
         "type": {
           "type": "string",
-          "enum": [
-            "mcq",
-            "short_answer",
-            "coding"
-          ],
-          "description": "Type of question",
-          "example": "mcq"
+          "enum": ["mcq", "short_answer"],
+          "description": "The type of question (multiple-choice or short-answer)."
         },
         "question": {
           "type": "string",
-          "minLength": 10,
-          "description": "The question text",
-          "example": "What is the time complexity of binary search?"
+          "description": "The question text."
         },
         "options": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "description": "List of answer options (required for mcq, optional for others)",
-          "example": [
-            "A. O(n)",
-            "B. O(log n)",
-            "C. O(n log n)",
-            "D. O(1)"
-          ],
-          "minItems": 4,
-          "maxItems": 4,
-          "if": {
-            "properties": {
-              "type": {
-                "not": {
-                  "const": "mcq"
-                }
-              }
-            }
-          },
-          "then": {
-            "type": "null"
-          }
+          "description": "List of answer options for MCQ questions. Empty for short-answer questions."
         },
         "answer": {
           "type": "string",
-          "description": "The correct answer",
-          "example": "B. O(log n)"
+          "description": "The correct answer. For MCQ, format is 'option. text' (e.g., 'B. O(log n)'). For short-answer, the answer text or value."
         },
         "difficulty": {
           "type": "string",
-          "enum": [
-            "beginner",
-            "intermediate",
-            "advanced",
-            "expert"
-          ],
-          "description": "Difficulty level of the question",
-          "example": "intermediate"
+          "enum": ["beginner", "intermediate", "advanced"],
+          "description": "The difficulty level of the question."
         },
         "topic": {
           "type": "string",
-          "description": "Topic of the question",
-          "example": "Algorithms"
+          "description": "The subject or topic of the question."
         }
       },
+      "required": ["goal", "type", "question", "options", "answer", "difficulty", "topic"],
+      "additionalProperties": false
+    },
+    "inputRequest": {
+      "type": "object",
+      "properties": {
+        "goal": {
+          "type": "string",
+          "enum": ["GATE AE", "Amazon SDE"],
+          "description": "The target exam or role for the quiz."
+        },
+        "num_questions": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of questions to retrieve."
+        },
+        "difficulty": {
+          "type": ["string"],
+          "enum": ["beginner", "intermediate", "advanced"],
+          "description": "Optional filter for difficulty level."
+        }
+      },
+      "required": ["goal", "num_questions"],
       "additionalProperties": false,
-      "if": {
-        "properties": {
-          "type": {
-            "const": "mcq"
-          }
+      "description": "Schema for API input request."
+    },
+    "outputResponse": {
+      "type": "object",
+      "properties": {
+        "quiz_id": {
+          "type": "string",
+          "pattern": "^quiz_[a-zA-Z0-9]+$",
+          "description": "Unique identifier for the quiz."
+        },
+        "goal": {
+          "type": "string",
+          "enum": ["GATE AE", "Amazon SDE"],
+          "description": "The target exam or role for the quiz."
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/question"
+          },
+          "description": "List of retrieved questions."
         }
       },
-      "then": {
-        "required": [
-          "options"
-        ]
-      }
+      "required": ["quiz_id", "goal", "questions"],
+      "additionalProperties": false,
+      "description": "Schema for API output response."
     }
-  }
+  },
+  "properties": {
+    "inputRequest": {
+      "$ref": "#/definitions/inputRequest"
+    },
+    "outputResponse": {
+      "$ref": "#/definitions/outputResponse"
+    }
+  },
+  "additionalProperties": false
 }
