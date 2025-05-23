@@ -14,9 +14,8 @@ from app.utils.config_loader import CONFIG
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class Question(BaseModel):
-    """Simple question model for FastAPI compatibility"""
-    question_no: int
+"""class Question(BaseModel):
+   
     goal: str
     type: str
     question: str
@@ -24,7 +23,16 @@ class Question(BaseModel):
     options: Optional[List[str]] = None
     answer_option: Optional[str] = None
     difficulty: str = 'medium'
-    topic: str = 'general'
+    topic: str = 'general'"""
+    
+class QuizQuestion(BaseModel):
+    type: str
+    question: str
+    options: List[str]
+    answer: str
+    difficulty: str
+    topic: str
+    goal: str
 
     class Config:
         json_loads = orjson.loads
@@ -38,16 +46,14 @@ executor = ThreadPoolExecutor(max_workers=CONFIG['MAX_WORKERS'])
 
 def _validate_question_item(item: Dict) -> Dict:
     """Basic validation for question data"""
-    if not isinstance(item.get('question_no'), (int, str)):
-        raise ValueError("question_no must be numeric")
     
     # Basic type checking and defaults
     item = item.copy()
-    item.setdefault('answer_text', '')
+    item.setdefault('answer', '')
     item.setdefault('options', None)
-    item.setdefault('answer_option', None)
     item.setdefault('difficulty', 'medium')
     item.setdefault('topic', 'general')
+    item.setdefault('goal', '')
     
     # Validate question type
     """if item.get('type') not in ('mcq', 'short_answer'):
@@ -69,36 +75,51 @@ def _validate_question_item(item: Dict) -> Dict:
     return item
 
 @cached(question_cache)
-def load_questions() -> List[Question]:
+def load_questions() -> List[QuizQuestion]:
     """Load and validate questions from file with caching and parallel processing"""
     try:
-        file_path = Path(CONFIG['DATA_DIR']) / CONFIG['DATSET']
+        file_path = Path(CONFIG['DATA_DIR']) / CONFIG['DATASET']  # Fixed typo: DATSET -> DATASET
         logger.info(f"Loading questions from {file_path}")
 
-        with open(file_path, 'rb') as f:
-            data = orjson.loads(f.read())
+        with open(file_path, 'r', encoding='utf-8') as f:
+            raw_content = f.read()
+            data = orjson.loads(raw_content)
+
+        # Handle nested structure from All_Questions.json
+        questions = []
+        for quiz in data.get('quizzes', []):
+            for idx, question in enumerate(quiz.get('questions', [])):
+                adapted_question = {
+                    'type': quiz['type'],
+                    'question': question['question'],
+                    'options': question.get('options', []),
+                    'answer': question['answer'],
+                    'difficulty': question['difficulty'],
+                    'topic': question['topic'],
+                    'goal': quiz['goal'],
+                }
+                questions.append(adapted_question)
 
         # Parallel processing for large datasets
-        if len(data) > 100:
+        if len(questions) > 100:
             return list(executor.map(
-                lambda item: Question(**_validate_question_item(item)),
-                data
+                lambda item: QuizQuestion(**_validate_question_item(item)),
+                questions
             ))
-        
+
         # Single-threaded for small datasets
-        return [Question(**_validate_question_item(item)) for item in data]
+        return [QuizQuestion(**_validate_question_item(item)) for item in questions]
 
     except Exception as e:
         logger.error(f"Error loading questions: {str(e)}")
-        raise ValueError(f"Failed to load questions : {str(e)}")
-
+        raise ValueError(f"Failed to load questions: {str(e)}")
 @lru_cache(maxsize=100)
-def get_question_by_id(question_id: int) -> Optional[Question]:
+def get_question_by_id(question_id: int) -> Optional[QuizQuestion]:
     """Retrieve single question by ID with caching"""
     questions = load_questions()
     return next((q for q in questions if q.question_no == question_id), None)
 
-def generate_questions(goal: str, difficulty: str, no_of_questions: int) -> List[Question]:
+def generate_questions(goal: str, difficulty: str, no_of_questions: int) -> List[QuizQuestion]:
     """Generate random questions based on goal and difficulty"""
     questions = load_questions()
     # Filter questions by goal and difficulty

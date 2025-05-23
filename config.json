@@ -10,8 +10,8 @@
   "CACHE_TTL": 3600,
   "CACHE_MAXSIZE": 1000,
   "MAX_WORKERS": 4,
-  "DATA_DIR": "/data",
-  "DATSET": "consolidated_questions_updated.json",
+  "DATA_DIR": "/app/data",
+  "DATASET": "All_Questions.json",
   "LOG_FILE": "app.log",
   "logging": {
     "level": "INFO",

@@ -5,9 +5,11 @@ from pydantic import BaseModel, Field
 import structlog
 import logging
 from typing import List, Dict, Optional
-from app.questions import Question, load_questions, get_question_by_id, generate_questions
+from app.questions import  load_questions, get_question_by_id, generate_questions, QuizQuestion
 from app.utils.config_loader import CONFIG
 from app.utils.exceptions import ErrorResponse, exception_handlers
+import random
+
 
 #sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -47,8 +49,9 @@ class GenerateQuestionsRequest(BaseModel):
     difficulty: str = Field(..., description="Difficulty level (e.g., 'beginner', 'intermediate', 'advanced')", example="beginner")
 
 class GenerateQuestionsResponse(BaseModel):
-    total: int = Field(..., ge=0, description="Total number of available questions matching the goal and difficulty")
-    questions: List[Question] = Field(..., description="List of generated questions")
+    quiz_id: str = Field(..., description="QuizId of the questions (e.g., 'Quiz_1234')", example="Quiz_1234")
+    goal: str= Field(..., description="Goal of the questions (e.g., 'GATE AE', 'Amazon SDE')", example="GATE AE")
+    questions: List[QuizQuestion] = Field(..., description="List of generated questions")
 
 class HealthCheckResponse(BaseModel):
     status: str
@@ -68,12 +71,9 @@ class HealthCheckResponse(BaseModel):
 # Load questions at startup (cached by questions.py)
 questions_cache = load_questions()
 
-def display_questions(questions: List[Question]):
+def display_questions(questions: List[QuizQuestion]):
     for q in questions:
-        if q.answer_option:
-            logger.info(f"Correct option: {q.question_no} : {q.answer_option}")
-        if q.answer_text:
-            logger.info(f"Answer text: {q.answer_text}")
+        logger.info(f"Answer: {q.answer}")
 
 # Endpoints
 @app.get(
@@ -81,12 +81,12 @@ def display_questions(questions: List[Question]):
     response_model=GenerateQuestionsResponse,
     tags=["questions"],
     summary="Retrieve all questions",
-    description="Returns a list of all available questions."
+    description="Returns a list of all available questions in dataset."
 )
 async def get_questions():
     questions = load_questions()
-    total = len(questions)
-    return GenerateQuestionsResponse(questions=questions, total=total)
+    quizId= quizId = f"Quiz_{random.randint(1000, 9999)}"
+    return GenerateQuestionsResponse(questions=questions, quiz_id=quizId,goal=f"{questions[0].goal}")
 
 @app.get(
     "/questions/{question_id}",
@@ -99,7 +99,10 @@ async def get_question_by_id_endpoint(question_id: int):
     question = get_question_by_id(question_id)
     if question is None:
         raise HTTPException(status_code=404, detail=f"Question with ID {question_id} not found")
-    return GenerateQuestionsResponse(questions=[question], total=1)
+    return GenerateQuestionsResponse(
+        questions=[question],
+        quiz_id=f"Quiz_{random.randint(1000, 9999)}",
+        goal=question.goal)
 
 @app.post(
     "/generate",
@@ -144,7 +147,7 @@ async def generate_questions_post(request: GenerateQuestionsRequest):
         total = len(
             [q for q in questions_cache if q.goal == request.goal and q.difficulty == request.difficulty]
         )
-        return GenerateQuestionsResponse(questions=questions, total=total)
+        return GenerateQuestionsResponse(questions=questions, quiz_id=f"Quiz_{random.randint(1000, 9999)}", goal=request.goal)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
