@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  smartquiz-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - E:/smart-quiz/data:/data
+    environment:
+      - PYTHONUNBUFFERED=1

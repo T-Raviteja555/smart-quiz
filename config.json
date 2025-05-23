@@ -1,0 +1,26 @@
+{
+  "generator_mode": "retrieval",
+  "version": "1.0.0",
+  "default_num_questions": 5,
+  "max_questions": 10,
+  "supported_difficulties": ["beginner", "intermediate", "advanced"],
+  "supported_types": ["mcq", "short_answer"],
+  "MIN_QUESTIONS": 5,
+  "MAX_QUESTIONS": 10,
+  "CACHE_TTL": 3600,
+  "CACHE_MAXSIZE": 1000,
+  "MAX_WORKERS": 4,
+  "DATA_DIR": "/data",
+  "DATSET": "consolidated_questions_updated.json",
+  "LOG_FILE": "app.log",
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "logpath": "/app/logs/app.log",
+    "rotating_file_handler": {
+      "when": "midnight",
+      "interval": 1,
+      "backupCount": 7
+    }
+  }
+}

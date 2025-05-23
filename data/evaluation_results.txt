@@ -1,0 +1,145 @@
+Query: {'goal': 'GATE AE', 'num_questions': 5, 'difficulty': 'beginner', 'topic': 'General Aptitude'}
+Relevance Accuracy: 1.00
+Precision@5: 1.00
+Generated Quiz:
+{
+  "quiz_id": "quiz_4854",
+  "goal": "GATE AE",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "Consider the following sample of numbers: 9,18,11,14,15,17,10,69,11,13. The median of the sample is",
+      "options": [
+        "A. 13.5",
+        "B. 14",
+        "C. 11",
+        "D. 18.7"
+      ],
+      "answer": "14",
+      "difficulty": "beginner",
+      "topic": "General Aptitude"
+    },
+    {
+      "type": "mcq",
+      "question": "The least number of squares to be added in the figure to make AB a line of symmetry is",
+      "options": [
+        "A. 6",
+        "B. 4",
+        "C. 5",
+        "D. 7"
+      ],
+      "answer": "5",
+      "difficulty": "beginner",
+      "topic": "General Aptitude"
+    },
+    {
+      "type": "mcq",
+      "question": "The number of coins of \u20b91, \u20b95, and \u20b910 denominations that a person has are in the ratio 5:3:13. Of the total amount, the percentage of money in \u20b95 coins is",
+      "options": [
+        "A. 21%",
+        "B. 14 2/7%",
+        "C. 10%",
+        "D. 30%"
+      ],
+      "answer": "14 2/7%",
+      "difficulty": "beginner",
+      "topic": "General Aptitude"
+    },
+    {
+      "type": "mcq",
+      "question": "If '\u2192' denotes increasing order of intensity, then the meaning of the words [dry \u2192 arid \u2192 parched] is analogous to [diet \u2192 fast \u2192 ____]. Which one of the given options is appropriate to fill the blank?",
+      "options": [
+        "A. starve",
+        "B. reject",
+        "C. feast",
+        "D. deny"
+      ],
+      "answer": "starve",
+      "difficulty": "beginner",
+      "topic": "General Aptitude"
+    },
+    {
+      "type": "mcq",
+      "question": "In the given text, the blanks are numbered (i)-(iv). Select the best match for all the blanks. Steve was advised to keep his head ____ (i) before heading ____ (ii) for, while he had a head ____ (iii) he could head ____ (iv) his shoulders.",
+      "options": [
+        "A. (i) down, (ii) out, (iii) start, (iv) above",
+        "B. (i) down, (ii) out, (iii) start, (iv) on",
+        "C. (i) up, (ii) in, (iii) start, (iv) above",
+        "D. (i) up, (ii) in, (iii) start, (iv) on"
+      ],
+      "answer": "(i) down, (ii) out, (iii) start, (iv) on",
+      "difficulty": "beginner",
+      "topic": "General Aptitude"
+    }
+  ]
+}
+
+Query: {'goal': 'Amazon SDE', 'num_questions': 3, 'difficulty': 'intermediate', 'topic': 'Algorithms'}
+Relevance Accuracy: 1.00
+Precision@3: 1.00
+Generated Quiz:
+{
+  "quiz_id": "quiz_4527",
+  "goal": "Amazon SDE",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "What is the worst-case time complexity of QuickSort?",
+      "options": [
+        "A. O(n)",
+        "B. O(n log n)",
+        "C. O(n\u00b2)",
+        "D. O(log n)"
+      ],
+      "answer": "O(n\u00b2)",
+      "difficulty": "intermediate",
+      "topic": "Algorithms"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the time complexity of matrix multiplication for two n\u00d7n matrices?",
+      "options": [
+        "A. O(n)",
+        "B. O(n\u00b2)",
+        "C. O(n\u00b3)",
+        "D. O(n log n)"
+      ],
+      "answer": "O(n\u00b3)",
+      "difficulty": "intermediate",
+      "topic": "Algorithms"
+    },
+    {
+      "type": "mcq",
+      "question": "What is the time complexity of Bubble Sort in the best case?",
+      "options": [
+        "A. O(n)",
+        "B. O(n log n)",
+        "C. O(n\u00b2)",
+        "D. O(log n)"
+      ],
+      "answer": "O(n)",
+      "difficulty": "intermediate",
+      "topic": "Algorithms"
+    }
+  ]
+}
+
+Query: {'goal': 'GATE AE', 'num_questions': 4, 'difficulty': 'advanced', 'topic': 'Mathematics'}
+Relevance Accuracy: 1.00
+Precision@4: 0.25
+Generated Quiz:
+{
+  "quiz_id": "quiz_9037",
+  "goal": "GATE AE",
+  "questions": [
+    {
+      "type": "short_answer",
+      "question": "The value of the integral \u222e_C (x dy - y dx)/(x^2 + y^2), where C is the circle x^2 + y^2 = 4 traversed once in the counter clockwise direction, is",
+      "options": [],
+      "answer": "0",
+      "difficulty": "advanced",
+      "topic": "Mathematics"
+    }
+  ]
+}
+
