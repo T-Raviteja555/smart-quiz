@@ -1,5 +1,6 @@
 import unittest
 from unittest.mock import patch
+from fastapi import HTTPException
 from fastapi.testclient import TestClient
 from app.main import app
 from app.questions import Question, generate_questions

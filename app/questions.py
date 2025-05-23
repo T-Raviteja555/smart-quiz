@@ -26,6 +26,10 @@ class QuizQuestion(BaseModel):
         json_loads = orjson.loads
         json_dumps = lambda x, **kwargs: orjson.dumps(x).decode()
 
+valid_goals = CONFIG.get('valid_goals', [])
+logger.info(f"Valid goals: {valid_goals}")
+supported_difficulties = CONFIG.get('supported_difficulties', [])
+logger.info(f"Supported difficulties: {supported_difficulties}")
 # Thread-safe cache
 question_cache = TTLCache(maxsize=CONFIG['CACHE_MAXSIZE'], ttl=CONFIG['CACHE_TTL'])
 
@@ -58,10 +62,10 @@ def _validate_question_item(item: Dict) -> Dict:
     # Basic string checks
     if not isinstance(item.get('question'), str) or len(item['question']) < 10:
         raise ValueError("question must be a string with at least 10 characters")
-    if not isinstance(item.get('goal'), str) or item['goal'] not in ('GATE AE', 'Amazon SDE'):
-        raise ValueError("goal must be 'GATE AE' or 'Amazon SDE'")
-    if not isinstance(item.get('difficulty'), str) or item['difficulty'] not in ('beginner', 'intermediate', 'advanced'):
-        raise ValueError("difficulty must be 'beginner', 'intermediate', or 'advanced'")
+    if not isinstance(item.get('goal'), str) or item['goal'] not in valid_goals:
+        raise ValueError(f"goal must be one of {valid_goals}")
+    if not isinstance(item.get('difficulty'), str) or item['difficulty'] not in supported_difficulties:
+        raise ValueError(f"difficulty must be one of {supported_difficulties}")
     if not isinstance(item.get('topic'), str) or len(item['topic']) < 3:
         raise ValueError("topic must be a string with at least 3 characters")
     if not isinstance(item.get('answer'), str) or len(item['answer']) == 0:

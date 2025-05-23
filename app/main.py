@@ -68,10 +68,18 @@ class HealthCheckResponse(BaseModel):
                 "status": "healthy",
                 "details": {
                     "question_bank": "Available (10 questions)",
-                    "configuration": "Loaded successfully"
+                    "configuration": "Loaded successfully",
+                    "questions_by_goal": "GATE AE: 5, Amazon SDE: 5",
+                    "questions_by_type": "MCQ: 8, Coding: 2"
                 }
             }
         }
+
+class ConfigResponse(BaseModel):
+    generator_mode: str = Field(..., description="Mode of the question generator", example="retrieval")
+    version: str = Field(..., description="API version from configuration", example="1.0.0")
+    goal: list = Field(..., description="Goal of the questions", example="GATE AE, Amazon SDE")
+    type: list = Field(..., description="Type of the questions", example="mcq,short answer")
 
 # Load questions at startup (cached by questions.py)
 questions_cache = load_questions()
@@ -173,7 +181,7 @@ async def generate_questions_post(request: GenerateQuestionsRequest):
         "Checks the health of the API by verifying critical dependencies.\n\n"
         "### Response\n"
         "- **status**: `healthy` if all dependencies are operational, `unhealthy` otherwise.\n"
-        "- **details**: Information about checked dependencies (e.g., question bank, configuration).\n"
+        "- **details**: Information about checked dependencies (e.g., question bank, configuration) and question counts by goal and type.\n"
     )
 )
 async def health_check():
@@ -184,8 +192,24 @@ async def health_check():
     try:
         question_count = len(questions_cache)
         details["question_bank"] = f"Available ({question_count} questions)"
+
+        # Count questions by goal
+        questions_by_goal = {}
+        for question in questions_cache:
+            goal = getattr(question, 'goal', 'Unknown')
+            questions_by_goal[goal] = questions_by_goal.get(goal, 0) + 1
+        details["questions_by_goal"] = ", ".join(f"{goal}: {count}" for goal, count in questions_by_goal.items())
+
+        # Count questions by type
+        questions_by_type = {}
+        for question in questions_cache:
+            q_type = getattr(question, 'type', 'Unknown')
+            questions_by_type[q_type] = questions_by_type.get(q_type, 0) + 1
+        details["questions_by_type"] = ", ".join(f"{q_type}: {count}" for q_type, count in questions_by_type.items())
     except Exception as e:
         details["question_bank"] = f"Not available: {str(e)}"
+        details["questions_by_goal"] = "Not available"
+        details["questions_by_type"] = "Not available"
         is_healthy = False
 
     # Check configuration
@@ -208,6 +232,40 @@ async def health_check():
         status=status,
         details=details
     )
+
+@app.get(
+    "/config",
+    response_model=ConfigResponse,
+    tags=["config"],
+    responses={
+        200: {"description": "Configuration details retrieved successfully", "model": ConfigResponse},
+        500: {"description": "Internal server error", "model": ErrorResponse}
+    },
+    summary="Retrieve configuration details",
+    description=(
+        "Returns the generator mode and version from the configuration.\n\n"
+        "### Response\n"
+        "- **generator_mode**: The mode of the question generator (e.g., 'retrieval').\n"
+        "- **version**: The API version from the configuration (e.g., '1.0.0').\n"
+    )
+)
+async def get_config():
+    try:
+        config_data = {
+            "generator_mode": CONFIG.get("generator_mode", "unknown"),
+            "version": CONFIG.get("version", "unknown"),
+            "goal": CONFIG.get("valid_goals", "unknown"),
+            "type": CONFIG.get("supported_types", "unknown")
+        }
+        logger.info(
+            "Configuration retrieved",
+            generator_mode=config_data["generator_mode"],
+            version=config_data["version"]
+        )
+        return ConfigResponse(**config_data)
+    except Exception as e:
+        logger.error("Failed to retrieve configuration", error=str(e))
+        raise HTTPException(status_code=500, detail="Failed to retrieve configuration")
 
 if __name__ == "__main__":
     import uvicorn

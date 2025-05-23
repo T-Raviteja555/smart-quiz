@@ -8,7 +8,7 @@
       "properties": {
         "goal": {
           "type": "string",
-          "enum": ["GATE AE", "Amazon SDE"],
+          "enum": ["GATE AE", "Amazon SDE","CAT"],
           "description": "The target exam or role for the question."
         },
         "type": {
