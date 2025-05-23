@@ -1,11 +1,15 @@
+import os
+import sys
 from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel, Field
 import structlog
 import logging
 from typing import List, Dict, Optional
 from app.questions import Question, load_questions, get_question_by_id, generate_questions
-from app.config_loader import CONFIG
-from app.utils.exceptions import exception_handlers
+from app.utils.config_loader import CONFIG
+from app.utils.exceptions import ErrorResponse, exception_handlers
+
+#sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Configure structlog for JSON logging
 structlog.configure(
@@ -103,9 +107,9 @@ async def get_question_by_id_endpoint(question_id: int):
     tags=["generate"],
     responses={
         200: {"description": "Successful response with generated questions", "model": GenerateQuestionsResponse},
-        400: {"description": "Invalid input parameters", "model": "ErrorResponse"},
-        422: {"description": "Validation error for request payload", "model": "ErrorResponse"},
-        500: {"description": "Internal server error", "model": "ErrorResponse"}
+        400: {"description": "Invalid input parameters", "model": ErrorResponse},
+        422: {"description": "Validation error for request payload", "model": ErrorResponse},
+        500: {"description": "Internal server error", "model": ErrorResponse}
     },
     summary="Generate questions for a quiz",
     description=(
@@ -151,7 +155,7 @@ async def generate_questions_post(request: GenerateQuestionsRequest):
     responses={
         200: {"description": "Service is healthy", "model": HealthCheckResponse},
         503: {"description": "Service is unhealthy", "model": HealthCheckResponse},
-        500: {"description": "Internal server error", "model": "ErrorResponse"}
+        500: {"description": "Internal server error", "model": ErrorResponse}
     },
     summary="Check API health",
     description=(

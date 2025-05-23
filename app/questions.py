@@ -1,14 +1,14 @@
-from typing import List, Optional, Dict
-from pydantic import BaseModel # type: ignore
-import orjson # type: ignore
 import os
+import logging
+import random
+from typing import List, Optional, Dict
+from pydantic import BaseModel 
+import orjson 
 from pathlib import Path
 from cachetools import cached, TTLCache
-import logging
 from concurrent.futures import ThreadPoolExecutor
 from functools import lru_cache
-import random
-from app.config_loader import CONFIG
+from app.utils.config_loader import CONFIG
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -90,7 +90,7 @@ def load_questions() -> List[Question]:
 
     except Exception as e:
         logger.error(f"Error loading questions: {str(e)}")
-        raise ValueError(f"Failed to load questions: {str(e)}")
+        raise ValueError(f"Failed to load questions : {str(e)}")
 
 @lru_cache(maxsize=100)
 def get_question_by_id(question_id: int) -> Optional[Question]:
