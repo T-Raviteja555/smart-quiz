@@ -1,6 +1,6 @@
 import os
 import sys
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel, Field
 import structlog
 import logging
@@ -9,6 +9,14 @@ from app.questions import load_questions, generate_questions, QuizQuestion
 from app.utils.config_loader import CONFIG
 from app.utils.exceptions import ErrorResponse, exception_handlers
 import random
+from starlette.responses import JSONResponse
+from time import time
+import json
+from pathlib import Path
+import asyncio
+import numpy as np
+from datetime import datetime
+from contextlib import asynccontextmanager
 
 # Configure structlog for JSON logging
 structlog.configure(
@@ -38,6 +46,76 @@ app = FastAPI(
 # Register global exception handlers
 for exc_type, handler in exception_handlers.items():
     app.add_exception_handler(exc_type, handler)
+
+# Metrics file paths
+METRICS_FILE = Path(CONFIG.get('monitoring', {}).get('metrics_file', 'metrics.json'))
+PERFORMANCE_METRICS_FILE = Path(CONFIG.get('monitoring', {}).get('performance_metrics_file', 'performance_metrics.json'))
+
+# Initialize metrics file if it doesn't exist
+if not METRICS_FILE.exists():
+    with open(METRICS_FILE, 'w') as f:
+        json.dump({
+            "request_count": {},
+            "request_latency": {},
+            "error_count": {}
+        }, f, indent=2)
+
+# Initialize performance metrics file if it doesn't exist
+if not PERFORMANCE_METRICS_FILE.exists():
+    with open(PERFORMANCE_METRICS_FILE, 'w') as f:
+        json.dump([], f, indent=2)
+
+# Middleware to track request metrics
+@app.middleware("http")
+async def track_metrics(request: Request, call_next):
+    start_time = time()
+    method = request.method
+    endpoint = request.url.path
+
+    try:
+        response = await call_next(request)
+        status = response.status_code
+    except Exception as e:
+        status = 500
+        logger.error("Request failed", error=str(e))
+        raise
+
+    # Update metrics in file
+    try:
+        with open(METRICS_FILE, 'r') as f:
+            metrics = json.load(f)
+        
+        key = f"{method}:{endpoint}:{status}"
+        
+        # Update request count
+        metrics["request_count"][key] = metrics["request_count"].get(key, 0) + 1
+        
+        # Update latency
+        latency = time() - start_time
+        metrics["request_latency"].setdefault(key, [])
+        metrics["request_latency"][key].append(latency)
+        
+        # Update error count if applicable
+        if status >= 400:
+            metrics["error_count"][key] = metrics["error_count"].get(key, 0) + 1
+
+        # Write back to file
+        with open(METRICS_FILE, 'w') as f:
+            json.dump(metrics, f, indent=2)
+        
+        # Log metrics update to metrics-specific logger
+        metrics_logger = structlog.get_logger("metrics")
+        metrics_logger.info(
+            "Metrics updated",
+            method=method,
+            endpoint=endpoint,
+            status=status,
+            latency=latency
+        )
+    except Exception as e:
+        logger.error("Failed to update metrics", error=str(e))
+
+    return response
 
 # Pydantic models
 class GenerateQuestionsRequest(BaseModel):
@@ -81,12 +159,118 @@ class ConfigResponse(BaseModel):
     goal: list = Field(..., description="Goal of the questions", example="GATE AE, Amazon SDE")
     type: list = Field(..., description="Type of the questions", example="mcq,short answer")
 
+class LocalMetricsResponse(BaseModel):
+    request_count: Dict[str, int]
+    average_latency: Dict[str, float]
+    error_count: Dict[str, int]
+
+class PerformanceMetricsResponse(BaseModel):
+    timestamp: str
+    request_count: int
+    throughput: float
+    avg_latency: float
+    min_latency: float
+    max_latency: float
+    p95_latency: float
+    error_rate: float
+
 # Load questions at startup (cached by questions.py)
 questions_cache = load_questions()
 
 def display_questions(questions: List[QuizQuestion]):
     for q in questions:
         logger.info(f"Answer: {q.answer}")
+
+# Periodic performance metrics aggregation
+async def aggregate_performance_metrics():
+    interval = CONFIG.get('monitoring', {}).get('performance_aggregation_interval', 60)  # Default: 60 seconds
+    while True:
+        try:
+            with open(METRICS_FILE, 'r') as f:
+                metrics = json.load(f)
+            
+            with open(PERFORMANCE_METRICS_FILE, 'r') as f:
+                perf_metrics = json.load(f)
+            
+            # Calculate performance metrics
+            timestamp = datetime.utcnow().isoformat()
+            request_count = sum(metrics["request_count"].values())
+            error_count = sum(metrics["error_count"].values())
+            latencies = []
+            for latency_list in metrics["request_latency"].values():
+                latencies.extend(latency_list)
+            
+            if not latencies:
+                await asyncio.sleep(interval)
+                continue
+            
+            avg_latency = sum(latencies) / len(latencies)
+            min_latency = min(latencies)
+            max_latency = max(latencies)
+            p95_latency = np.percentile(latencies, 95) if latencies else 0.0
+            throughput = request_count / interval  # Requests per second
+            error_rate = error_count / request_count if request_count > 0 else 0.0
+            
+            # Append to performance metrics
+            perf_metrics.append({
+                "timestamp": timestamp,
+                "request_count": request_count,
+                "throughput": throughput,
+                "avg_latency": avg_latency,
+                "min_latency": min_latency,
+                "max_latency": max_latency,
+                "p95_latency": p95_latency,
+                "error_rate": error_rate
+            })
+            
+            # Write back to file
+            with open(PERFORMANCE_METRICS_FILE, 'w') as f:
+                json.dump(perf_metrics, f, indent=2)
+            
+            # Log performance metrics
+            perf_logger = structlog.get_logger("performance")
+            perf_logger.info(
+                "Performance metrics aggregated",
+                timestamp=timestamp,
+                request_count=request_count,
+                throughput=throughput,
+                avg_latency=avg_latency,
+                min_latency=min_latency,
+                max_latency=max_latency,
+                p95_latency=p95_latency,
+                error_rate=error_rate
+            )
+            
+            # Reset metrics file to avoid unbounded growth
+            with open(METRICS_FILE, 'w') as f:
+                json.dump({
+                    "request_count": {},
+                    "request_latency": {},
+                    "error_count": {}
+                }, f, indent=2)
+            
+        except Exception as e:
+            logger.error("Failed to aggregate performance metrics", error=str(e))
+        
+        await asyncio.sleep(interval)
+
+# Lifespan handler for startup and shutdown
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup: Start the performance metrics aggregation task
+    task = asyncio.create_task(aggregate_performance_metrics())
+    try:
+        yield
+    finally:
+        # Shutdown: Cancel the aggregation task
+        task.cancel()
+        try:
+            await task
+        except asyncio.CancelledError:
+            pass
+
+# Attach lifespan handler to the app
+app.lifespan = lifespan
 
 # Endpoints
 @app.get(
@@ -140,7 +324,7 @@ async def get_questions():
 )
 async def generate_questions_post(request: GenerateQuestionsRequest):
     try:
-        supported_goals = ["GATE AE", "Amazon SDE"]
+        supported_goals = CONFIG['supported_goals']
         if request.goal not in supported_goals:
             raise HTTPException(status_code=400, detail=f"Goal must be one of {supported_goals}")
         if request.difficulty not in CONFIG['supported_difficulties']:
@@ -266,6 +450,49 @@ async def get_config():
     except Exception as e:
         logger.error("Failed to retrieve configuration", error=str(e))
         raise HTTPException(status_code=500, detail="Failed to retrieve configuration")
+
+@app.get(
+    "/local-metrics",
+    response_model=LocalMetricsResponse,
+    tags=["monitoring"],
+    summary="Local metrics",
+    description="Exposes locally collected metrics including request counts, average latencies, and error counts."
+)
+async def local_metrics():
+    try:
+        with open(METRICS_FILE, 'r') as f:
+            metrics = json.load(f)
+        
+        # Calculate average latencies
+        avg_latencies = {
+            key: sum(latencies) / len(latencies) if latencies else 0.0
+            for key, latencies in metrics["request_latency"].items()
+        }
+        
+        return LocalMetricsResponse(
+            request_count=metrics["request_count"],
+            average_latency=avg_latencies,
+            error_count=metrics["error_count"]
+        )
+    except Exception as e:
+        logger.error("Failed to retrieve metrics", error=str(e))
+        raise HTTPException(status_code=500, detail="Failed to retrieve metrics")
+
+@app.get(
+    "/performance-metrics",
+    response_model=List[PerformanceMetricsResponse],
+    tags=["monitoring"],
+    summary="Performance metrics",
+    description="Exposes aggregated performance metrics including throughput, latency statistics, and error rates."
+)
+async def performance_metrics():
+    try:
+        with open(PERFORMANCE_METRICS_FILE, 'r') as f:
+            perf_metrics = json.load(f)
+        return [PerformanceMetricsResponse(**metric) for metric in perf_metrics]
+    except Exception as e:
+        logger.error("Failed to retrieve performance metrics", error=str(e))
+        raise HTTPException(status_code=500, detail="Failed to retrieve performance metrics")
 
 if __name__ == "__main__":
     import uvicorn

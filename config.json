@@ -1,27 +1,32 @@
 {
-  "generator_mode": "retrieval",
-  "version": "1.0.0",
-  "default_num_questions": 5,
-  "max_questions": 10,
-  "supported_difficulties": ["beginner", "intermediate", "advanced"],
-  "valid_goals": ["GATE AE", "Amazon SDE", "CAT","MAT"],
-  "supported_types": ["mcq", "short_answer"],
-  "MIN_QUESTIONS": 5,
-  "MAX_QUESTIONS": 10,
-  "CACHE_TTL": 3600,
-  "CACHE_MAXSIZE": 1000,
-  "MAX_WORKERS": 4,
-  "DATA_DIR": "/app/data",
-  "DATASET": "consolidated_questions_updated.json",
-  "LOG_FILE": "app.log",
-  "logging": {
-    "level": "INFO",
-    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    "logpath": "/app/logs/app.log",
-    "rotating_file_handler": {
-      "when": "midnight",
-      "interval": 1,
-      "backupCount": 7
+    "DATA_DIR": "data",
+    "DATASET": "consolidated_questions_updated.json",
+    "CACHE_MAXSIZE": 100,
+    "CACHE_TTL": 3600,
+    "MAX_WORKERS": 4,
+    "max_questions": 10,
+    "default_num_questions": 5,
+    "supported_goals": ["GATE AE", "Amazon SDE","CAT","MAT"],
+    "supported_difficulties": ["beginner", "intermediate", "advanced"],
+    "supported_types": ["mcq", "short_answer"],
+    "generator_mode": "retrieval",
+    "version": "1.0.0",
+    "logging": {
+        "level": "INFO",
+        "logpath": "app.log",
+        "metrics_logpath": "metrics.log",
+        "performance_logpath": "performance.log",
+        "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        "rotating_file_handler": {
+            "when": "midnight",
+            "interval": 1,
+            "backupCount": 7
+        }
+    },
+    "monitoring": {
+        "metrics_enabled": true,
+        "metrics_file": "metrics.json",
+        "performance_metrics_file": "performance_metrics.json",
+        "performance_aggregation_interval": 60
     }
-  }
 }
