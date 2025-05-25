@@ -1,4 +1,8 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
+from starlette.requests import Request
 from app.api.models import (
     GenerateQuestionsRequest,
     GenerateQuestionsResponse,
@@ -14,6 +18,8 @@ from app.services.infra_service import InfraService
 from typing import List
 
 router = APIRouter()
+templates = Jinja2Templates(directory="app/templates")
+router.mount("/static", StaticFiles(directory="/app/app/static"), name="static")
 
 def get_question_service():
     return QuestionService()
@@ -106,20 +112,34 @@ async def manage_goals(
     response_model=HealthCheckResponse,
     tags=["health"],
     responses={
-        200: {"description": "Service is healthy", "model": HealthCheckResponse},
+        200: {"description": "Service is healthy or visualization dashboard", "model": HealthCheckResponse},
         503: {"description": "Service is unhealthy", "model": HealthCheckResponse},
         500: {"description": "Internal server error"}
     },
     summary="Check API health",
     description=(
         "Checks the health of the API by verifying critical dependencies.\n\n"
+        "### Parameters\n"
+        "- **visualize**: Optional query parameter (boolean). If `true`, returns an HTML dashboard with Chart.js visualizations of question counts by goal, question counts by type per goal, and performance metrics.\n\n"
         "### Response\n"
         "- **status**: `healthy` if all dependencies are operational, `unhealthy` otherwise.\n"
         "- **details**: Information about checked dependencies (e.g., question bank, configuration) and question counts by goal and type.\n"
+        "- If `visualize=true`, returns an HTML page with charts.\n"
     )
 )
-async def health_check(service: InfraService = Depends(get_infra_service)):
-    return service.health_check()
+async def health_check(
+    request: Request,
+    visualize: bool = Query(False, description="Return visualization dashboard if true"),
+    service: InfraService = Depends(get_infra_service)
+):
+    health_response = service.health_check()
+    if visualize:
+        chart_data = service.get_health_chart_data()
+        return templates.TemplateResponse(
+            "health_visualization.html",
+            {"request": request, "health": health_response, "chart_data": chart_data}
+        )
+    return health_response
 
 @router.get(
     "/config",
