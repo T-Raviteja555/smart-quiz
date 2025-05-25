@@ -15,7 +15,7 @@ COPY api_tokens.json .
 COPY data/ data/
 COPY tests/ tests/
 COPY logs/ logs/
-
+COPY static/ app/static/
 
 # Expose port 8000 for FastAPI
 EXPOSE 8000

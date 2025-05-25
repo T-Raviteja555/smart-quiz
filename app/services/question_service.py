@@ -5,8 +5,8 @@ from typing import List, Optional
 from app.questions import load_questions, QuizQuestion, get_goals_in_question_bank, count_questions_for_goal, append_questions_to_bank, question_cache, _validate_question_item
 from app.utils.config_loader import CONFIG
 from app.api.models import QuestionResponse, GenerateQuestionsResponse, ConfigResponse, McqQuestionResponse, ShortAnswerQuestionResponse, GoalResponse
-from app.generators.retrieval.tfidf import TfidfGenerator
-from app.generators.templatRetr.mathTemplate import MathTemplateGenerator
+from app.generators.tfidfRetrieval.tfidfGenerator import TfidfGenerator
+from app.generators.templateRetrieval.templateGenerator import QuestionTemplateGenerator
 from fastapi import HTTPException
 from filelock import FileLock
 from pathlib import Path
@@ -20,7 +20,7 @@ class QuestionService:
         self.supported_generator_modes = CONFIG.get('supported_generator_modes', ['retrieval', 'template'])
         self.generators = {
             "retrieval": TfidfGenerator(self.questions_cache),
-            "template": MathTemplateGenerator()
+            "template": QuestionTemplateGenerator()
         }
         self.config_path = Path("config.json")
         self.schema_path = Path("schema.json")

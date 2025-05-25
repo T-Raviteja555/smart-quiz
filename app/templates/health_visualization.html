@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions API Health Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .chart-container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .goal-chart {
+            width: 40%;
+            display: inline-block;
+            margin: 10px;
+            vertical-align: top;
+        }
+        .status {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .status.healthy {
+            color: green;
+        }
+        .status.unhealthy {
+            color: red;
+        }
+        #debug {
+            display: none;
+            background-color: #ffe6e6;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <h1>Questions API Health Dashboard</h1>
+    <div id="debug">
+        <h3>Debug Info</h3>
+        <pre id="chartDataDebug"></pre>
+    </div>
+    <div class="status {% if health.status == 'healthy' %}healthy{% else %}unhealthy{% endif %}">
+        Status: {{ health.status | capitalize }}
+    </div>
+    <div>
+        <h2>Details</h2>
+        <ul>
+            {% for key, value in health.details.items() %}
+                <li><strong>{{ key | replace('_', ' ') | title }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div class="chart-container">
+        <h2>Question Count by Goal</h2>
+        <canvas id="goalChart"></canvas>
+    </div>
+    
+    <div class="chart-container">
+        <h2>Question Count by Type per Goal</h2>
+        {% for goal, type_data in chart_data.question_count_by_goal_and_type.items() %}
+            <div class="goal-chart">
+                <h3>{{ goal }}</h3>
+                <canvas id="typeChart_{{ goal | replace(' ', '_') }}"></canvas>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div class="chart-container">
+        <h2>Performance Metrics</h2>
+        <canvas id="performanceChart"></canvas>
+    </div>
+
+    <script>
+        console.log('Health Dashboard: Initializing charts...');
+        try {
+            const chartData = {{ chart_data | tojson }};
+            console.log('Chart Data:', chartData);
+            document.getElementById('chartDataDebug').textContent = JSON.stringify(chartData, null, 2);
+            
+            // Question Count by Goal (Bar Chart)
+            const goalCtx = document.getElementById('goalChart');
+            if (!goalCtx) throw new Error('Goal chart canvas not found');
+            new Chart(goalCtx.getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: chartData.question_count_by_goal.labels,
+                    datasets: [{
+                        label: 'Question Count',
+                        data: chartData.question_count_by_goal.data,
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Number of Questions'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Goal'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+
+            // Question Count by Type per Goal (Bar Charts)
+            {% for goal, type_data in chart_data.question_count_by_goal_and_type.items() %}
+                const typeCtx_{{ goal | replace(' ', '_') }} = document.getElementById('typeChart_{{ goal | replace(' ', '_') }}');
+                if (!typeCtx_{{ goal | replace(' ', '_') }}) throw new Error('Type chart canvas for {{ goal }} not found');
+                new Chart(typeCtx_{{ goal | replace(' ', '_') }}.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: {{ type_data.labels | tojson }},
+                        datasets: [{
+                            label: 'Question Count',
+                            data: {{ type_data.data | tojson }},
+                            backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(75, 192, 192, 0.6)'],
+                            borderColor: ['rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Number of Questions'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Question Type'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            {% endfor %}
+
+            // Performance Metrics (Line Chart)
+            const perfCtx = document.getElementById('performanceChart');
+            if (!perfCtx) throw new Error('Performance chart canvas not found');
+            new Chart(perfCtx.getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: chartData.performance_metrics.timestamps,
+                    datasets: [
+                        {
+                            label: 'Request Count',
+                            data: chartData.performance_metrics.request_count,
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            fill: false
+                        },
+                        {
+                            label: 'Throughput (req/s)',
+                            data: chartData.performance_metrics.throughput,
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            fill: false
+                        },
+                        {
+                            label: 'Avg Latency (s)',
+                            data: chartData.performance_metrics.avg_latency,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            fill: false
+                        },
+                        {
+                            label: 'Error Rate (%)',
+                            data: chartData.performance_metrics.error_rate,
+                            borderColor: 'rgba(153, 102, 255, 1)',
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Value'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Timestamp'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    }
+                }
+            });
+        } catch (e) {
+            console.error('Chart initialization failed:', e);
+            document.getElementById('debug').style.display = 'block';
+            document.getElementById('chartDataDebug').textContent += '\nError: ' + e.message;
+        }
+    </script>
+</body>
+</html>
