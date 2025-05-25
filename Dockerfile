@@ -11,6 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code and configuration
 COPY app/ app/
 COPY config.json .
+COPY api_tokens.json .
 COPY data/ data/
 COPY tests/ tests/
 COPY logs/ logs/

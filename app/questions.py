@@ -1,3 +1,4 @@
+import json
 import os
 import logging
 import structlog
@@ -8,6 +9,7 @@ from pathlib import Path
 from cachetools import cached, TTLCache
 from concurrent.futures import ThreadPoolExecutor
 from app.utils.config_loader import CONFIG
+from filelock import FileLock
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -26,8 +28,6 @@ class QuizQuestion(BaseModel):
         json_loads = orjson.loads
         json_dumps = lambda x, **kwargs: orjson.dumps(x).decode()
 
-supported_goals = CONFIG.get('supported_goals', [])
-logger.info(f"Valid goals: {supported_goals}")
 supported_difficulties = CONFIG.get('supported_difficulties', [])
 logger.info(f"Supported difficulties: {supported_difficulties}")
 # Thread-safe cache
@@ -94,7 +94,16 @@ def _validate_question_item(item: Dict) -> Dict:
                 error="question must be a string with at least 10 characters"
             )
             raise ValueError("question must be a string with at least 10 characters")
-        if not isinstance(item.get('goal'), str) or item['goal'] not in supported_goals:
+        if not isinstance(item.get('goal'), str) or not item['goal']:
+            logger.error(
+                "Invalid goal",
+                question=item.get('question', 'unknown'),
+                goal=item.get('goal'),
+                error="goal must be a non-empty string"
+            )
+            raise ValueError("goal must be a non-empty string")
+        supported_goals = CONFIG.get('supported_goals', [])
+        if item['goal'] not in supported_goals:
             logger.error(
                 "Invalid goal",
                 question=item.get('question', 'unknown'),
@@ -132,7 +141,6 @@ def _validate_question_item(item: Dict) -> Dict:
         return item
     
     except ValueError as e:
-        # Log the full item for debugging
         logger.error(
             "Validation failed for question item",
             item=item,
@@ -140,9 +148,8 @@ def _validate_question_item(item: Dict) -> Dict:
         )
         raise
 
-@cached(question_cache)
 def load_questions() -> List[QuizQuestion]:
-    """Load and validate questions from file with caching and parallel processing"""
+    """Load and validate questions from file with caching and parallel processing."""
     try:
         file_path = Path(CONFIG['DATA_DIR']) / CONFIG['DATASET']
         logger.info(f"Loading questions from {file_path}")
@@ -156,14 +163,68 @@ def load_questions() -> List[QuizQuestion]:
 
         # Parallel processing for large datasets
         if len(questions) > 100:
-            return list(executor.map(
+            validated_questions = list(executor.map(
                 lambda item: QuizQuestion(**_validate_question_item(item)),
                 questions
             ))
+        else:
+            # Single-threaded for small datasets
+            validated_questions = [QuizQuestion(**_validate_question_item(item)) for item in questions]
 
-        # Single-threaded for small datasets
-        return [QuizQuestion(**_validate_question_item(item)) for item in questions]
+        logger.info(f"Loaded {len(validated_questions)} questions")
+        return validated_questions
 
     except Exception as e:
         logger.error(f"Error loading questions: {str(e)}")
         raise ValueError(f"Failed to load questions: {str(e)}")
+
+def get_goals_in_question_bank() -> set:
+    """Return a set of unique goals present in the question bank."""
+    try:
+        file_path = Path(CONFIG['DATA_DIR']) / CONFIG['DATASET']
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = orjson.loads(f.read())
+        goals = set(item.get('goal', '') for item in data if isinstance(item.get('goal', ''), str) and item.get('goal', ''))
+        logger.info(f"Goals in question bank: {goals}")
+        return goals
+    except Exception as e:
+        logger.error(f"Failed to load goals from question bank: {str(e)}")
+        return set()
+
+def count_questions_for_goal(goal: str) -> int:
+    """Count the number of questions for a given goal in the question bank."""
+    try:
+        file_path = Path(CONFIG['DATA_DIR']) / CONFIG['DATASET']
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = orjson.loads(f.read())
+        count = sum(1 for item in data if item.get('goal') == goal)
+        logger.info(f"Counted {count} questions for goal '{goal}'")
+        return count
+    except Exception as e:
+        logger.error(f"Failed to count questions for goal '{goal}': {str(e)}")
+        return 0
+
+def append_questions_to_bank(questions: List[QuizQuestion]):
+    """Append validated questions to the question bank."""
+    try:
+        file_path = Path(CONFIG['DATA_DIR']) / CONFIG['DATASET']
+        with FileLock(str(file_path) + ".lock"):
+            # Read existing questions
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    existing_data = orjson.loads(f.read())
+            except (FileNotFoundError, orjson.JSONDecodeError):
+                existing_data = []
+            
+            # Append new questions
+            new_questions = [q.dict() for q in questions]
+            existing_data.extend(new_questions)
+            
+            # Write back to file
+            with open(file_path, 'w', encoding='utf-8') as f:
+                json.dump(existing_data, f, indent=4)
+        
+        logger.info(f"Appended {len(questions)} questions to question bank")
+    except Exception as e:
+        logger.error(f"Failed to append questions to question bank: {str(e)}")
+        raise ValueError(f"Failed to append questions: {str(e)}")

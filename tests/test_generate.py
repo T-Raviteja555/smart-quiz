@@ -1,288 +1,438 @@
 import unittest
-from unittest.mock import patch
-from fastapi import HTTPException
+from unittest.mock import patch, mock_open
 from fastapi.testclient import TestClient
 from app.main import app
 from app.questions import QuizQuestion
-from app.api.models import GenerateQuestionsResponse, HealthCheckResponse
+from app.api.models import GoalResponse
+import json
 
-class TestGenerateEndpoint(unittest.TestCase):
+class TestGoalsEndpoint(unittest.TestCase):
     def setUp(self):
         self.client = TestClient(app)
         self.mock_questions = [
             QuizQuestion(
                 type="mcq",
-                question=f"Question about {goal} {i}",
+                question=f"Question {i}",
                 options=["A", "B", "C", "D"],
                 answer="A",
                 difficulty="beginner",
                 topic="algorithms",
-                goal=goal
-            ) for i, goal in enumerate(["GATE AE", "GATE AE", "Amazon SDE", "Amazon SDE", "GATE AE"], 1)
+                goal="New Goal"
+            ) for i in range(15)  # 15 questions for New Goal
         ] + [
             QuizQuestion(
                 type="short_answer",
-                question=f"Short answer question {i}",
+                question=f"Short answer {i}",
                 options=None,
                 answer="Answer",
                 difficulty="beginner",
-                topic="general",
+                topic="propulsion",
                 goal="GATE AE"
-            ) for i in range(6, 11)
+            ) for i in range(5)
         ]
+        self.sample_questions = [
+            QuizQuestion(
+                type="mcq",
+                question="(Logical Reasoning) In a group of 5 people, if A is friends with B and C, and B is not friends with D, who can be friends with E?",
+                options=["A only", "B and C", "D only", "Anyone"],
+                answer="Anyone",
+                difficulty="intermediate",
+                topic="Data Interpretation and Logical Reasoning - Logical Reasoning",
+                goal="New Goal"
+            ),
+            QuizQuestion(
+                type="short_answer",
+                question="Let f(x, y) = x^3 + y^3 - 3xy. The total number of critical points of the function is",
+                options=None,
+                answer="2",
+                difficulty="intermediate",
+                topic="Mathematics",
+                goal="New Goal"
+            )
+        ]
+        self.api_token = "secure-token-123"
 
-    @patch('app.services.question_service.QuestionService.generate_quiz')
-    def test_generate_questions_retrieval_success(self, mock_generate_quiz):
-        mock_response = GenerateQuestionsResponse(
-            quiz_id="quiz_1234",
-            goal="GATE AE",
-            questions=[
-                {
-                    "type": q.type,
-                    "question": q.question,
-                    "options": q.options,
-                    "answer": q.answer,
-                    "difficulty": q.difficulty,
-                    "topic": q.topic
-                } for q in self.mock_questions[:5]
+    @patch('app.questions.load_questions')
+    @patch('app.questions.get_goals_in_question_bank')
+    @patch('app.questions.count_questions_for_goal')
+    @patch('app.questions.append_questions_to_bank')
+    def test_add_goal_with_questions_success(self, mock_append, mock_count, mock_goals, mock_load_questions):
+        mock_load_questions.return_value = self.mock_questions
+        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_count.return_value = 8  # 8 existing + 2 provided = 10
+        mock_config_data = {
+            "supported_goals": ["GATE AE", "Amazon SDE"],
+            "supported_difficulties": ["beginner", "intermediate", "advanced"],
+            "supported_types": ["mcq", "short_answer"],
+            "supported_generator_modes": ["retrieval", "template"],
+            "generator_mode": "retrieval"
+        }
+        mock_schema_data = {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "definitions": {
+                "inputRequest": {"properties": {"goal": {"enum": ["GATE AE", "Amazon SDE"]}}},
+                "outputResponse": {"properties": {"goal": {"enum": ["GATE AE", "Amazon SDE"]}}}
+            }
+        }
+        mock_token_data = {"api_token": self.api_token}
+        with patch('builtins.open', mock_open()) as mock_file:
+            mock_file.side_effect = [
+                mock_open(read_data=json.dumps(mock_config_data)).return_value,
+                mock_open().return_value,
+                mock_open(read_data=json.dumps(mock_token_data)).return_value
             ]
-        )
-        mock_generate_quiz.return_value = mock_response
-        response = self.client.post(
-            "/generate",
-            json={
-                "goal": "GATE AE",
-                "num_questions": 5,
-                "difficulty": "beginner",
-                "mode": "retrieval"
-            }
-        )
+            with patch('app.services.question_service.Path.open', mock_open()) as mock_schema_file:
+                mock_schema_file.side_effect = [
+                    mock_open(read_data=json.dumps(mock_schema_data)).return_value,
+                    mock_open().return_value
+                ]
+                response = self.client.post(
+                    "/goals",
+                    json={
+                        "goal": "New Goal",
+                        "action": "add",
+                        "api_token": self.api_token,
+                        "questions": [q.dict() for q in self.sample_questions]
+                    }
+                )
         self.assertEqual(response.status_code, 200)
         data = response.json()
-        self.assertEqual(data["quiz_id"], "quiz_1234")
-        self.assertEqual(data["goal"], "GATE AE")
-        self.assertEqual(len(data["questions"]), 5)
-        for q in data["questions"]:
-            if q["type"] == "short_answer":
-                self.assertNotIn("options", q)  # options excluded
-            else:
-                self.assertIn("options", q)
-                self.assertIsInstance(q["options"], list)
+        self.assertEqual(data["message"], "Goal 'New Goal' added successfully with 10 questions")
+        self.assertEqual(data["supported_goals"], ["GATE AE", "Amazon SDE", "New Goal"])
+        mock_append.assert_called_once()
 
-    @patch('app.services.question_service.QuestionService.generate_quiz')
-    def test_generate_questions_template_success(self, mock_generate_quiz):
-        mock_response = GenerateQuestionsResponse(
-            quiz_id="quiz_1234",
-            goal="GATE AE",
-            questions=[{
-                "type": "short_answer",
-                "question": "Solve 2x² + 5x + 3 = 0 for x.",
-                "options": None,
-                "answer": "-3/2, -1",
-                "difficulty": "beginner",
-                "topic": "algebra"
-            }, {
-                "type": "short_answer",
-                "question": "The thrust of a jet engine with mass flow rate 50 kg/s and exhaust velocity 600 m/s is (in kN, to one decimal place):",
-                "options": None,
-                "answer": "30.0",
-                "difficulty": "beginner",
-                "topic": "propulsion"
-            }]
-        )
-        mock_generate_quiz.return_value = mock_response
-        response = self.client.post(
-            "/generate",
-            json={
-                "goal": "GATE AE",
-                "num_questions": 2,
-                "difficulty": "beginner",
-                "mode": "template"
-            }
-        )
-        self.assertEqual(response.status_code, 200)
-        data = response.json()
-        self.assertEqual(data["quiz_id"], "quiz_1234")
-        self.assertEqual(data["goal"], "GATE AE")
-        self.assertEqual(len(data["questions"]), 2)
-        for q in data["questions"]:
-            self.assertEqual(q["type"], "short_answer")
-            self.assertNotIn("options", q)  # options excluded
-            self.assertIn(q["question"], [
-                "Solve 2x² + 5x + 3 = 0 for x.",
-                "The thrust of a jet engine with mass flow rate 50 kg/s and exhaust velocity 600 m/s is (in kN, to one decimal place):"
-            ])
-
-    @patch('app.services.question_service.QuestionService.generate_quiz')
-    def test_generate_questions_default_mode(self, mock_generate_quiz):
-        mock_response = GenerateQuestionsResponse(
-            quiz_id="quiz_1234",
-            goal="GATE AE",
-            questions=[
-                {
-                    "type": q.type,
-                    "question": q.question,
-                    "options": q.options,
-                    "answer": q.answer,
-                    "difficulty": q.difficulty,
-                    "topic": q.topic
-                } for q in self.mock_questions[:5]
+    @patch('app.questions.load_questions')
+    @patch('app.questions.get_goals_in_question_bank')
+    @patch('app.questions.count_questions_for_goal')
+    @patch('app.questions.append_questions_to_bank')
+    def test_add_questions_to_existing_goal(self, mock_append, mock_count, mock_goals, mock_load_questions):
+        mock_load_questions.return_value = self.mock_questions
+        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_count.return_value = 15
+        mock_config_data = {
+            "supported_goals": ["GATE AE", "New Goal"],
+            "supported_difficulties": ["beginner", "intermediate", "advanced"],
+            "supported_types": ["mcq", "short_answer"],
+            "supported_generator_modes": ["retrieval", "template"],
+            "generator_mode": "retrieval"
+        }
+        mock_token_data = {"api_token": self.api_token}
+        with patch('builtins.open', mock_open()) as mock_file:
+            mock_file.side_effect = [
+                mock_open(read_data=json.dumps(mock_config_data)).return_value,
+                mock_open(read_data=json.dumps(mock_token_data)).return_value
             ]
-        )
-        mock_generate_quiz.return_value = mock_response
-        response = self.client.post(
-            "/generate",
-            json={
-                "goal": "GATE AE",
-                "num_questions": 5,
-                "difficulty": "beginner"
-            }
-        )
+            response = self.client.post(
+                "/goals",
+                json={
+                    "goal": "New Goal",
+                    "action": "add",
+                    "api_token": self.api_token,
+                    "questions": [q.dict() for q in self.sample_questions]
+                }
+            )
         self.assertEqual(response.status_code, 200)
         data = response.json()
-        self.assertEqual(data["quiz_id"], "quiz_1234")
-        self.assertEqual(data["goal"], "GATE AE")
-        self.assertEqual(len(data["questions"]), 5)
-        for q in data["questions"]:
-            if q["type"] == "short_answer":
-                self.assertNotIn("options", q)  # options excluded
-            else:
-                self.assertIn("options", q)
-                self.assertIsInstance(q["options"], list)
+        self.assertEqual(data["message"], "Appended 2 questions to existing goal 'New Goal'")
+        self.assertEqual(data["supported_goals"], ["GATE AE", "New Goal"])
+        mock_append.assert_called_once()
 
-    @patch('app.services.question_service.QuestionService.generate_quiz')
-    def test_generate_questions_invalid_difficulty(self, mock_generate_quiz):
-        mock_generate_quiz.side_effect = HTTPException(
-            status_code=400,
-            detail="Difficulty must be one of ['beginner', 'intermediate', 'advanced']"
-        )
-        response = self.client.post(
-            "/generate",
-            json={
-                "goal": "GATE AE",
-                "num_questions": 5,
-                "difficulty": "invalid",
-                "mode": "retrieval"
+    @patch('app.questions.load_questions')
+    @patch('app.questions.get_goals_in_question_bank')
+    @patch('app.questions.count_questions_for_goal')
+    def test_add_goal_without_questions_success(self, mock_count, mock_goals, mock_load_questions):
+        mock_load_questions.return_value = self.mock_questions
+        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_count.return_value = 15  # ≥10 existing questions
+        mock_config_data = {
+            "supported_goals": ["GATE AE", "Amazon SDE"],
+            "supported_difficulties": ["beginner", "intermediate", "advanced"],
+            "supported_types": ["mcq", "short_answer"],
+            "supported_generator_modes": ["retrieval", "template"],
+            "generator_mode": "retrieval"
+        }
+        mock_schema_data = {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "definitions": {
+                "inputRequest": {"properties": {"goal": {"enum": ["GATE AE", "Amazon SDE"]}}},
+                "outputResponse": {"properties": {"goal": {"enum": ["GATE AE", "Amazon SDE"]}}}
             }
-        )
+        }
+        mock_token_data = {"api_token": self.api_token}
+        with patch('builtins.open', mock_open()) as mock_file:
+            mock_file.side_effect = [
+                mock_open(read_data=json.dumps(mock_config_data)).return_value,
+                mock_open().return_value,
+                mock_open(read_data=json.dumps(mock_token_data)).return_value
+            ]
+            with patch('app.services.question_service.Path.open', mock_open()) as mock_schema_file:
+                mock_schema_file.side_effect = [
+                    mock_open(read_data=json.dumps(mock_schema_data)).return_value,
+                    mock_open().return_value
+                ]
+                response = self.client.post(
+                    "/goals",
+                    json={
+                        "goal": "New Goal",
+                        "action": "add",
+                        "api_token": self.api_token
+                    }
+                )
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual(data["message"], "Goal 'New Goal' added successfully with 15 questions")
+        self.assertEqual(data["supported_goals"], ["GATE AE", "Amazon SDE", "New Goal"])
+
+    @patch('app.questions.load_questions')
+    @patch('app.questions.get_goals_in_question_bank')
+    @patch('app.questions.count_questions_for_goal')
+    def test_add_goal_invalid_token(self, mock_count, mock_goals, mock_load_questions):
+        mock_load_questions.return_value = self.mock_questions
+        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_count.return_value = 15
+        mock_config_data = {
+            "supported_goals": ["GATE AE", "Amazon SDE"],
+            "supported_difficulties": ["beginner", "intermediate", "advanced"],
+            "supported_types": ["mcq", "short_answer"],
+            "supported_generator_modes": ["retrieval", "template"],
+            "generator_mode": "retrieval"
+        }
+        mock_token_data = {"api_token": self.api_token}
+        with patch('builtins.open', mock_open()) as mock_file:
+            mock_file.side_effect = [
+                mock_open(read_data=json.dumps(mock_config_data)).return_value,
+                mock_open(read_data=json.dumps(mock_token_data)).return_value
+            ]
+            response = self.client.post(
+                "/goals",
+                json={
+                    "goal": "New Goal",
+                    "action": "add",
+                    "api_token": "invalid-token"
+                }
+            )
+        self.assertEqual(response.status_code, 401)
+        self.assertEqual(response.json()["detail"], "Invalid API token")
+
+    @patch('app.questions.load_questions')
+    @patch('app.questions.get_goals_in_question_bank')
+    @patch('app.questions.count_questions_for_goal')
+    def test_add_goal_insufficient_questions(self, mock_count, mock_goals, mock_load_questions):
+        mock_load_questions.return_value = self.mock_questions
+        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_count.return_value = 5  # <10 questions
+        mock_config_data = {
+            "supported_goals": ["GATE AE", "Amazon SDE"],
+            "supported_difficulties": ["beginner", "intermediate", "advanced"],
+            "supported_types": ["mcq", "short_answer"],
+            "supported_generator_modes": ["retrieval", "template"],
+            "generator_mode": "retrieval"
+        }
+        mock_token_data = {"api_token": self.api_token}
+        with patch('builtins.open', mock_open()) as mock_file:
+            mock_file.side_effect = [
+                mock_open(read_data=json.dumps(mock_config_data)).return_value,
+                mock_open(read_data=json.dumps(mock_token_data)).return_value
+            ]
+            response = self.client.post(
+                "/goals",
+                json={
+                    "goal": "New Goal",
+                    "action": "add",
+                    "api_token": self.api_token,
+                    "questions": [self.sample_questions[0].dict()]  # Only 1 question
+                }
+            )
         self.assertEqual(response.status_code, 400)
-        self.assertIn("Difficulty must be one of", response.json()["detail"])
+        self.assertIn("Goal 'New Goal' has 6 questions (existing: 5, provided: 1); minimum 10 required", response.json()["detail"])
 
-    @patch('app.services.question_service.QuestionService.generate_quiz')
-    def test_generate_questions_invalid_goal(self, mock_generate_quiz):
-        mock_generate_quiz.side_effect = HTTPException(
-            status_code=400,
-            detail="Goal must be one of ['GATE AE', 'Amazon SDE', 'CAT', 'MAT']"
-        )
-        response = self.client.post(
-            "/generate",
-            json={
-                "goal": "Invalid Goal",
-                "num_questions": 5,
-                "difficulty": "beginner",
-                "mode": "retrieval"
-            }
-        )
+    @patch('app.questions.load_questions')
+    @patch('app.questions.get_goals_in_question_bank')
+    def test_add_goal_not_in_bank(self, mock_goals, mock_load_questions):
+        mock_load_questions.return_value = self.mock_questions
+        mock_goals.return_value = {"GATE AE"}
+        mock_config_data = {
+            "supported_goals": ["GATE AE"],
+            "supported_difficulties": ["beginner", "intermediate", "advanced"],
+            "supported_types": ["mcq", "short_answer"],
+            "supported_generator_modes": ["retrieval", "template"],
+            "generator_mode": "retrieval"
+        }
+        mock_token_data = {"api_token": self.api_token}
+        with patch('builtins.open', mock_open()) as mock_file:
+            mock_file.side_effect = [
+                mock_open(read_data=json.dumps(mock_config_data)).return_value,
+                mock_open(read_data=json.dumps(mock_token_data)).return_value
+            ]
+            response = self.client.post(
+                "/goals",
+                json={
+                    "goal": "Invalid Goal",
+                    "action": "add",
+                    "api_token": self.api_token
+                }
+            )
         self.assertEqual(response.status_code, 400)
-        self.assertIn("Goal must be one of", response.json()["detail"])
+        self.assertIn("Goal 'Invalid Goal' not found in question bank and no questions provided", response.json()["detail"])
 
-    @patch('app.services.question_service.QuestionService.generate_quiz')
-    def test_generate_questions_invalid_mode(self, mock_generate_quiz):
-        mock_generate_quiz.side_effect = HTTPException(
-            status_code=400,
-            detail="Mode must be one of ['retrieval', 'template']"
-        )
-        response = self.client.post(
-            "/generate",
-            json={
-                "goal": "GATE AE",
-                "num_questions": 5,
-                "difficulty": "beginner",
-                "mode": "invalid"
-            }
-        )
-        self.assertEqual(response.status_code, 400)
-        self.assertIn("Mode must be one of", response.json()["detail"])
-
-    def test_generate_questions_validation_error(self):
-        response = self.client.post(
-            "/generate",
-            json={
-                "goal": "GATE AE",
-                "num_questions": -1,
-                "difficulty": "beginner",
-                "mode": "retrieval"
-            }
-        )
-        self.assertEqual(response.status_code, 422)
-        self.assertTrue(isinstance(response.json()["detail"], list))
-
-    @patch('app.services.question_service.QuestionService.generate_quiz')
-    def test_generate_questions_server_error(self, mock_generate_quiz):
-        mock_generate_quiz.side_effect = Exception("Database error")
-        response = self.client.post(
-            "/generate",
-            json={
-                "goal": "GATE AE",
-                "num_questions": 5,
-                "difficulty": "beginner",
-                "mode": "retrieval"
-            }
-        )
+    @patch('app.questions.load_questions')
+    @patch('app.questions.get_goals_in_question_bank')
+    def test_add_goal_invalid_question(self, mock_goals, mock_load_questions):
+        mock_load_questions.return_value = self.mock_questions
+        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_config_data = {
+            "supported_goals": ["GATE AE"],
+            "supported_difficulties": ["beginner", "intermediate", "advanced"],
+            "supported_types": ["mcq", "short_answer"],
+            "supported_generator_modes": ["retrieval", "template"],
+            "generator_mode": "retrieval"
+        }
+        mock_token_data = {"api_token": self.api_token}
+        invalid_question = self.sample_questions[0].dict()
+        invalid_question['options'] = ["A", "B"]  # Invalid: MCQ needs 4 options
+        with patch('builtins.open', mock_open()) as mock_file:
+            mock_file.side_effect = [
+                mock_open(read_data=json.dumps(mock_config_data)).return_value,
+                mock_open(read_data=json.dumps(mock_token_data)).return_value
+            ]
+            response = self.client.post(
+                "/goals",
+                json={
+                    "goal": "New Goal",
+                    "action": "add",
+                    "api_token": self.api_token,
+                    "questions": [invalid_question]
+                }
+            )
         self.assertEqual(response.status_code, 500)
-        self.assertEqual(response.json()["detail"], "Internal server error")
+        self.assertIn("Failed to add goal: mcq questions must have exactly 4 options", response.json()["detail"])
 
-    def test_exception_handler_registration(self):
-        from fastapi.exceptions import RequestValidationError
-        from app.utils.exceptions import ServiceUnavailableError
-        expected_handlers = [Exception, RequestValidationError, HTTPException, ServiceUnavailableError]
-        registered_handlers = list(app.exception_handlers.keys())
-        for handler in expected_handlers:
-            self.assertIn(handler, registered_handlers, f"Handler for {handler} not registered")
-
-    @patch('app.services.infra_service.InfraService.health_check')
-    def test_health_check_healthy(self, mock_health_check):
-        mock_health_check.return_value = HealthCheckResponse(
-            status="healthy",
-            details={
-                "question_bank": "Available (10 questions)",
-                "configuration": "Loaded successfully",
-                "questions_by_goal": "GATE AE: 10",
-                "questions_by_type": "mcq: 10"
+    @patch('app.questions.load_questions')
+    @patch('app.questions.get_goals_in_question_bank')
+    def test_remove_goal_success(self, mock_goals, mock_load_questions):
+        mock_load_questions.return_value = []  # No questions with CAT
+        mock_goals.return_value = set()
+        mock_config_data = {
+            "supported_goals": ["GATE AE", "CAT"],
+            "supported_difficulties": ["beginner", "intermediate", "advanced"],
+            "supported_types": ["mcq", "short_answer"],
+            "supported_generator_modes": ["retrieval", "template"],
+            "generator_mode": "retrieval"
+        }
+        mock_schema_data = {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "definitions": {
+                "inputRequest": {"properties": {"goal": {"enum": ["GATE AE", "CAT"]}}},
+                "outputResponse": {"properties": {"goal": {"enum": ["GATE AE", "CAT"]}}}
             }
-        )
-        response = self.client.get("/health")
+        }
+        mock_token_data = {"api_token": self.api_token}
+        with patch('builtins.open', mock_open()) as mock_file:
+            mock_file.side_effect = [
+                mock_open(read_data=json.dumps(mock_config_data)).return_value,
+                mock_open().return_value,
+                mock_open(read_data=json.dumps(mock_token_data)).return_value
+            ]
+            with patch('app.services.question_service.Path.open', mock_open()) as mock_schema_file:
+                mock_schema_file.side_effect = [
+                    mock_open(read_data=json.dumps(mock_schema_data)).return_value,
+                    mock_open().return_value
+                ]
+                response = self.client.post(
+                    "/goals",
+                    json={
+                        "goal": "CAT",
+                        "action": "remove",
+                        "api_token": self.api_token
+                    }
+                )
         self.assertEqual(response.status_code, 200)
         data = response.json()
-        self.assertEqual(data["status"], "healthy")
-        self.assertIn("question_bank", data["details"])
-        self.assertIn("configuration", data["details"])
-        self.assertEqual(data["details"]["question_bank"], "Available (10 questions)")
-        self.assertEqual(data["details"]["configuration"], "Loaded successfully")
+        self.assertEqual(data["message"], "Goal 'CAT' removed successfully")
+        self.assertEqual(data["supported_goals"], ["GATE AE"])
 
-    @patch('app.services.infra_service.InfraService.health_check')
-    def test_health_check_unhealthy(self, mock_health_check):
-        mock_health_check.return_value = HealthCheckResponse(
-            status="unhealthy",
-            details={
-                "question_bank": "Not available: Error loading questions",
-                "configuration": "Missing keys: supported_difficulties, supported_types",
-                "questions_by_goal": "Not available",
-                "questions_by_type": "Not available"
-            }
-        )
-        response = self.client.get("/health")
-        self.assertEqual(response.status_code, 200)
-        data = response.json()
-        self.assertEqual(data["status"], "unhealthy")
-        self.assertIn("question_bank", data["details"])
-        self.assertIn("configuration", data["details"])
-        self.assertIn("Not available", data["details"]["question_bank"])
-        self.assertIn("Missing keys", data["details"]["configuration"])
+    @patch('app.questions.load_questions')
+    def test_remove_goal_invalid_token(self, mock_load_questions):
+        mock_load_questions.return_value = []
+        mock_config_data = {
+            "supported_goals": ["GATE AE", "CAT"],
+            "supported_difficulties": ["beginner", "intermediate", "advanced"],
+            "supported_types": ["mcq", "short_answer"],
+            "supported_generator_modes": ["retrieval", "template"],
+            "generator_mode": "retrieval"
+        }
+        mock_token_data = {"api_token": self.api_token}
+        with patch('builtins.open', mock_open()) as mock_file:
+            mock_file.side_effect = [
+                mock_open(read_data=json.dumps(mock_config_data)).return_value,
+                mock_open(read_data=json.dumps(mock_token_data)).return_value
+            ]
+            response = self.client.post(
+                "/goals",
+                json={
+                    "goal": "CAT",
+                    "action": "remove",
+                    "api_token": "invalid-token"
+                }
+            )
+        self.assertEqual(response.status_code, 401)
+        self.assertEqual(response.json()["detail"], "Invalid API token")
+
+    @patch('app.questions.load_questions')
+    def test_remove_goal_not_exists(self, mock_load_questions):
+        mock_load_questions.return_value = self.mock_questions
+        mock_config_data = {
+            "supported_goals": ["GATE AE"],
+            "supported_difficulties": ["beginner", "intermediate", "advanced"],
+            "supported_types": ["mcq", "short_answer"],
+            "supported_generator_modes": ["retrieval", "template"],
+            "generator_mode": "retrieval"
+        }
+        mock_token_data = {"api_token": self.api_token}
+        with patch('builtins.open', mock_open()) as mock_file:
+            mock_file.side_effect = [
+                mock_open(read_data=json.dumps(mock_config_data)).return_value,
+                mock_open(read_data=json.dumps(mock_token_data)).return_value
+            ]
+            response = self.client.post(
+                "/goals",
+                json={
+                    "goal": "Invalid Goal",
+                    "action": "remove",
+                    "api_token": self.api_token
+                }
+            )
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("Goal 'Invalid Goal' not in supported goals", response.json()["detail"])
+
+    @patch('app.questions.load_questions')
+    @patch('app.questions.get_goals_in_question_bank')
+    def test_remove_goal_in_bank(self, mock_goals, mock_load_questions):
+        mock_load_questions.return_value = self.mock_questions
+        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_config_data = {
+            "supported_goals": ["GATE AE"],
+            "supported_difficulties": ["beginner", "intermediate", "advanced"],
+            "supported_types": ["mcq", "short_answer"],
+            "supported_generator_modes": ["retrieval", "template"],
+            "generator_mode": "retrieval"
+        }
+        mock_token_data = {"api_token": self.api_token}
+        with patch('builtins.open', mock_open()) as mock_file:
+            mock_file.side_effect = [
+                mock_open(read_data=json.dumps(mock_config_data)).return_value,
+                mock_open(read_data=json.dumps(mock_token_data)).return_value
+            ]
+            response = self.client.post(
+                "/goals",
+                json={
+                    "goal": "GATE AE",
+                    "action": "remove",
+                    "api_token": self.api_token
+                }
+            )
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("Cannot remove goal 'GATE AE' as it is still present in question bank", response.json()["detail"])
 
 if __name__ == '__main__':
-    result = unittest.main(verbosity=2, exit=False)
-    if result.wasSuccessful():
-        print("Success: All tests passed!")
-    else:
-        print("Failure: Some tests did not pass.")
+    unittest.main(verbosity=2)
