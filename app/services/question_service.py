@@ -5,8 +5,8 @@ from typing import List, Optional
 from app.questions import load_questions, QuizQuestion, get_goals_in_question_bank, count_questions_for_goal, append_questions_to_bank, question_cache, _validate_question_item
 from app.utils.config_loader import CONFIG
 from app.api.models import QuestionResponse, GenerateQuestionsResponse, ConfigResponse, McqQuestionResponse, ShortAnswerQuestionResponse, GoalResponse
-from app.generators.retrieval.tfidf import TfidfGenerator
-from app.generators.templatRetr.mathTemplate import MathTemplateGenerator
+from app.generators.tfidfRetrieval.tfidfGenerator import TfidfGenerator
+from app.generators.templateRetrieval.templateGenerator import MathTemplateGenerator
 from fastapi import HTTPException
 from filelock import FileLock
 from pathlib import Path
