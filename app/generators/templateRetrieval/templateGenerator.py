@@ -1,7 +1,7 @@
 import random
 from typing import List
 import logging
-from templates import TEMPLATES
+from app.generators.templateRetrieval.questionTemplates import TEMPLATES
 
 # Mock QuizQuestion and Generator for testing (replace with actual imports)
 class QuizQuestion:
@@ -20,7 +20,7 @@ class Generator:
 
 logger = logging.getLogger(__name__)
 
-class MathTemplateGenerator(Generator):
+class QuestionTemplateGenerator(Generator):
     def __init__(self):
         self.templates = TEMPLATES
 

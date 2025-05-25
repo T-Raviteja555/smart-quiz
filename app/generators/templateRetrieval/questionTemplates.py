@@ -4,14 +4,14 @@ from jinja2 import Template
 from sympy import symbols, Eq, solve
 
 def solve_equation(a: int, b: int, c: int) -> str:
-    """Solve quadratic equation ax² + bx + c = 0 and return roots as a string."""
+    """Solve quadratic equation ax² + bx + c = 0 and return roots as a string. """
     x = symbols('x')
     equation = Eq(a*x**2 + b*x + c, 0)
     roots = solve(equation, x)
     return ", ".join(str(round(float(root.evalf()), 2)) for root in sorted(roots, key=lambda x: float(x.evalf())))
 
 TEMPLATES = [
-    # GATE AE Templates (Existing)
+    # GATE AE Templates
     {
         "template": Template("Solve {{a}}x² + {{b}}x + {{c}} = 0 for x (round to 2 decimal places)."),
         "difficulty": "beginner",
