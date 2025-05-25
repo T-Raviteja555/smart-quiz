@@ -1,22 +1,22 @@
 import os
 import logging
-from typing import List, Dict
+import structlog
+from typing import List, Dict, Optional
 from pydantic import BaseModel
 import orjson
 from pathlib import Path
 from cachetools import cached, TTLCache
 from concurrent.futures import ThreadPoolExecutor
 from app.utils.config_loader import CONFIG
-import random
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger = structlog.get_logger(__name__)
 
 class QuizQuestion(BaseModel):
     type: str
     question: str
-    options: List[str]
+    options: Optional[List[str]]
     answer: str
     difficulty: str
     topic: str
@@ -37,41 +37,108 @@ question_cache = TTLCache(maxsize=CONFIG['CACHE_MAXSIZE'], ttl=CONFIG['CACHE_TTL
 executor = ThreadPoolExecutor(max_workers=CONFIG['MAX_WORKERS'])
 
 def _validate_question_item(item: Dict) -> Dict:
-    """Basic validation for question data"""
+    """Basic validation for question data with logging for problematic entries."""
     item = item.copy()
-    item.setdefault('options', [])
+    item.setdefault('options', None)
     item.setdefault('difficulty', 'intermediate')
     item.setdefault('topic', 'general')
     item.setdefault('goal', '')
     item.setdefault('answer', '')
     
-    # Validate question type
-    if item.get('type') not in ('mcq', 'short_answer'):
-        raise ValueError("type must be 'mcq' or 'short_answer'")
+    try:
+        # Validate question type
+        if item.get('type') not in ('mcq', 'short_answer'):
+            logger.error(
+                "Invalid question type",
+                question=item.get('question', 'unknown'),
+                type=item.get('type'),
+                error="type must be 'mcq' or 'short_answer'"
+            )
+            raise ValueError("type must be 'mcq' or 'short_answer'")
+        
+        # Validation for mcq questions
+        if item.get('type') == 'mcq':
+            if not item.get('options') or not isinstance(item['options'], list) or len(item['options']) != 4:
+                logger.error(
+                    "Invalid mcq options",
+                    question=item.get('question', 'unknown'),
+                    options=item.get('options'),
+                    error="mcq questions must have exactly 4 options"
+                )
+                raise ValueError("mcq questions must have exactly 4 options")
+        
+        # Validation for short_answer questions
+        if item.get('type') == 'short_answer':
+            if item.get('options') is not None:
+                if isinstance(item['options'], list) and len(item['options']) == 0:
+                    logger.warning(
+                        "Legacy short_answer options detected, converting to null",
+                        question=item.get('question', 'unknown'),
+                        options=item.get('options')
+                    )
+                    item['options'] = None
+                else:
+                    logger.error(
+                        "Invalid short_answer options",
+                        question=item.get('question', 'unknown'),
+                        options=item.get('options'),
+                        error="short_answer questions must have options set to null or an empty list"
+                    )
+                    raise ValueError("short_answer questions must have options set to null or an empty list")
+        
+        # Basic string checks
+        if not isinstance(item.get('question'), str) or len(item['question']) < 10:
+            logger.error(
+                "Invalid question length",
+                question=item.get('question', 'unknown'),
+                error="question must be a string with at least 10 characters"
+            )
+            raise ValueError("question must be a string with at least 10 characters")
+        if not isinstance(item.get('goal'), str) or item['goal'] not in supported_goals:
+            logger.error(
+                "Invalid goal",
+                question=item.get('question', 'unknown'),
+                goal=item.get('goal'),
+                supported_goals=supported_goals,
+                error=f"goal must be one of {supported_goals}"
+            )
+            raise ValueError(f"goal must be one of {supported_goals}")
+        if not isinstance(item.get('difficulty'), str) or item['difficulty'] not in supported_difficulties:
+            logger.error(
+                "Invalid difficulty",
+                question=item.get('question', 'unknown'),
+                difficulty=item.get('difficulty'),
+                supported_difficulties=supported_difficulties,
+                error=f"difficulty must be one of {supported_difficulties}"
+            )
+            raise ValueError(f"difficulty must be one of {supported_difficulties}")
+        if not isinstance(item.get('topic'), str) or len(item['topic']) < 3:
+            logger.error(
+                "Invalid topic",
+                question=item.get('question', 'unknown'),
+                topic=item.get('topic'),
+                error="topic must be a string with at least 3 characters"
+            )
+            raise ValueError("topic must be a string with at least 3 characters")
+        if not isinstance(item.get('answer'), str) or len(item['answer']) == 0:
+            logger.error(
+                "Invalid answer",
+                question=item.get('question', 'unknown'),
+                answer=item.get('answer'),
+                error="answer must be a non-empty string"
+            )
+            raise ValueError("answer must be a non-empty string")
     
-    # Validation for mcq questions
-    if item.get('type') == 'mcq':
-        if not item.get('options') or not isinstance(item['options'], list) or len(item['options']) != 4:
-            raise ValueError("mcq questions must have exactly 4 options")
+        return item
     
-    # Validation for short_answer questions
-    if item.get('type') == 'short_answer':
-        if item.get('options') != []:
-            raise ValueError("short_answer questions must have empty options list")
-    
-    # Basic string checks
-    if not isinstance(item.get('question'), str) or len(item['question']) < 10:
-        raise ValueError("question must be a string with at least 10 characters")
-    if not isinstance(item.get('goal'), str) or item['goal'] not in supported_goals:
-        raise ValueError(f"goal must be one of {supported_goals}")
-    if not isinstance(item.get('difficulty'), str) or item['difficulty'] not in supported_difficulties:
-        raise ValueError(f"difficulty must be one of {supported_difficulties}")
-    if not isinstance(item.get('topic'), str) or len(item['topic']) < 3:
-        raise ValueError("topic must be a string with at least 3 characters")
-    if not isinstance(item.get('answer'), str) or len(item['answer']) == 0:
-        raise ValueError("answer must be a non-empty string")
-    
-    return item
+    except ValueError as e:
+        # Log the full item for debugging
+        logger.error(
+            "Validation failed for question item",
+            item=item,
+            error=str(e)
+        )
+        raise
 
 @cached(question_cache)
 def load_questions() -> List[QuizQuestion]:
@@ -100,25 +167,3 @@ def load_questions() -> List[QuizQuestion]:
     except Exception as e:
         logger.error(f"Error loading questions: {str(e)}")
         raise ValueError(f"Failed to load questions: {str(e)}")
-
-def generate_questions(goal: str, difficulty: str, no_of_questions: int) -> List[QuizQuestion]:
-    """Generate random questions based on goal and difficulty"""
-    questions = load_questions()
-    # Filter questions by goal and difficulty
-    matching_questions = [q for q in questions if q.goal == goal and q.difficulty == difficulty]
-
-    # Check if enough questions are available
-    if len(matching_questions) < no_of_questions:
-        raise ValueError(
-            f"Requested {no_of_questions} questions, but only {len(matching_questions)} "
-            f"available for goal '{goal}' and difficulty '{difficulty}'"
-        )
-    
-    # Adjust number of questions based on config constraints
-    if no_of_questions > CONFIG['max_questions']:
-        no_of_questions = CONFIG['max_questions']
-    if no_of_questions < CONFIG['default_num_questions']:
-        no_of_questions = CONFIG['default_num_questions']
-    
-    # Return random sample of questions
-    return random.sample(matching_questions, no_of_questions)

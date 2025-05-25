@@ -1,0 +1,125 @@
+from fastapi import APIRouter, Depends
+from app.api.models import (
+    GenerateQuestionsRequest,
+    GenerateQuestionsResponse,
+    HealthCheckResponse,
+    ConfigResponse,
+    LocalMetricsResponse,
+    PerformanceMetricsResponse
+)
+from app.services.question_service import QuestionService
+from app.services.infra_service import InfraService
+from typing import List
+
+from app.utils.exceptions import ErrorResponse
+
+router = APIRouter()
+
+def get_question_service():
+    return QuestionService()
+
+def get_infra_service():
+    return InfraService()
+
+@router.get(
+    "/questions",
+    response_model=GenerateQuestionsResponse,
+    tags=["questions"],
+    summary="Retrieve all questions",
+    description="Returns a list of all available questions in dataset."
+)
+async def get_questions(service: QuestionService = Depends(get_question_service)):
+    return service.get_all_questions()
+
+@router.post(
+    "/generate",
+    response_model=GenerateQuestionsResponse,
+    tags=["generate"],
+    responses={
+        200: {"description": "Successful response with generated questions", "model": GenerateQuestionsResponse},
+        400: {"description": "Invalid input parameters", "model": ErrorResponse},
+        422: {"description": "Validation error for request payload", "model": ErrorResponse},
+        500: {"description": "Internal server error", "model": ErrorResponse}
+    },
+    summary="Generate questions for a quiz",
+    description=(
+        "Generates a specified number of questions based on goal, difficulty, and mode.\n\n"
+        "### Parameters\n"
+        "- **goal**: Supported values: `GATE AE`, `Amazon SDE`, `CAT`, `MAT`\n"
+        "- **difficulty**: Supported values: `beginner`, `intermediate`, `advanced`\n"
+        "- **num_questions**: Integer between 1 and 10\n"
+        "- **mode**: Optional generation mode: `retrieval` (TF-IDF) or `template` (formula-driven). Defaults to config.generator_mode.\n\n"
+        "### Error Handling\n"
+        "- Returns standardized JSON errors (`{\"detail\": \"Error message\"}` or `{\"detail\": [\"Error messages\"]}`) for invalid inputs or server errors.\n"
+        "- Common status codes: `400` (invalid input), `422` (validation error), `500` (server error).\n"
+    )
+)
+async def generate_questions_post(
+    request: GenerateQuestionsRequest,
+    service: QuestionService = Depends(get_question_service)
+):
+    return service.generate_quiz(
+        request.goal,
+        request.difficulty,
+        request.num_questions,
+        request.mode
+    )
+
+@router.get(
+    "/health",
+    response_model=HealthCheckResponse,
+    tags=["health"],
+    responses={
+        200: {"description": "Service is healthy", "model": HealthCheckResponse},
+        503: {"description": "Service is unhealthy", "model": HealthCheckResponse},
+        500: {"description": "Internal server error", "model": ErrorResponse}
+    },
+    summary="Check API health",
+    description=(
+        "Checks the health of the API by verifying critical dependencies.\n\n"
+        "### Response\n"
+        "- **status**: `healthy` if all dependencies are operational, `unhealthy` otherwise.\n"
+        "- **details**: Information about checked dependencies (e.g., question bank, configuration) and question counts by goal and type.\n"
+    )
+)
+async def health_check(service: InfraService = Depends(get_infra_service)):
+    return service.health_check()
+
+@router.get(
+    "/config",
+    response_model=ConfigResponse,
+    tags=["config"],
+    responses={
+        200: {"description": "Configuration details retrieved successfully", "model": ConfigResponse},
+        500: {"description": "Internal server error", "model": ErrorResponse}
+    },
+    summary="Retrieve configuration details",
+    description=(
+        "Returns the generator mode and version from the configuration.\n\n"
+        "### Response\n"
+        "- **generator_mode**: The mode of the question generator (e.g., 'retrieval').\n"
+        "- **version**: The API version from the configuration (e.g., '1.0.0').\n"
+    )
+)
+async def get_config(service: QuestionService = Depends(get_question_service)):
+    return service.get_config()
+
+@router.get(
+    "/local-metrics",
+    response_model=LocalMetricsResponse,
+    tags=["monitoring"],
+    summary="Local metrics",
+    description="Exposes locally collected metrics including request counts, average latencies, and error counts."
+)
+async def local_metrics(service: InfraService = Depends(get_infra_service)):
+    return service.get_local_metrics()
+
+@router.get(
+    "/performance-metrics",
+    response_model=List[PerformanceMetricsResponse],
+    tags=["monitoring"],
+    summary="Performance metrics",
+    description="Exposes aggregated performance metrics including throughput, latency statistics, and error rates."
+)
+async def performance_metrics(service: InfraService = Depends(get_infra_service)):
+    return service.get_performance_metrics()
