@@ -7,7 +7,11 @@
 
 ## Overview
 
+<<<<<<< HEAD
 The Smart Quiz Generator Microservice is a production-ready, FastAPI-based REST API designed to generate and manage quiz questions for educational and professional goals, including GATE, Amazon Software Development Engineer (SDE), and Common Admission Test (CAT). It supports multiple-choice (MCQ) and short-answer questions with TF-IDF retrieval and template-based generation, Dockerized deployment, structured JSON logging with daily rotation, JSON schema validation, and comprehensive unit testsing. The project is modular, scalable, and extensible, ready for integration with advanced question generation models.
+=======
+The Smart Quiz Generator Microservice is a production-ready, FastAPI-based REST API designed to generate and manage quiz questions for educational and professional goals, including GATE, Amazon Software Development Engineer (SDE), and Common Admission Test (CAT). It supports multiple-choice (MCQ) and short-answer questions with TF-IDF retrieval and template-based generation, Dockerized deployment, structured JSON logging with daily rotation, JSON schema validation, and comprehensive unit testing. The project is modular, scalable, and extensible, ready for integration with advanced question generation models.
+>>>>>>> 656c853b947c1a28d8f76d093b00ef09e4713721
 
 ## Features
 
@@ -211,4 +215,8 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## Contact
 
+<<<<<<< HEAD
 For questions or feedback, contact Ravi Teja at [229x1a3363@gprec.ac.in](mailto:229x1a3363@gprec.ac.in).
+=======
+For questions or feedback, contact Ravi Teja at [229x1a3363@gprec.ac.in](mailto:229x1a3363@gprec.ac.in).
+>>>>>>> 656c853b947c1a28d8f76d093b00ef09e4713721
