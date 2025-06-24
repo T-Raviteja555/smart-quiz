@@ -27,7 +27,7 @@ class TestGoalsEndpoint(unittest.TestCase):
                 answer="Answer",
                 difficulty="beginner",
                 topic="propulsion",
-                goal="GATE AE"
+                goal="GATE"
             ) for i in range(5)
         ]
         self.sample_questions = [
@@ -58,10 +58,10 @@ class TestGoalsEndpoint(unittest.TestCase):
     @patch('app.questions.append_questions_to_bank')
     def test_add_goal_with_questions_success(self, mock_append, mock_count, mock_goals, mock_load_questions):
         mock_load_questions.return_value = self.mock_questions
-        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_goals.return_value = {"GATE", "New Goal"}
         mock_count.return_value = 8  # 8 existing + 2 provided = 10
         mock_config_data = {
-            "supported_goals": ["GATE AE", "Amazon SDE"],
+            "supported_goals": ["GATE", "Amazon SDE"],
             "supported_difficulties": ["beginner", "intermediate", "advanced"],
             "supported_types": ["mcq", "short_answer"],
             "supported_generator_modes": ["retrieval", "template"],
@@ -70,8 +70,8 @@ class TestGoalsEndpoint(unittest.TestCase):
         mock_schema_data = {
             "$schema": "http://json-schema.org/draft-07/schema#",
             "definitions": {
-                "inputRequest": {"properties": {"goal": {"enum": ["GATE AE", "Amazon SDE"]}}},
-                "outputResponse": {"properties": {"goal": {"enum": ["GATE AE", "Amazon SDE"]}}}
+                "inputRequest": {"properties": {"goal": {"enum": ["GATE", "Amazon SDE"]}}},
+                "outputResponse": {"properties": {"goal": {"enum": ["GATE", "Amazon SDE"]}}}
             }
         }
         mock_token_data = {"api_token": self.api_token}
@@ -98,7 +98,7 @@ class TestGoalsEndpoint(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         data = response.json()
         self.assertEqual(data["message"], "Goal 'New Goal' added successfully with 10 questions")
-        self.assertEqual(data["supported_goals"], ["GATE AE", "Amazon SDE", "New Goal"])
+        self.assertEqual(data["supported_goals"], ["GATE", "Amazon SDE", "New Goal"])
         mock_append.assert_called_once()
 
     @patch('app.questions.load_questions')
@@ -107,10 +107,10 @@ class TestGoalsEndpoint(unittest.TestCase):
     @patch('app.questions.append_questions_to_bank')
     def test_add_questions_to_existing_goal(self, mock_append, mock_count, mock_goals, mock_load_questions):
         mock_load_questions.return_value = self.mock_questions
-        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_goals.return_value = {"GATE", "New Goal"}
         mock_count.return_value = 15
         mock_config_data = {
-            "supported_goals": ["GATE AE", "New Goal"],
+            "supported_goals": ["GATE", "New Goal"],
             "supported_difficulties": ["beginner", "intermediate", "advanced"],
             "supported_types": ["mcq", "short_answer"],
             "supported_generator_modes": ["retrieval", "template"],
@@ -134,7 +134,7 @@ class TestGoalsEndpoint(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         data = response.json()
         self.assertEqual(data["message"], "Appended 2 questions to existing goal 'New Goal'")
-        self.assertEqual(data["supported_goals"], ["GATE AE", "New Goal"])
+        self.assertEqual(data["supported_goals"], ["GATE", "New Goal"])
         mock_append.assert_called_once()
 
     @patch('app.questions.load_questions')
@@ -142,10 +142,10 @@ class TestGoalsEndpoint(unittest.TestCase):
     @patch('app.questions.count_questions_for_goal')
     def test_add_goal_without_questions_success(self, mock_count, mock_goals, mock_load_questions):
         mock_load_questions.return_value = self.mock_questions
-        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_goals.return_value = {"GATE", "New Goal"}
         mock_count.return_value = 15  # ≥10 existing questions
         mock_config_data = {
-            "supported_goals": ["GATE AE", "Amazon SDE"],
+            "supported_goals": ["GATE", "Amazon SDE"],
             "supported_difficulties": ["beginner", "intermediate", "advanced"],
             "supported_types": ["mcq", "short_answer"],
             "supported_generator_modes": ["retrieval", "template"],
@@ -154,8 +154,8 @@ class TestGoalsEndpoint(unittest.TestCase):
         mock_schema_data = {
             "$schema": "http://json-schema.org/draft-07/schema#",
             "definitions": {
-                "inputRequest": {"properties": {"goal": {"enum": ["GATE AE", "Amazon SDE"]}}},
-                "outputResponse": {"properties": {"goal": {"enum": ["GATE AE", "Amazon SDE"]}}}
+                "inputRequest": {"properties": {"goal": {"enum": ["GATE", "Amazon SDE"]}}},
+                "outputResponse": {"properties": {"goal": {"enum": ["GATE", "Amazon SDE"]}}}
             }
         }
         mock_token_data = {"api_token": self.api_token}
@@ -181,17 +181,17 @@ class TestGoalsEndpoint(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         data = response.json()
         self.assertEqual(data["message"], "Goal 'New Goal' added successfully with 15 questions")
-        self.assertEqual(data["supported_goals"], ["GATE AE", "Amazon SDE", "New Goal"])
+        self.assertEqual(data["supported_goals"], ["GATE", "Amazon SDE", "New Goal"])
 
     @patch('app.questions.load_questions')
     @patch('app.questions.get_goals_in_question_bank')
     @patch('app.questions.count_questions_for_goal')
     def test_add_goal_invalid_token(self, mock_count, mock_goals, mock_load_questions):
         mock_load_questions.return_value = self.mock_questions
-        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_goals.return_value = {"GATE", "New Goal"}
         mock_count.return_value = 15
         mock_config_data = {
-            "supported_goals": ["GATE AE", "Amazon SDE"],
+            "supported_goals": ["GATE", "Amazon SDE"],
             "supported_difficulties": ["beginner", "intermediate", "advanced"],
             "supported_types": ["mcq", "short_answer"],
             "supported_generator_modes": ["retrieval", "template"],
@@ -219,10 +219,10 @@ class TestGoalsEndpoint(unittest.TestCase):
     @patch('app.questions.count_questions_for_goal')
     def test_add_goal_insufficient_questions(self, mock_count, mock_goals, mock_load_questions):
         mock_load_questions.return_value = self.mock_questions
-        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_goals.return_value = {"GATE", "New Goal"}
         mock_count.return_value = 5  # <10 questions
         mock_config_data = {
-            "supported_goals": ["GATE AE", "Amazon SDE"],
+            "supported_goals": ["GATE", "Amazon SDE"],
             "supported_difficulties": ["beginner", "intermediate", "advanced"],
             "supported_types": ["mcq", "short_answer"],
             "supported_generator_modes": ["retrieval", "template"],
@@ -250,9 +250,9 @@ class TestGoalsEndpoint(unittest.TestCase):
     @patch('app.questions.get_goals_in_question_bank')
     def test_add_goal_not_in_bank(self, mock_goals, mock_load_questions):
         mock_load_questions.return_value = self.mock_questions
-        mock_goals.return_value = {"GATE AE"}
+        mock_goals.return_value = {"GATE"}
         mock_config_data = {
-            "supported_goals": ["GATE AE"],
+            "supported_goals": ["GATE"],
             "supported_difficulties": ["beginner", "intermediate", "advanced"],
             "supported_types": ["mcq", "short_answer"],
             "supported_generator_modes": ["retrieval", "template"],
@@ -279,9 +279,9 @@ class TestGoalsEndpoint(unittest.TestCase):
     @patch('app.questions.get_goals_in_question_bank')
     def test_add_goal_invalid_question(self, mock_goals, mock_load_questions):
         mock_load_questions.return_value = self.mock_questions
-        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_goals.return_value = {"GATE", "New Goal"}
         mock_config_data = {
-            "supported_goals": ["GATE AE"],
+            "supported_goals": ["GATE"],
             "supported_difficulties": ["beginner", "intermediate", "advanced"],
             "supported_types": ["mcq", "short_answer"],
             "supported_generator_modes": ["retrieval", "template"],
@@ -313,7 +313,7 @@ class TestGoalsEndpoint(unittest.TestCase):
         mock_load_questions.return_value = []  # No questions with CAT
         mock_goals.return_value = set()
         mock_config_data = {
-            "supported_goals": ["GATE AE", "CAT"],
+            "supported_goals": ["GATE", "CAT"],
             "supported_difficulties": ["beginner", "intermediate", "advanced"],
             "supported_types": ["mcq", "short_answer"],
             "supported_generator_modes": ["retrieval", "template"],
@@ -322,8 +322,8 @@ class TestGoalsEndpoint(unittest.TestCase):
         mock_schema_data = {
             "$schema": "http://json-schema.org/draft-07/schema#",
             "definitions": {
-                "inputRequest": {"properties": {"goal": {"enum": ["GATE AE", "CAT"]}}},
-                "outputResponse": {"properties": {"goal": {"enum": ["GATE AE", "CAT"]}}}
+                "inputRequest": {"properties": {"goal": {"enum": ["GATE", "CAT"]}}},
+                "outputResponse": {"properties": {"goal": {"enum": ["GATE", "CAT"]}}}
             }
         }
         mock_token_data = {"api_token": self.api_token}
@@ -349,13 +349,13 @@ class TestGoalsEndpoint(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         data = response.json()
         self.assertEqual(data["message"], "Goal 'CAT' removed successfully")
-        self.assertEqual(data["supported_goals"], ["GATE AE"])
+        self.assertEqual(data["supported_goals"], ["GATE"])
 
     @patch('app.questions.load_questions')
     def test_remove_goal_invalid_token(self, mock_load_questions):
         mock_load_questions.return_value = []
         mock_config_data = {
-            "supported_goals": ["GATE AE", "CAT"],
+            "supported_goals": ["GATE", "CAT"],
             "supported_difficulties": ["beginner", "intermediate", "advanced"],
             "supported_types": ["mcq", "short_answer"],
             "supported_generator_modes": ["retrieval", "template"],
@@ -382,7 +382,7 @@ class TestGoalsEndpoint(unittest.TestCase):
     def test_remove_goal_not_exists(self, mock_load_questions):
         mock_load_questions.return_value = self.mock_questions
         mock_config_data = {
-            "supported_goals": ["GATE AE"],
+            "supported_goals": ["GATE"],
             "supported_difficulties": ["beginner", "intermediate", "advanced"],
             "supported_types": ["mcq", "short_answer"],
             "supported_generator_modes": ["retrieval", "template"],
@@ -409,9 +409,9 @@ class TestGoalsEndpoint(unittest.TestCase):
     @patch('app.questions.get_goals_in_question_bank')
     def test_remove_goal_in_bank(self, mock_goals, mock_load_questions):
         mock_load_questions.return_value = self.mock_questions
-        mock_goals.return_value = {"GATE AE", "New Goal"}
+        mock_goals.return_value = {"GATE", "New Goal"}
         mock_config_data = {
-            "supported_goals": ["GATE AE"],
+            "supported_goals": ["GATE"],
             "supported_difficulties": ["beginner", "intermediate", "advanced"],
             "supported_types": ["mcq", "short_answer"],
             "supported_generator_modes": ["retrieval", "template"],
@@ -426,13 +426,13 @@ class TestGoalsEndpoint(unittest.TestCase):
             response = self.client.post(
                 "/goals",
                 json={
-                    "goal": "GATE AE",
+                    "goal": "GATE",
                     "action": "remove",
                     "api_token": self.api_token
                 }
             )
         self.assertEqual(response.status_code, 400)
-        self.assertIn("Cannot remove goal 'GATE AE' as it is still present in question bank", response.json()["detail"])
+        self.assertIn("Cannot remove goal 'GATE' as it is still present in question bank", response.json()["detail"])
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
