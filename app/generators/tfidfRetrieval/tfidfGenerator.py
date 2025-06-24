@@ -15,7 +15,7 @@ tfidf_cache = TTLCache(maxsize=CONFIG['CACHE_MAXSIZE'], ttl=CONFIG['CACHE_TTL'])
 
 def preprocess_text(text: str) -> str:
     import string
-    text = text.lower()
+    text = text.lower() 
     text = text.translate(str.maketrans('', '', string.punctuation))
     return text
 

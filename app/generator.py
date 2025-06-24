@@ -112,7 +112,7 @@ class QuizGenerator:
         Generate a quiz based on user input.
         
         Args:
-            goal (str): Target domain (e.g., 'Amazon SDE', 'GATE AE').
+            goal (str): Target domain (e.g., 'Amazon SDE', 'GATE').
             num_questions (int): Number of questions to return.
             difficulty (str): Difficulty level ('beginner', 'intermediate', 'advanced').
             topic (Optional[str]): Specific topic to filter (e.g., 'Algorithms').
@@ -179,9 +179,9 @@ if __name__ == "__main__":
         config_path=CONFIG["DATA_DIR"] / "config.json"
     )
     quiz = generator.generate_quiz(
-        goal="GATE AE",
+        goal="GATE",
         num_questions=5,
         difficulty="beginner",
         topic="General Aptitude"
     )
-    print(json.dumps(quiz, indent=2))
+    print(json.dumps(quiz, indent=2)) 

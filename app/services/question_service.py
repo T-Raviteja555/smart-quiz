@@ -60,9 +60,9 @@ class QuestionService:
         ]
         return GenerateQuestionsResponse(
             quiz_id=quiz_id,
-            goal=questions[0].goal if questions else "GATE AE",
+            goal=questions[0].goal if questions else "GATE",
             questions=response_questions
-        )
+        ) 
 
     def generate_quiz(self, goal: str, difficulty: str, num_questions: int, mode: str = None) -> GenerateQuestionsResponse:
         """Generate a quiz based on goal, difficulty, number of questions, and mode."""

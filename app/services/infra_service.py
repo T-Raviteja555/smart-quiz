@@ -161,7 +161,7 @@ class InfraService:
                 request_count=metrics["request_count"],
                 average_latency=average_latency,
                 error_count=metrics["error_count"]
-            )
+            ) 
         except Exception as e:
             logger.error(f"Failed to retrieve local metrics: {str(e)}")
             return LocalMetricsResponse(

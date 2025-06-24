@@ -192,7 +192,7 @@ async def lifespan(app: FastAPI):
         yield
     finally:
         # Shutdown: Cancel the aggregation task
-        task.cancel()
+        task.cancel() 
         try:
             await task
         except asyncio.CancelledError:

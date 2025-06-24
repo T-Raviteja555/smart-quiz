@@ -108,7 +108,7 @@ class QuizGenerator:
         Generate a quiz based on user input.
         
         Args:
-            goal (str): Target domain (e.g., 'Amazon SDE', 'GATE AE').
+            goal (str): Target domain (e.g., 'Amazon SDE', 'GATE').
             num_questions (int): Number of questions to return.
             difficulty (str): Difficulty level ('beginner', 'intermediate', 'advanced').
             topic (Optional[str]): Specific topic to filter (e.g., 'Algorithms').
@@ -166,7 +166,7 @@ def evaluate_quiz(quiz: Dict, expected_goal: str, expected_difficulty: str, expe
     
     Args:
         quiz (Dict): Generated quiz dictionary.
-        expected_goal (str): Expected goal (e.g., 'GATE AE').
+        expected_goal (str): Expected goal (e.g., 'GATE').
         expected_difficulty (str): Expected difficulty (e.g., 'beginner').
         expected_topic (Optional[str]): Expected topic (e.g., 'General Aptitude').
     
@@ -211,13 +211,13 @@ if __name__ == "__main__":
 
     # Define test queries
     test_queries = [
-        {"goal": "GATE AE", "num_questions": 5, "difficulty": "beginner", "topic": "General Aptitude"},
+        {"goal": "GATE", "num_questions": 5, "difficulty": "beginner", "topic": "General Aptitude"},
         {"goal": "Amazon SDE", "num_questions": 3, "difficulty": "intermediate", "topic": "Algorithms"},
-        {"goal": "GATE AE", "num_questions": 4, "difficulty": "advanced", "topic": "Mathematics"}
+        {"goal": "GATE", "num_questions": 4, "difficulty": "advanced", "topic": "Mathematics"}
     ]
 
     # Evaluate and log results
-    output_file = CONFIG["DATA_DIR"] / "evaluation_results.txt"
+    output_file = CONFIG["DATA_DIR"] / "evaluation_results.txt" 
     print("Evaluating QuizGenerator...")
     with open(output_file, "w", encoding='utf-8') as f:
         for query in test_queries:

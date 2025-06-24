@@ -11,7 +11,7 @@ class QuizQuestion:
         self.options = options
         self.answer = answer
         self.difficulty = difficulty
-        self.topic = topic
+        self.topic = topic 
         self.goal = goal
 
 class Generator:

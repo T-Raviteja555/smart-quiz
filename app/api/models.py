@@ -5,7 +5,7 @@ from app.utils.config_loader import CONFIG
 from app.questions import QuizQuestion
 
 class GoalRequest(BaseModel):
-    goal: str = Field(..., description="Goal to add or remove (e.g., 'GATE AE')", example="GATE AE", min_length=1)
+    goal: str = Field(..., description="Goal to add or remove (e.g., 'GATE')", example="GATE", min_length=1)
     action: str = Field(..., description="Action to perform", example="add", enum=["add", "remove"])
     api_token: str = Field(..., description="API token for authentication", example="secure-token-123", min_length=1)
     questions: Optional[List[QuizQuestion]] = Field(
@@ -13,7 +13,7 @@ class GoalRequest(BaseModel):
         description="Optional list of questions to add for the goal (requires at least 10 questions total)",
         example=[
             {
-                "goal": "GATE AE",
+                "goal": "GATE",
                 "type": "mcq",
                 "question": "Consider a thin flat plate at 2° angle of attack in a hypersonic flow at Mach 10. Assume that the pressure coefficient on the lower surface of the plate is given by the Newtonian theory, C_p = 2 sin^2 α, where α is the angle that the local surface makes with the free stream flow direction. Assume that the pressure coefficient on the upper surface is zero. The lift coefficient of the flat plate is",
                 "options": [
@@ -27,7 +27,7 @@ class GoalRequest(BaseModel):
                 "topic": "Aerodynamics"
             },
             {
-                "goal": "GATE AE",
+                "goal": "GATE",
                 "type": "short_answer",
                 "question": "Let f(x, y) = x^3 + y^3 - 3xy. The total number of critical points of the function is",
                 "answer": "2",
@@ -41,8 +41,8 @@ class GoalRequest(BaseModel):
 class GenerateQuestionsRequest(BaseModel):
     goal: str = Field(
         ..., 
-        description="Goal of the questions (e.g., 'GATE AE', 'Amazon SDE')", 
-        example="GATE AE", 
+        description="Goal of the questions (e.g., 'GATE', 'Amazon SDE')", 
+        example="GATE", 
         min_length=1
     )
     num_questions: int = Field(..., ge=1, le=10, description="Number of questions to generate", example=5)
@@ -67,12 +67,12 @@ QuestionResponse = Union[McqQuestionResponse, ShortAnswerQuestionResponse]
 
 class GenerateQuestionsResponse(BaseModel):
     quiz_id: str = Field(..., description="Unique identifier for the quiz", example="quiz_1234")
-    goal: str = Field(..., description="Goal of the quiz", example="GATE AE")
+    goal: str = Field(..., description="Goal of the quiz", example="GATE")
     questions: List[QuestionResponse] = Field(..., description="List of generated questions")
 
-class GoalResponse(BaseModel):
-    message: str = Field(..., description="Result of the goal action", example="Goal 'GATE AE' added successfully")
-    supported_goals: List[str] = Field(..., description="Updated list of supported goals", example=["GATE AE", "Amazon SDE"])
+class GoalResponse(BaseModel): 
+    message: str = Field(..., description="Result of the goal action", example="Goal 'GATE' added successfully")
+    supported_goals: List[str] = Field(..., description="Updated list of supported goals", example=["GATE", "Amazon SDE"])
 
 class HealthCheckResponse(BaseModel):
     status: str
@@ -85,7 +85,7 @@ class HealthCheckResponse(BaseModel):
                 "details": {
                     "question_bank": "Available (10 questions)",
                     "configuration": "Loaded successfully",
-                    "questions_by_goal": "GATE AE: 5, Amazon SDE: 5",
+                    "questions_by_goal": "GATE: 5, Amazon SDE: 5",
                     "questions_by_type": "MCQ: 8, Coding: 2"
                 }
             }
@@ -94,7 +94,7 @@ class HealthCheckResponse(BaseModel):
 class ConfigResponse(BaseModel):
     generator_mode: str = Field(..., description="Mode of the question generator", example="retrieval")
     version: str = Field(..., description="API version from configuration", example="1.0.0")
-    goal: List[str] = Field(..., description="Supported goals (managed via POST /goals)", example=["GATE AE", "Amazon SDE"])
+    goal: List[str] = Field(..., description="Supported goals (managed via POST /goals)", example=["GATE", "Amazon SDE"])
     type: List[str] = Field(..., description="Type of the questions", example=["mcq", "short_answer"])
 
 class LocalMetricsResponse(BaseModel):

@@ -11,12 +11,12 @@ def solve_equation(a: int, b: int, c: int) -> str:
     return ", ".join(str(round(float(root.evalf()), 2)) for root in sorted(roots, key=lambda x: float(x.evalf())))
 
 TEMPLATES = [
-    # GATE AE Templates
+    # GATE Templates
     {
         "template": Template("Solve {{a}}x² + {{b}}x + {{c}} = 0 for x (round to 2 decimal places)."),
         "difficulty": "beginner",
         "topic": "algebra",
-        "goal": "GATE AE",
+        "goal": "GATE",
         "generate_params": lambda: {
             "a": np.random.randint(1, 6),
             "b": np.random.randint(-5, 6),
@@ -29,7 +29,7 @@ TEMPLATES = [
         "template": Template("The thrust of a jet engine with mass flow rate {{m}} kg/s and exhaust velocity {{v}} m/s is (in kN, to two decimal places):"),
         "difficulty": "beginner",
         "topic": "propulsion",
-        "goal": "GATE AE",
+        "goal": "GATE",
         "generate_params": lambda: {
             "m": np.random.randint(40, 60),
             "v": np.random.randint(300, 700)
@@ -41,7 +41,7 @@ TEMPLATES = [
         "template": Template("The lift coefficient of a wing at {{angle}}° angle of attack is (to two decimal places):"),
         "difficulty": "intermediate",
         "topic": "Aerodynamics",
-        "goal": "GATE AE",
+        "goal": "GATE",
         "generate_params": lambda: {
             "angle": np.random.randint(2, 8)
         },
@@ -57,7 +57,7 @@ TEMPLATES = [
         "template": Template("A simply supported beam (length {{L}} m, point load {{P}} kN at center) has maximum bending moment in kNm:"),
         "difficulty": "beginner",
         "topic": "Structures",
-        "goal": "GATE AE",
+        "goal": "GATE",
         "generate_params": lambda: {
             "L": np.random.randint(1, 4),
             "P": np.random.randint(5, 15)
@@ -69,7 +69,7 @@ TEMPLATES = [
         "template": Template("A compressor stage has a stagnation pressure ratio of {{pr}}. If inlet stagnation temperature is {{T}} K, the outlet stagnation temperature is (in K, γ = 1.4, to two decimal places):"),
         "difficulty": "intermediate",
         "topic": "Propulsion",
-        "goal": "GATE AE",
+        "goal": "GATE",
         "generate_params": lambda: {
             "pr": round(np.random.uniform(1.1, 1.3), 1),
             "T": np.random.randint(280, 320)
@@ -81,7 +81,7 @@ TEMPLATES = [
         "template": Template("For an aircraft in a steady, level, coordinated turn at a turn radius of {{R}} m and velocity {{V}} m/s, the load factor is (to two decimal places):"),
         "difficulty": "advanced",
         "topic": "Flight Mechanics",
-        "goal": "GATE AE",
+        "goal": "GATE",
         "generate_params": lambda: {
             "R": np.random.randint(500, 1500),
             "V": np.random.randint(50, 100)
@@ -98,7 +98,7 @@ TEMPLATES = [
         "template": Template("The sum of the eigenvalues of the matrix [[{{a}}, 0], [0, {{b}}]] is (to one decimal place):"),
         "difficulty": "advanced",
         "topic": "Engineering Mathematics",
-        "goal": "GATE AE",
+        "goal": "GATE",
         "generate_params": lambda: {
             "a": np.random.randint(1, 5),
             "b": np.random.randint(1, 5)
@@ -106,12 +106,12 @@ TEMPLATES = [
         "compute_answer": lambda params: f"{(params['a'] + params['b']):.1f}",
         "options": []
     },
-    # GATE AE New Templates
+    # GATE New Templates
     {
         "template": Template("A solid circular shaft of diameter {{d}} mm is subjected to a torque of {{T}} Nm. The maximum shear stress is (in MPa, to two decimal places):"),
         "difficulty": "intermediate",
         "topic": "Mechanics",
-        "goal": "GATE AE",
+        "goal": "GATE",
         "generate_params": lambda: {
             "d": np.random.randint(20, 50),
             "T": np.random.randint(100, 500)
@@ -123,7 +123,7 @@ TEMPLATES = [
         "template": Template("The orbital velocity of a satellite in a circular orbit at {{h}} km altitude is (in km/s, to two decimal places, R = 6371 km, μ = 398600 km³/s²):"),
         "difficulty": "intermediate",
         "topic": "Space Dynamics",
-        "goal": "GATE AE",
+        "goal": "GATE",
         "generate_params": lambda: {
             "h": np.random.randint(300, 600)
         },
@@ -139,7 +139,7 @@ TEMPLATES = [
         "template": Template("The determinant of the matrix [[{{a}}, {{b}}], [{{c}}, {{d}}]] is:"),
         "difficulty": "advanced",
         "topic": "Linear Algebra",
-        "goal": "GATE AE",
+        "goal": "GATE",
         "generate_params": lambda: {
             "a": np.random.randint(1, 5),
             "b": np.random.randint(1, 5),
@@ -151,9 +151,9 @@ TEMPLATES = [
     },
     {
         "template": Template("For an ideal gas with specific heat at constant pressure {{cp}} J/kg·K and specific heat ratio {{gamma}}, the specific heat at constant volume is (in J/kg·K, to one decimal place):"),
-        "difficulty": "beginner",
+        "difficulty": "beginner", 
         "topic": "Thermodynamics",
-        "goal": "GATE AE",
+        "goal": "GATE",
         "generate_params": lambda: {
             "cp": np.random.randint(1000, 1200),
             "gamma": round(np.random.uniform(1.3, 1.5), 2)

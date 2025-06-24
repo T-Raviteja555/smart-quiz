@@ -6,4 +6,4 @@ class Generator(ABC):
     @abstractmethod
     def generate(self, goal: str, difficulty: str, num_questions: int, **kwargs) -> List[QuizQuestion]:
         """Generate questions based on input parameters."""
-        pass
+        pass 

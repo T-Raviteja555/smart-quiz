@@ -1,6 +1,6 @@
 [
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "If '→' denotes increasing order of intensity, then the meaning of the words [dry → arid → parched] is analogous to [diet → fast → ____]. Which one of the given options is appropriate to fill the blank?",
         "options": [
@@ -14,7 +14,7 @@
         "topic": "General Aptitude"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "If two distinct non-zero real variables x and y are such that (x+y) is proportional to (x-y) then the value of x/y",
         "options": [
@@ -28,7 +28,7 @@
         "topic": "Mathematics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Consider the following sample of numbers: 9,18,11,14,15,17,10,69,11,13. The median of the sample is",
         "options": [
@@ -42,7 +42,7 @@
         "topic": "General Aptitude"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The number of coins of ₹1, ₹5, and ₹10 denominations that a person has are in the ratio 5:3:13. Of the total amount, the percentage of money in ₹5 coins is",
         "options": [
@@ -56,7 +56,7 @@
         "topic": "General Aptitude"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "For positive non-zero real variables p and q, if log(p^2 + q^2) = log p + log q + 2 log 3, then, the value of (p^4 + q^4)/(p^2 q^2) is",
         "options": [
@@ -70,7 +70,7 @@
         "topic": "Mathematics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "In the given text, the blanks are numbered (i)-(iv). Select the best match for all the blanks. Steve was advised to keep his head ____ (i) before heading ____ (ii) for, while he had a head ____ (iii) he could head ____ (iv) his shoulders.",
         "options": [
@@ -84,7 +84,7 @@
         "topic": "General Aptitude"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "A rectangular paper sheet of dimensions 54 cm × 4 cm is taken. The two longer edges of the sheet are joined together to create a cylindrical tube. A cube whose surface area is equal to the area of the sheet is also taken. Then, the ratio of the volume of the cylindrical tube to the volume of the cube is",
         "options": [
@@ -98,7 +98,7 @@
         "topic": "General Aptitude"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The total fat (all three types), in grams, this person consumes is",
         "options": [
@@ -112,7 +112,7 @@
         "topic": "General Aptitude"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "A rectangular paper of 20 cm × 8 cm is folded 3 times. Each fold is made along the line of symmetry, which is perpendicular to its long edge. The perimeter of the final folded sheet (in cm) is",
         "options": [
@@ -126,7 +126,7 @@
         "topic": "General Aptitude"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The least number of squares to be added in the figure to make AB a line of symmetry is",
         "options": [
@@ -140,7 +140,7 @@
         "topic": "General Aptitude"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The following system of linear equations 7x - 3y + z = 0, 3x - y + z = 0, x - y - z = 0 has:",
         "options": [
@@ -154,7 +154,7 @@
         "topic": "Linear Algebra"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The acceleration of a body travelling in a straight line is given by a = -C_1 - C_2 v^2 where v is the velocity, and C_1, C_2 are positive constants. Starting with an initial positive velocity v_0, the distance travelled by the body before coming to rest for the first time is:",
         "options": [
@@ -168,7 +168,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The three-dimensional stress-strain relationship for an isotropic material is given as a matrix equation. Which one of the following options is correct?",
         "options": [
@@ -182,7 +182,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Consider the free vibration responses P, Q, R, and S of a single degree of freedom spring-mass-damper system with the same initial conditions. For the different damping cases listed below, which one of the following options is correct? 1. Overdamped, 2. Underdamped, 3. Critically damped, 4. Undamped",
         "options": [
@@ -196,7 +196,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "For a single degree of freedom spring-mass-damper system subjected to harmonic forcing, the part of the motion (response) that decays due to damping is known as:",
         "options": [
@@ -210,7 +210,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "For an ideal gas, the specific heat at constant pressure is 1147 J/kg K and the ratio of specific heats is equal to 1.33. What is the value of the gas constant for this gas in J/kg K?",
         "options": [
@@ -224,7 +224,7 @@
         "topic": "Thermodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "A surrogate liquid hydrocarbon fuel, approximated as C_10 H_12, is being burned in a land-based gas turbine combustor with dry air (79% N_2 and 21% O_2 by volume). How many moles of dry air are required for the stoichiometric combustion of the surrogate fuel with dry air at atmospheric temperature and pressure?",
         "options": [
@@ -238,7 +238,7 @@
         "topic": "Aerospace Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "In the figure shown below, various thermodynamics processes for an ideal gas are represented. Match each curve with the process that it best represents. P - adiabatic, Q - isothermal, R - isobaric, S - isochoric",
         "options": [
@@ -252,7 +252,7 @@
         "topic": "Thermodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Consider a turbojet engine operating at sea level with an inlet Mach number of 0.85. The total temperature at the compressor inlet is 320 K and the total pressure is 101325 Pa. The compressor has a pressure ratio of 12. Assuming the flow through the inlet to be isentropic and γ = 1.4, the total temperature at the compressor exit is",
         "options": [
@@ -266,7 +266,7 @@
         "topic": "Aerospace Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The stagnation pressure at the inlet of a pipe is 100 kPa. The pipe has a constant inner diameter of 50 mm, and the dynamic viscosity and density of the gas flowing inside are 1.8 × 10^-5 kg/(m s) and 1.2 kg/m^3, respectively. The Mach number of the flow at the inlet is 0.2. Assuming the flow to be fully developed, steady, and incompressible, the stagnation pressure at a distance 1 m downstream of the inlet is",
         "options": [
@@ -280,7 +280,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Consider an inviscid, incompressible flow over a circular cylinder of infinite span. The free stream flow is steady, two-dimensional, and along the positive x-direction. The circulation around the cylinder is zero. Which one of the following statements is correct about the flow field?",
         "options": [
@@ -294,7 +294,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The lift curve slope of a finite wing in an incompressible flow is 5.8 per radian. The wing has an aspect ratio of 6. Assuming elliptic lift distribution, the lift curve slope of the airfoil section constituting the wing (per radian) is",
         "options": [
@@ -308,7 +308,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Consider a thin flat plate at 2° angle of attack in a hypersonic flow at Mach 10. Assume that the pressure coefficient on the lower surface of the plate is given by the Newtonian theory, C_p = 2 sin^2 α, where α is the angle that the local surface makes with the free stream flow direction. Assume that the pressure coefficient on the upper surface is zero. The lift coefficient of the flat plate is",
         "options": [
@@ -322,7 +322,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "For an aircraft in a steady, level, coordinated turn at a given turn radius, which one of the following statements is correct?",
         "options": [
@@ -336,7 +336,7 @@
         "topic": "Flight Dynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The pitching moment coefficient about the aerodynamic center of an airfoil is -0.05. The lift coefficient of the airfoil is 0.5. The pitching moment coefficient about the point at 25% chord length from the leading edge is",
         "options": [
@@ -350,7 +350,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "Let f(x, y) = x^3 + y^3 - 3xy. The total number of critical points of the function is",
         "answer": "2",
@@ -359,7 +359,7 @@
         "topic": "Mathematics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The value of the integral ∮_C (x dy - y dx)/(x^2 + y^2), where C is the circle x^2 + y^2 = 4 traversed once in the counter clockwise direction, is",
         "answer": "0",
@@ -368,7 +368,7 @@
         "topic": "Mathematics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The creep strain (ε_c) of a material at any time t is given by ε_c = A t^n, where A and n are material constants. For a constant stress and temperature, the creep strain rate at t = 100 s is 2.25 × 10^-5 s^-1. The creep strain at t = 400 s is",
         "answer": "0.35",
@@ -377,7 +377,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A cantilever beam of length L is subjected to a concentrated load P at the free end. The beam cross section is rectangular with constant width b and varying depth, which is proportional to x^(1/3), where x is the distance from the free end. The maximum bending stress in the beam is proportional to",
         "answer": "0",
@@ -386,7 +386,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A thin cylindrical pressure vessel with closed ends has an internal diameter of 0.5 m and a wall thickness of 5 mm. The material yield strength is 300 MPa. Assuming the von Mises yield criterion, the maximum allowable internal pressure in the vessel is",
         "answer": "1.5",
@@ -395,7 +395,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A solid circular shaft of diameter 100 mm is subjected to a twisting moment of 10 kNm. The maximum shear stress in the shaft is",
         "answer": "75000",
@@ -404,7 +404,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "Consider a two degree of freedom system with the equations of motion given by [M]{ẍ} + [C]{ẋ} + [K]{x} = 0. The damping matrix [C] is proportional to the stiffness matrix [K], where [C] = α[K] and α = 0.02 s. The damping ratio for the first mode is",
         "answer": "0.55",
@@ -413,7 +413,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The steady state amplitude of a single degree of freedom system subjected to a harmonic force F_0 sin(ωt) with damping ratio ζ = 0.1 is 10 mm when the forcing frequency equals the natural frequency of the system. The steady state amplitude of the system when the forcing frequency is twice the natural frequency is",
         "options": [
@@ -427,7 +427,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Consider a uniform rigid bar of mass m and length l, pivoted at one end and supported by a spring of stiffness k at a distance l/2 from the pivot. The natural frequency of small oscillations of the bar about the pivot is",
         "options": [
@@ -441,7 +441,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "In an ideal Brayton cycle with a single stage compressor and turbine, the compressor pressure ratio is 10 and the turbine inlet temperature is 1200 K. The ambient temperature and pressure are 300 K and 100 kPa, respectively. Assuming γ = 1.4 and constant specific heats, the net work output per unit mass of the cycle is",
         "options": [
@@ -455,7 +455,7 @@
         "topic": "Aerospace Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Consider a turbojet engine with a compressor pressure ratio of 10, combustor exit temperature of 1200 K, and ambient conditions of 300 K and 100 kPa. The compressor and turbine efficiencies are 0.85 and 0.9, respectively. Assuming γ = 1.4 and constant specific heats, the specific thrust of the engine is",
         "options": [
@@ -469,7 +469,7 @@
         "topic": "Aerospace Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The Pitot tube of an aircraft flying at a true air speed of 100 m/s at an altitude where the ambient pressure and temperature are 50 kPa and 255 K, respectively, measures a stagnation pressure of",
         "options": [
@@ -483,7 +483,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Consider a low-speed wind tunnel with a test section cross-sectional area of 1 m^2. The air speed in the test section is 30 m/s, and the air density is 1.2 kg/m^3. The dynamic pressure in the test section is",
         "options": [
@@ -497,7 +497,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "For a thin airfoil at an angle of attack of 5° in an incompressible flow, the lift coefficient is 0.6. The pitching moment coefficient about the leading edge is",
         "options": [
@@ -511,7 +511,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "An aircraft is flying at a Mach number of 0.8 at an altitude where the speed of sound is 300 m/s. The true air speed of the aircraft is",
         "options": [
@@ -525,7 +525,7 @@
         "topic": "Flight Dynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "For an aircraft in steady, level flight, the thrust-to-weight ratio is 0.3, and the lift-to-drag ratio is 10. The drag coefficient is",
         "options": [
@@ -539,7 +539,7 @@
         "topic": "Flight Dynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The pressure coefficient at a point on an airfoil in an incompressible flow is -0.4. The free stream Mach number is 0.2. The pressure at that point is",
         "options": [
@@ -553,7 +553,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Consider a thin-walled cylindrical shell with closed ends subjected to an internal pressure of 1 MPa. The diameter of the cylinder is 0.5 m, and the wall thickness is 5 mm. The hoop stress in the cylinder is",
         "options": [
@@ -567,7 +567,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "A simply supported beam of length L is subjected to a uniformly distributed load w. The maximum bending moment in the beam is",
         "options": [
@@ -581,7 +581,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "For a two-dimensional incompressible flow, the stream function is given by ψ = x^2 - y^2. The velocity vector at the point (1, 1) is",
         "options": [
@@ -595,7 +595,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The specific impulse of a rocket engine is 300 s. The thrust produced by the engine is 100 kN. The propellant mass flow rate is",
         "options": [
@@ -609,7 +609,7 @@
         "topic": "Aerospace Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Which of the following statements is/are correct about the flow over a flat plate in a viscous fluid?",
         "options": [
@@ -623,7 +623,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Which of the following statements is/are correct about the stability of an aircraft?",
         "options": [
@@ -637,7 +637,7 @@
         "topic": "Flight Dynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Which of the following statements is/are correct about the Navier-Stokes equations for an incompressible flow?",
         "options": [
@@ -651,7 +651,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Which of the following statements is/are correct about the compressor surge in an axial flow compressor?",
         "options": [
@@ -665,7 +665,7 @@
         "topic": "Aerospace Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Which of the following statements is/are correct about the flow in a convergent-divergent nozzle?",
         "options": [
@@ -679,7 +679,7 @@
         "topic": "Aerospace Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Which of the following statements is/are correct about the drag on an airfoil?",
         "options": [
@@ -693,7 +693,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "Consider the matrix A = [[5, -4], [k, -1]], where k is a constant. If the determinant of A is 3, then the ratio of the largest eigenvalue of A to the constant k is (rounded off to 1 decimal place).",
         "answer": "1.5",
@@ -702,7 +702,7 @@
         "topic": "Linear Algebra"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The state of stress at a point is caused by two separate loading cases. One of them produces a pure uniaxial tension along the x' direction, and other one produces a pure uniaxial compression along the y' direction. The sum of maximum and minimum principal stresses for the resultant state of stress caused by both loads acting simultaneously is",
         "answer": "0",
@@ -711,7 +711,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "Consider a cantilever beam with a rectangular cross-section subjected to a uniformly distributed load. The length of the beam is 2 m, and the maximum deflection at the free end is 10 mm. The modulus of elasticity of the material is 200 GPa. The moment of inertia of the cross-section is 1 × 10^-6 m^4. The magnitude of the maximum bending stress in the beam is (rounded off to 1 decimal place) MPa.",
         "answer": "141.3",
@@ -720,7 +720,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The cross section of a thin-walled beam with uniform wall thickness t, is subjected to a bending moment M_x = 10 Nm. If h = 1 m and t = 0.001 m, the magnitude of maximum normal stress in the cross section is (answer in integer) N/m^2.",
         "answer": "15000",
@@ -729,7 +729,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A thin rectangular plate of dimensions 1 m × 0.5 m is subjected to a uniform shear stress of 10 MPa along its edges. The maximum normal stress in the plate is (rounded off to 2 decimal places) MPa.",
         "answer": "1.73",
@@ -738,7 +738,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A single degree of freedom system with a mass of 2 kg and stiffness of 8 N/m is subjected to a harmonic force of 4 N at a frequency equal to the natural frequency of the system. The damping ratio is 0.1. The steady state amplitude of vibration is (rounded off to 1 decimal place) m.",
         "answer": "5.0",
@@ -747,7 +747,7 @@
         "topic": "Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A chemical rocket with an ideally expanded flow through the nozzle produces 5 × 10^6 N thrust at sea level. The specific impulse of the rocket is 200 s and acceleration due to gravity at the sea level is 9.8 m/s^2. The propellant mass flow rate out of the rocket nozzle is (rounded off to the nearest integer) kg/s.",
         "answer": "2551",
@@ -756,7 +756,7 @@
         "topic": "Aerospace Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A centrifugal compressor is designed to operate with air. At the leading edge of the tip of the inducer (eye of the impeller), the blade angle is 45°, and the relative Mach number is 1.0. The stagnation temperature of the incoming air is 300 K. Consider γ = 1.4. Neglect pre-whirl and slip. The inducer tip speed is (rounded off to the nearest integer) m/s.",
         "answer": "235",
@@ -765,7 +765,7 @@
         "topic": "Aerospace Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "Consider the following Fanno flow problem: Flow enters a constant area duct at a temperature of 273 K and a Mach number 0.2 and eventually reaches sonic condition (Mach number = 1) due to friction. Assume γ = 1.4. The static temperature at the location where sonic condition is reached is (rounded off to 2 decimal places) K.",
         "answer": "229.41",
@@ -774,7 +774,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "Consider an artificial satellite moving around the Moon in an elliptic orbit. The altitude of the satellite from the Moon's surface at the perigee is 25 km and that at the apogee is 134 km. Assume the Moon to be spherical with a radius of 1737 km. The trajectory is considered with reference to a coordinate system fixed to the center of mass of the Moon. The ratio of the speed of the satellite at the perigee to that at the apogee is (rounded off to 2 decimal places).",
         "answer": "1.06",
@@ -783,7 +783,7 @@
         "topic": "Flight Dynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "For an aircraft moving at 4 km altitude above mean sea level at a Mach number of 0.2, the ratio of equivalent air speed to true air speed is (rounded off to 2 decimal places). The density of air at mean sea level is 1.225 kg/m^3 and at 4 km altitude is 0.819 kg/m^3.",
         "answer": "0.82",
@@ -792,7 +792,7 @@
         "topic": "Flight Dynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "For a general aviation airplane, one of the complex conjugate pair of eigenvalues for longitudinal dynamics is given by -0.039 ± 0.0567i (in SI units). If the system is disturbed to excite only this mode, the time taken for the amplitude of response to become half in magnitude is (rounded off to 1 decimal place) s.",
         "answer": "17.8",
@@ -801,7 +801,7 @@
         "topic": "Flight Dynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The drag coefficient for the airfoil is defined as C_d = D/(0.5 ρ U_∞^2 c), where D is the drag force on the airfoil per unit span and ρ is the density of the air. Assuming the flow to be incompressible, two-dimensional and steady, the C_d for the airfoil is (rounded off to 3 decimal places).",
         "answer": "0.02",
@@ -810,7 +810,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "Consider a thin flat plate of chord 1 m at an angle of attack of 5° in an incompressible flow. The lift coefficient of the plate is 0.1. The sectional lift force per unit span is 100 N/m. The free stream velocity is (rounded off to 1 decimal place) m/s.",
         "answer": "64.0",
@@ -819,7 +819,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "It is desired to estimate the aerodynamic drag, D, on a car traveling at a speed of 30 m/s. A one-third scale model of the car is tested in a wind-tunnel following the principles of dynamic similarity. The drag on the scaled model is measured to be D_m. The ratio D/D_m is (rounded off to 1 decimal place).",
         "answer": "1.0",
@@ -2949,7 +2949,7 @@
         "topic": "Algorithms"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The standard sea level temperature is:",
         "options": [
@@ -2963,7 +2963,7 @@
         "topic": "Flight Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The primary purpose of wing spoilers is:",
         "options": [
@@ -2977,7 +2977,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "In a linear system, the transfer function is G(s) = 2/(s+3). The steady-state gain is:",
         "options": [
@@ -2991,7 +2991,7 @@
         "topic": "Engineering Mathematics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The Euler angles describe the orientation of an aircraft relative to:",
         "options": [
@@ -3005,7 +3005,7 @@
         "topic": "Flight Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "In a Brayton cycle, efficiency increases with:",
         "options": [
@@ -3019,7 +3019,7 @@
         "topic": "Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "For an elliptic lift distribution, the induced drag is minimized when:",
         "options": [
@@ -3033,7 +3033,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "In a gas turbine engine, the highest pressure occurs:",
         "options": [
@@ -3047,7 +3047,7 @@
         "topic": "Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "For a thin airfoil at Mach 0.2, the pressure coefficient at a point is -1.0. If Mach number increases to 0.5, the pressure coefficient is approximately:",
         "options": [
@@ -3061,7 +3061,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The maximum longitudinal gradient for an ICAO ‘A’ type airport runway is:",
         "options": [
@@ -3075,7 +3075,7 @@
         "topic": "Flight Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The characteristic equation of a system is s^2 + 4s + 4 = 0. The system is:",
         "options": [
@@ -3089,7 +3089,7 @@
         "topic": "Engineering Mathematics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "In a rocket, the specific impulse is highest for which propellant combination?",
         "options": [
@@ -3103,7 +3103,7 @@
         "topic": "Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The lift curve slope for a thin airfoil in incompressible flow is approximately:",
         "options": [
@@ -3117,7 +3117,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "Kepler’s second law implies that a satellite’s:",
         "options": [
@@ -3131,7 +3131,7 @@
         "topic": "Space Dynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "The critical Mach number of an airfoil is the Mach number at which:",
         "options": [
@@ -3145,7 +3145,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "mcq",
         "question": "A simply supported beam with a point load at the center has maximum deflection proportional to:",
         "options": [
@@ -3159,7 +3159,7 @@
         "topic": "Structures"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A combustor operates with a fuel-air ratio of 0.02. If the stoichiometric fuel-air ratio is 0.05, what is the equivalence ratio? (Answer to two decimal places)",
         "answer": "0.40",
@@ -3167,7 +3167,7 @@
         "topic": "Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The determinant of the matrix [[2, 1], [1, 3]] is:",
         "answer": "5",
@@ -3175,7 +3175,7 @@
         "topic": "Engineering Mathematics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The standard temperature at 3000 m above sea level is (in °C, to one decimal place)?",
         "answer": "-4.5",
@@ -3183,7 +3183,7 @@
         "topic": "Flight Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "An aircraft has a wing area of 20 m^2 and lift coefficient of 0.4. If the dynamic pressure is 1200 Pa, what is the lift force in kN? (To one decimal place)",
         "answer": "9.6",
@@ -3191,7 +3191,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The natural frequency of a spring-mass system with m = 2 kg and k = 50 N/m is (in rad/s, to one decimal place):",
         "answer": "5.0",
@@ -3199,7 +3199,7 @@
         "topic": "Structures"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A jet engine compressor has a pressure ratio of 8. If the inlet temperature is 288 K, what is the outlet temperature in K? (γ = 1.4, isentropic, to two decimal places)",
         "answer": "497.76",
@@ -3207,7 +3207,7 @@
         "topic": "Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The orbital period of a satellite in a circular orbit at 400 km altitude is (in minutes, to one decimal place, Earth radius = 6371 km, μ = 398600 km^3/s^2):",
         "answer": "92.5",
@@ -3215,7 +3215,7 @@
         "topic": "Space Dynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A solid circular shaft (diameter 0.05 m) under 500 Nm torque has maximum shear stress in MPa (to two decimal places):",
         "answer": "25.46",
@@ -3223,7 +3223,7 @@
         "topic": "Structures"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The lift coefficient of a thin airfoil at 4° angle of attack is (to two decimal places):",
         "answer": "0.44",
@@ -3231,7 +3231,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The escape velocity from Earth’s surface (R = 6371 km, μ = 398600 km^3/s^2) is (in km/s, to two decimal places):",
         "answer": "11.19",
@@ -3239,7 +3239,7 @@
         "topic": "Space Dynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A wing with lift 5000 N, velocity 50 m/s, and span 10 m has induced drag in N (elliptic lift, ρ = 1.225 kg/m^3, to two decimal places):",
         "answer": "40.82",
@@ -3247,7 +3247,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The eigenvalues of the matrix [[1, 0], [0, 2]] are (sum, to one decimal place):",
         "answer": "3.0",
@@ -3255,7 +3255,7 @@
         "topic": "Engineering Mathematics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A rocket has a mass ratio of 5. The exhaust velocity is 2 km/s. The delta-v is (in km/s, to two decimal places, g = 9.81 m/s^2):",
         "answer": "3.22",
@@ -3263,7 +3263,7 @@
         "topic": "Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The pressure recovery of a subsonic intake with inlet stagnation pressure 100 kPa and exit 97 kPa is (to two decimal places):",
         "answer": "0.97",
@@ -3271,7 +3271,7 @@
         "topic": "Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The maximum bending moment in a simply supported beam (length 2 m, point load 10 kN at center) is (in kNm):",
         "answer": "5",
@@ -3279,7 +3279,7 @@
         "topic": "Structures"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "An aircraft (weight 10,000 N, wing area 25 m^2, C_L = 0.5) flies at sea level (ρ = 1.225 kg/m^3). The velocity is (in m/s, to two decimal places):",
         "answer": "57.14",
@@ -3287,7 +3287,7 @@
         "topic": "Flight Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A compressor stage has a stagnation pressure ratio of 1.2. If inlet stagnation temperature is 300 K, the outlet stagnation temperature is (in K, γ = 1.4, to two decimal places):",
         "answer": "315.46",
@@ -3295,7 +3295,7 @@
         "topic": "Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The induced drag coefficient for a wing (C_L = 0.6, aspect ratio = 8, elliptic lift) is (to three decimal places):",
         "answer": "0.014",
@@ -3303,7 +3303,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A satellite in a circular orbit at 500 km altitude has an orbital velocity (in km/s, R = 6371 km, μ = 398600 km^3/s^2, to two decimal places):",
         "answer": "7.61",
@@ -3311,7 +3311,7 @@
         "topic": "Space Dynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A thin plate (E = 200 GPa, ν = 0.3, thickness 0.01 m) under uniaxial stress of 100 MPa has strain in the loading direction (to five decimal places):",
         "answer": "0.00050",
@@ -3319,7 +3319,7 @@
         "topic": "Structures"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The thrust of a jet engine with mass flow rate 50 kg/s and exhaust velocity 600 m/s is (in kN, to one decimal place):",
         "answer": "30.0",
@@ -3327,7 +3327,7 @@
         "topic": "Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The lift-to-drag ratio for a wing (C_L = 0.8, C_D = 0.02) is (to one decimal place):",
         "answer": "40.0",
@@ -3335,7 +3335,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A beam (length 3 m, E = 70 GPa, I = 10^-4 m^4) with a uniformly distributed load of 5 kN/m has maximum deflection in mm (to two decimal places):",
         "answer": "5.58",
@@ -3343,7 +3343,7 @@
         "topic": "Structures"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The specific impulse of a rocket with exhaust velocity 2500 m/s is (in seconds, g = 9.81 m/s^2, to one decimal place):",
         "answer": "254.8",
@@ -3351,7 +3351,7 @@
         "topic": "Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The critical Mach number of an airfoil with Cp_min = -0.5 at M = 0.3 is (to two decimal places):",
         "answer": "0.62",
@@ -3359,7 +3359,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A satellite requires a delta-v of 0.5 km/s to change its orbit. If the specific impulse is 300 s, the propellant mass fraction is (to three decimal places, g = 9.81 m/s^2):",
         "answer": "0.056",
@@ -3367,7 +3367,7 @@
         "topic": "Space Dynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The stagnation pressure ratio across a normal shock at Mach 2 is (γ = 1.4, to two decimal places):",
         "answer": "0.72",
@@ -3375,7 +3375,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A cantilever beam (length 1 m, E = 200 GPa, I = 2 * 10^-6 m^4) with a point load of 1000 N at the free end has deflection in mm (to two decimal places):",
         "answer": "1.67",
@@ -3383,7 +3383,7 @@
         "topic": "Structures"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The Reynolds number for flow over a wing (chord 2 m, velocity 50 m/s, ρ = 1.225 kg/m^3, μ = 1.8 * 10^-5 kg/m-s) is (to nearest integer):",
         "answer": "6811111",
@@ -3391,7 +3391,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A turbojet engine at sea level (T_0 = 288 K, P_0 = 101 kPa) has a compressor pressure ratio of 10. The compressor exit temperature is (in K, γ = 1.4, to two decimal places):",
         "answer": "556.24",
@@ -3399,7 +3399,7 @@
         "topic": "Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The dynamic pressure for an aircraft flying at 60 m/s at sea level (ρ = 1.225 kg/m^3) is (in Pa, to nearest integer):",
         "answer": "2205",
@@ -3407,7 +3407,7 @@
         "topic": "Flight Mechanics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A thin airfoil at 6° angle of attack has a moment coefficient about the quarter-chord point (to three decimal places):",
         "answer": "0.000",
@@ -3415,7 +3415,7 @@
         "topic": "Aerodynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The mass flow rate through a nozzle (A = 0.01 m^2, ρ = 1.225 kg/m^3, V = 200 m/s) is (in kg/s, to two decimal places):",
         "answer": "2.45",
@@ -3423,7 +3423,7 @@
         "topic": "Propulsion"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "A Hohmann transfer from a 400 km to 1000 km circular orbit requires a total delta-v (in km/s, R = 6371 km, μ = 398600 km^3/s^2, to two decimal places):",
         "answer": "0.53",
@@ -3431,7 +3431,7 @@
         "topic": "Space Dynamics"
     },
     {
-        "goal": "GATE AE",
+        "goal": "GATE",
         "type": "short_answer",
         "question": "The maximum shear stress in a rectangular beam (width 0.05 m, height 0.1 m, shear force 10 kN) is (in MPa, to two decimal places):",
         "answer": "6.00",
@@ -4490,12 +4490,2147 @@
         "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
     },
     {
-        "goal": "MAT",
+        "goal": "CAT",
         "type": "mcq",
         "question": "(Data Interpretation) What is the total profit for company Y in year 5?",
         "options": ["200", "250", "300", "350"],
         "answer": "250",
         "difficulty": "intermediate",
         "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "What is the remainder when 7^50 is divided by 100?",
+        "options": ["1", "7", "49", "51"],
+        "answer": "51",
+        "difficulty": "advanced",
+        "topic": "Quantitative Ability - Number Systems"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "A shopkeeper marks up an item by 20% and offers a 10% discount. If the selling price is Rs. 1080, what is the cost price?",
+        "options": ["Rs. 900", "Rs. 1000", "Rs. 1100", "Rs. 1200"],
+        "answer": "Rs. 1000",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Profit and Loss"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "If 2x + 3y = 12 and x - y = 2, what is the value of x + y?",
+        "options": ["4", "5", "6", "7"],
+        "answer": "5",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Linear Equations"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "In how many ways can 5 distinct books be arranged on a shelf if 2 specific books must be together?",
+        "options": ["24", "48", "72", "120"],
+        "answer": "48",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Permutations and Combinations"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "The area of a circle is 154 cm². What is the circumference?",
+        "options": ["22 cm", "44 cm", "66 cm", "88 cm"],
+        "answer": "44 cm",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Geometry"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "A train travels 300 km in 5 hours. What is its speed in m/s?",
+        "options": ["10 m/s", "15 m/s", "20 m/s", "25 m/s"],
+        "answer": "16.67 m/s",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Speed and Time"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "If log₂(x) + log₂(x/4) = 3, what is x?",
+        "options": ["4", "8", "16", "32"],
+        "answer": "8",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Logarithms"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "What is the probability of drawing a red card from a standard deck of 52 cards?",
+        "options": ["1/4", "1/3", "1/2", "2/3"],
+        "answer": "1/2",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Probability"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "If a pipe can fill a tank in 6 hours and another pipe can empty it in 8 hours, how long will it take to fill the tank if both pipes are open?",
+        "options": ["12 hours", "24 hours", "36 hours", "48 hours"],
+        "answer": "24 hours",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Time and Work"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "The sum of the first n terms of an AP is 3n² + 2n. What is the 5th term?",
+        "options": ["15", "17", "19", "21"],
+        "answer": "17",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Arithmetic Progression"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "If a number is divisible by 6 and 8, what is the smallest number divisible by it?",
+        "options": ["12", "24", "48", "72"],
+        "answer": "24",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Number Systems"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "A sum of Rs. 5000 is invested at 10% compound interest annually. What is the amount after 2 years?",
+        "options": ["Rs. 5500", "Rs. 6000", "Rs. 6050", "Rs. 6100"],
+        "answer": "Rs. 6050",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Interest"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "In a class of 40 students, 60% are boys. How many girls are there?",
+        "options": ["12", "16", "20", "24"],
+        "answer": "16",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Percentages"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "If the ratio of the ages of A and B is 3:4 and their total age is 56, what is A’s age?",
+        "options": ["21", "24", "27", "30"],
+        "answer": "24",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Ratios"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "What is the value of x if 3x² - 12x + 12 = 0?",
+        "options": ["2", "3", "4", "5"],
+        "answer": "2",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Quadratic Equations"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "In how many ways can 3 people be seated in 5 chairs?",
+        "options": ["60", "45", "30", "15"],
+        "answer": "60",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Permutations"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "If a rectangle has length 12 cm and width 5 cm, what is the length of its diagonal?",
+        "options": ["13 cm", "14 cm", "15 cm", "16 cm"],
+        "answer": "13 cm",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Geometry"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "Which word is most similar to 'ephemeral'?",
+        "options": ["Permanent", "Transient", "Eternal", "Stable"],
+        "answer": "Transient",
+        "difficulty": "beginner",
+        "topic": "Verbal Ability and Reading Comprehension - Vocabulary"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "What is the main idea of a passage discussing the benefits of remote work?",
+        "options": ["Remote work increases costs.", "Remote work reduces productivity.", "Remote work offers flexibility.", "Remote work is unsustainable."],
+        "answer": "Remote work offers flexibility.",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Reading Comprehension"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "Arrange the sentences: A) Education is vital. B) It empowers individuals. C) Challenges persist. D) Funding is crucial.",
+        "options": ["ABCD", "BADC", "ACBD", "DABC"],
+        "answer": "ABCD",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Para Jumble"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "Correct the sentence: 'Each of the students have completed their homework.'",
+        "options": ["Each of the students has completed their homework.", "Each of the students have completed his homework.", "Each of the students has completed his homework.", "Each of the students have completed their homeworks."],
+        "answer": "Each of the students has completed their homework.",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Sentence Correction"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "What strengthens the argument in a passage about universal healthcare?",
+        "options": ["High costs of implementation", "Improved public health outcomes", "Limited access to specialists", "Increased waiting times"],
+        "answer": "Improved public health outcomes",
+        "difficulty": "advanced",
+        "topic": "Verbal Ability and Reading Comprehension - Critical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "Which sentence summarizes a passage on blockchain technology?",
+        "options": ["Blockchain is insecure.", "Blockchain enhances transparency.", "Blockchain is outdated.", "Blockchain requires heavy regulation."],
+        "answer": "Blockchain enhances transparency.",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Para Summary"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "What is the author’s tone in a passage about space exploration?",
+        "options": ["Skeptical", "Optimistic", "Indifferent", "Critical"],
+        "answer": "Optimistic",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Reading Comprehension"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "Which word fits: 'The politician’s ___ speech inspired the crowd.'?",
+        "options": ["monotonous", "confusing", "riveting", "dull"],
+        "answer": "riveting",
+        "difficulty": "beginner",
+        "topic": "Verbal Ability and Reading Comprehension - Vocabulary"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "What can be inferred from a passage on sustainable agriculture?",
+        "options": ["Traditional farming is superior.", "Innovation drives sustainability.", "Organic farming is unprofitable.", "Sustainable practices are unnecessary."],
+        "answer": "Innovation drives sustainability.",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Reading Comprehension"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "Which sentence is out of context in a paragraph about digital privacy?",
+        "options": ["A", "B", "C", "D"],
+        "answer": "B",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Odd Sentence Out"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "Complete the paragraph: 'Renewable energy is the future. However, ...'",
+        "options": ["costs remain high.", "fossil fuels are cheaper.", "reliability is perfect.", "adoption is universal."],
+        "answer": "costs remain high.",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Paragraph Completion"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "What weakens the argument in a passage about electric vehicles?",
+        "options": ["A", "B", "C", "D"],
+        "answer": "C",
+        "difficulty": "advanced",
+        "topic": "Verbal Ability and Reading Comprehension - Critical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "Which word is an antonym for 'benevolent'?",
+        "options": ["Kind", "Malevolent", "Generous", "Friendly"],
+        "answer": "Malevolent",
+        "difficulty": "beginner",
+        "topic": "Verbal Ability and Reading Comprehension - Vocabulary"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Reading Comprehension) What is the author’s view on financial literacy?",
+        "options": ["Irrelevant", "Essential", "Overrated", "Complex"],
+        "answer": "Essential",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Reading Comprehension"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "Arrange the sentences: A) Innovation fuels growth. B) Challenges arise. C) Solutions are needed. D) Technology evolves.",
+        "options": ["ABCD", "DABC", "ACBD", "BDCA"],
+        "answer": "ADBC",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Para Jumble"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Data Interpretation) What is the total production of company A from the given bar graph?",
+        "options": ["500", "600", "700", "800"],
+        "answer": "600",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Logical Reasoning) If X is heavier than Y, and Y is heavier than Z, who is the lightest?",
+        "options": ["X", "Y", "Z", "Cannot be determined"],
+        "answer": "Z",
+        "difficulty": "beginner",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Data Interpretation) What is the percentage share of sector B in the given pie chart?",
+        "options": ["20%", "25%", "30%", "35%"],
+        "answer": "25%",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Logical Reasoning) In a row, if P is to the right of Q, and Q is to the left of R, who is on the leftmost?",
+        "options": ["P", "Q", "R", "Cannot be determined"],
+        "answer": "Q",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Data Interpretation) What is the average sales of company B over 4 years?",
+        "options": ["100", "125", "150", "175"],
+        "answer": "125",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Logical Reasoning) If all birds are animals, and some animals are mammals, which is true?",
+        "options": ["All birds are mammals.", "Some birds are mammals.", "No birds are mammals.", "Cannot be determined."],
+        "answer": "Cannot be determined.",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Data Interpretation) What is the ratio of production between companies C and D in year 2?",
+        "options": ["1:1", "2:1", "3:2", "4:3"],
+        "answer": "3:2",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Logical Reasoning) In a race, if A finishes before B, and B finishes before C, who is last?",
+        "options": ["A", "B", "C", "Cannot be determined"],
+        "answer": "C",
+        "difficulty": "beginner",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Data Interpretation) What is the total revenue for company E in year 3?",
+        "options": ["400", "500", "600", "700"],
+        "answer": "500",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Logical Reasoning) If M is older than N, and N is older than O, who is the oldest?",
+        "options": ["M", "N", "O", "Cannot be determined"],
+        "answer": "M",
+        "difficulty": "beginner",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Data Interpretation) What is the highest production figure for any company in any year?",
+        "options": ["800", "900", "1000", "1100"],
+        "answer": "900",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Logical Reasoning) In a sequence, if the first term is 2 and each term is three times the previous, what is the 4th term?",
+        "options": ["18", "54", "162", "486"],
+        "answer": "54",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Data Interpretation) What is the difference in production between years 1 and 2 for company F?",
+        "options": ["50", "100", "150", "200"],
+        "answer": "150",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Logical Reasoning) If all apples are fruits, and some fruits are oranges, which is true?",
+        "options": ["All apples are oranges.", "Some apples are oranges.", "No apples are oranges.", "Cannot be determined."],
+        "answer": "Cannot be determined.",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Data Interpretation) What is the average production growth rate for company G over 3 years?",
+        "options": ["5%", "10%", "15%", "20%"],
+        "answer": "15%",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Logical Reasoning) In a group of 4 people, if A is friends with B and C, and B is not friends with D, who can be friends with D?",
+        "options": ["A only", "C only", "A and C", "Anyone"],
+        "answer": "Anyone",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Data Interpretation) What is the total profit for company H in year 4?",
+        "options": ["300", "350", "400", "450"],
+        "answer": "350",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+	{
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "What is the sum of the first 10 terms of the arithmetic progression 3, 7, 11, ...?",
+        "options": ["190", "200", "210", "220"],
+        "answer": "210",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Arithmetic Progression"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "If a number is divisible by 9 and 12, what is the smallest such number?",
+        "options": ["18", "36", "72", "108"],
+        "answer": "36",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Number Systems"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "What is the probability of rolling a sum of 7 with two fair dice?",
+        "options": ["1/12", "1/9", "1/6", "1/4"],
+        "answer": "1/6",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Probability"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "Which word best replaces 'obfuscate' in a sentence?",
+        "options": ["Clarify", "Confuse", "Simplify", "Explain"],
+        "answer": "Confuse",
+        "difficulty": "beginner",
+        "topic": "Verbal Ability and Reading Comprehension - Vocabulary"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "What is the main argument of a passage on financial inclusion?",
+        "options": ["It is costly.", "It reduces poverty.", "It is unnecessary.", "It increases debt."],
+        "answer": "It reduces poverty.",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Reading Comprehension"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "Which sentence corrects: 'Neither of the boys are attending the event.'?",
+        "options": ["Neither of the boys is attending the event.", "Neither of the boys are attending the events.", "Neither of the boys is attending the events.", "Neither of the boys have attended the event."],
+        "answer": "Neither of the boys is attending the event.",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Sentence Correction"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Data Interpretation) What is the total expenditure of company X from the given table?",
+        "options": ["500", "600", "700", "800"],
+        "answer": "600",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "(Logical Reasoning) If P is faster than Q, and Q is faster than R, who is the slowest?",
+        "options": ["P", "Q", "R", "Cannot be determined"],
+        "answer": "R",
+        "difficulty": "beginner",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "What is the value of x if 4x - 3 = 17?",
+        "options": ["4", "5", "6", "7"],
+        "answer": "5",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Algebra"
+    },
+    {
+        "goal": "CAT",
+        "type": "mcq",
+        "question": "Which sentence summarizes a passage on cybersecurity?",
+        "options": ["Cybersecurity is irrelevant.", "Cybersecurity increases costs.", "Cybersecurity protects data.", "Cybersecurity slows innovation."],
+        "answer": "Cybersecurity protects data.",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Para Summary"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "What is the last digit of 3^45?",
+        "answer": "7",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Number Systems"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "If a boat travels 24 km upstream in 4 hours and 36 km downstream in 3 hours, what is the speed of the stream in km/h?",
+        "answer": "3",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Boats and Streams"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "What is the number of ways to arrange 4 distinct objects in a circle?",
+        "answer": "6",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Permutations"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "If the perimeter of a square is 40 cm, what is its area in cm²?",
+        "answer": "100",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Geometry"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "What is the value of x if x^2 - 5x + 6 = 0?",
+        "answer": "2 or 3",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Quadratic Equations"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "If a sum of Rs. 1000 is lent at 8% simple interest per annum, what is the interest after 5 years?",
+        "answer": "400",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Interest"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "What is the sum of the series 1 + 3 + 6 + 10 + ... up to 10 terms?",
+        "answer": "220",
+        "difficulty": "advanced",
+        "topic": "Quantitative Ability - Series"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "If 3 workers can complete a task in 12 days, how many days will 9 workers take?",
+        "answer": "4",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Time and Work"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "What is the value of log₅(125)?",
+        "answer": "3",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Logarithms"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "If a:b = 3:5 and b:c = 2:3, what is a:c?",
+        "answer": "6:15",
+        "difficulty": "intermediate",
+        "topic": "Quantitative Ability - Ratios"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "What is the number of zeros at the end of 50!?",
+        "answer": "12",
+        "difficulty": "advanced",
+        "topic": "Quantitative Ability - Factorials"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "If a discount of 20% is given on an item priced at Rs. 500, what is the selling price?",
+        "answer": "400",
+        "difficulty": "beginner",
+        "topic": "Quantitative Ability - Discounts"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "Complete the sentence: 'The scientist’s research was ___.'",
+        "answer": "groundbreaking",
+        "difficulty": "beginner",
+        "topic": "Verbal Ability and Reading Comprehension - Sentence Completion"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Reading Comprehension) What is one word that describes the author’s view on urban development?",
+        "answer": "sustainable",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Reading Comprehension"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "What word means the opposite of 'magnanimous'?",
+        "answer": "petty",
+        "difficulty": "beginner",
+        "topic": "Verbal Ability - Vocabulary"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "Arrange the sentences A, B, C, D to form a coherent paragraph starting with B. What is the second sentence?",
+        "answer": "A",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Para Jumble"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Reading Comprehension) What is the author’s primary concern about technology adoption?",
+        "answer": "equity",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Reading Comprehension"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "What word best completes: 'The policy was met with ___ criticism.'?",
+        "answer": "widespread",
+        "difficulty": "beginner",
+        "topic": "Verbal Ability and Reading Comprehension - Sentence Completion"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "What is the odd word out in the set: big, large, huge, small?",
+        "answer": "small",
+        "difficulty": "beginner",
+        "topic": "Verbal Ability - Vocabulary"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Critical Reasoning) What assumption underlies the claim that renewable energy will dominate?",
+        "answer": "feasibility",
+        "difficulty": "advanced",
+        "topic": "Verbal Ability and Reading Comprehension - Critical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "What word summarizes a passage on education reform?",
+        "answer": "access",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Para Summary"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Reading Comprehension) What is one challenge mentioned in the passage on healthcare?",
+        "answer": "funding",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Reading Comprehension"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "What word fits: 'The artist’s work was ___.'?",
+        "answer": "profoundly inspiring",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Sentence Completion"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "What is the synonym for 'resilient'?",
+        "answer": "adaptable",
+        "difficulty": "beginner",
+        "topic": "Verbal Ability - Vocabulary"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Para Jumble) What is the last sentence in the correct order of sentences E, F, G, H?",
+        "answer": "H",
+        "difficulty": "intermediate",
+        "topic": "Verbal Ability and Reading Comprehension - Para Jumble"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Data Interpretation) What is the total sales of company Z in 2023 from the given bar graph?",
+        "answer": "400",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Logical Reasoning) If A is older than B, B is older than C, and C is older than D, how many people are older than C?",
+        "answer": "2",
+        "difficulty": "beginner",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Data Interpretation) What is the percentage contribution of sector D in the given pie chart?",
+        "answer": "20",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Logical Reasoning) In a sequence, if each term is the previous term plus 5, and the first term is 2, what is the 10th term?",
+        "answer": "47",
+        "difficulty": "beginner",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Data Interpretation) What is the profit of company B in year 2022 from the table?",
+        "answer": "150",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Logical Reasoning) In a seating arrangement, if X is second from the left and Y is third from the right in a row of 7, how many people are between X and Y?",
+        "answer": "3",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Data Interpretation) What is the average production of company C over 3 years?",
+        "answer": "200",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Logical Reasoning) If all chairs are furniture, and some furniture is wooden, how many chairs are wooden?",
+        "answer": "Cannot be determined",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Data Interpretation) What is the difference in sales between company A and B in year 2021?",
+        "answer": "100",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Logical Reasoning) In a group of 5, if A is not friends with B, and B is friends with C, how many possible friends can D have?",
+        "answer": "4",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Data Interpretation) What is the total revenue of company D in year 2024?",
+        "answer": "500",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Logical Reasoning) If team X beats team Y, and team Y beats team Z, how many teams did X beat?",
+        "answer": "1",
+        "difficulty": "beginner",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Data Interpretation) What is the growth rate of company E’s sales from 2022 to 2023 in percentage?",
+        "answer": "25",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Logical Reasoning) In a sequence, if the first term is 3 and each term is 4 more than the previous, what is the 8th term?",
+        "answer": "31",
+        "difficulty": "beginner",
+        "topic": "Data Interpretation and Logical Reasoning - Logical Reasoning"
+    },
+    {
+        "goal": "CAT",
+        "type": "short_answer",
+        "question": "(Data Interpretation) What is the total profit of company F over 2 years?",
+        "answer": "300",
+        "difficulty": "intermediate",
+        "topic": "Data Interpretation and Logical Reasoning - Data Interpretation"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "What is the time complexity of finding the top k frequent elements in an array?",
+        "options": ["O(n)", "O(n log n)", "O(n log k)", "O(n²)"],
+        "answer": "O(n log k)",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "Which data structure is best for implementing a text editor’s undo feature?",
+        "options": ["Array", "Stack", "Queue", "Hash Map"],
+        "answer": "Stack",
+        "difficulty": "beginner",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "What is the time complexity of detecting a cycle in an undirected graph using BFS?",
+        "options": ["O(V)", "O(E)", "O(V + E)", "O(V²)"],
+        "answer": "O(V + E)",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "Which AWS service is used for serverless computing?",
+        "options": ["EC2", "Lambda", "S3", "RDS"],
+        "answer": "Lambda",
+        "difficulty": "beginner",
+        "topic": "AWS"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "Which algorithm determines if a course schedule can be completed given prerequisites?",
+        "options": ["Dijkstra’s", "Topological Sort", "Kruskal’s", "Prim’s"],
+        "answer": "Topological Sort",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "What is the space complexity of a trie storing n strings of average length m?",
+        "options": ["O(n)", "O(m)", "O(nm)", "O(n + m)"],
+        "answer": "O(nm)",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "Which Amazon Leadership Principle emphasizes taking responsibility for decisions?",
+        "options": ["Customer Obsession", "Ownership", "Invent and Simplify", "Dive Deep"],
+        "answer": "Ownership",
+        "difficulty": "beginner",
+        "topic": "Amazon Principles"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "What is the time complexity of the Boyer-Moore string matching algorithm in the average case?",
+        "options": ["O(n + m)", "O(nm)", "O(n log m)", "O(m)"],
+        "answer": "O(n + m)",
+        "difficulty": "advanced",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "Which data structure is best for implementing a priority-based task scheduler?",
+        "options": ["Array", "Linked List", "Heap", "Stack"],
+        "answer": "Heap",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "What is the time complexity of finding all connected components in an undirected graph?",
+        "options": ["O(V)", "O(V + E)", "O(V²)", "O(E²)"],
+        "answer": "O(V + E)",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "Which AWS service is used for real-time data streaming?",
+        "options": ["SQS", "SNS", "Kinesis", "DynamoDB"],
+        "answer": "Kinesis",
+        "difficulty": "intermediate",
+        "topic": "AWS"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "What is the time complexity of inserting an element into a red-black tree?",
+        "options": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+        "answer": "O(log n)",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "Which algorithm solves the minimum cost path problem in a weighted DAG?",
+        "options": ["Dijkstra’s", "Bellman-Ford", "Topological Sort with DP", "Floyd-Warshall"],
+        "answer": "Topological Sort with DP",
+        "difficulty": "advanced",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "What is the space complexity of a post-order traversal using an iterative approach?",
+        "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+        "answer": "O(n)",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "Which design pattern allows adding responsibilities to objects dynamically?",
+        "options": ["Singleton", "Factory", "Decorator", "Observer"],
+        "answer": "Decorator",
+        "difficulty": "intermediate",
+        "topic": "Design Patterns"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "What is the time complexity of the Longest Common Substring problem using dynamic programming?",
+        "options": ["O(n)", "O(n log n)", "O(n²)", "O(n³)"],
+        "answer": "O(n²)",
+        "difficulty": "advanced",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "Which of the following is NOT a property of a B-tree?",
+        "options": ["All leaves are at the same level", "Nodes are sorted", "Root has at least two children", "All nodes are completely filled"],
+        "answer": "All nodes are completely filled",
+        "difficulty": "advanced",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "What is the purpose of Amazon’s ‘Earn Trust’ Leadership Principle?",
+        "options": ["Innovate rapidly", "Build credibility with stakeholders", "Focus on cost reduction", "Prioritize speed"],
+        "answer": "Build credibility with stakeholders",
+        "difficulty": "beginner",
+        "topic": "Amazon Principles"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "What is the time complexity of finding the shortest path in a maze using BFS?",
+        "options": ["O(mn)", "O(m + n)", "O(mn log mn)", "O(m²n²)"],
+        "answer": "O(mn)",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "mcq",
+        "question": "Which data structure is best for implementing a dictionary with prefix search?",
+        "options": ["Hash Map", "Binary Search Tree", "Trie", "Array"],
+        "answer": "Trie",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to solve the ‘Top K Frequent Elements’ problem.",
+        "answer": "Use a hash map to count element frequencies, then use a min-heap of size k to track the top k elements. Time complexity: O(n log k), space complexity: O(n).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to design a search autocomplete system.",
+        "answer": "Use a trie to store words, with nodes containing top suggestions. Cache frequent queries using Redis. Handle updates with a queue. Time complexity: O(p + k) for suggestions, space complexity: O(N).",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you find the longest consecutive sequence in an unsorted array?",
+        "answer": "Use a hash set to store numbers, then check each number’s sequence length by extending in both directions. Time complexity: O(n), space complexity: O(n).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to implement a queue using a single stack.",
+        "answer": "Use recursion to reverse the stack for dequeuing. Push elements normally, and for dequeue, pop and recurse to get the bottom element. Time complexity: O(n) for dequeue, space complexity: O(n).",
+        "difficulty": "advanced",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to solve the ‘Course Schedule’ problem.",
+        "answer": "Use topological sort with DFS or BFS to detect cycles in a directed graph of course prerequisites. If no cycle exists, a valid schedule is possible. Time complexity: O(V + E), space complexity: O(V).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you design a scalable messaging system?",
+        "answer": "Use a message queue (e.g., SQS) for decoupling producers and consumers, with a database for persistence. Scale with sharding and load balancers. Time complexity: O(1) for message publish/subscribe.",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to find the maximum depth of a binary tree.",
+        "answer": "Use recursion to compute the maximum depth of left and right subtrees, return the maximum plus one. Time complexity: O(n), space complexity: O(h).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to solve the ‘Meeting Rooms’ problem.",
+        "answer": "Sort meeting intervals by start time, then check for overlapping intervals by comparing end times with subsequent start times. Time complexity: O(n log n), space complexity: O(1).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you implement a function to check if a string is a palindrome?",
+        "answer": "Use two pointers, one from the start and one from the end, comparing characters while moving inward. Time complexity: O(n), space complexity: O(1).",
+        "difficulty": "beginner",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to design a rate limiter for an API.",
+        "answer": "Use a sliding window counter with Redis to track requests per user in a time window. Reject requests exceeding the limit. Time complexity: O(1) per request, space complexity: O(n).",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to solve the ‘Rotate Image’ problem for a matrix.",
+        "answer": "Transpose the matrix (swap elements across the diagonal), then reverse each row. Time complexity: O(n²), space complexity: O(1).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you find the diameter of a binary tree?",
+        "answer": "Use recursion to compute the height of left and right subtrees for each node, updating the maximum path through the node. Time complexity: O(n), space complexity: O(h).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to design a distributed key-value store.",
+        "answer": "Use consistent hashing for data distribution, replication for fault tolerance, and a distributed database like DynamoDB. Cache frequent keys. Time complexity: O(1) for get/put.",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to solve the ‘Group Anagrams’ problem.",
+        "answer": "Use a hash map to group strings by their sorted character sequence as the key. Time complexity: O(nk log k), space complexity: O(nk), where k is the maximum string length.",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you check if a binary tree is height-balanced?",
+        "answer": "Recursively compute heights of left and right subtrees, ensuring their difference is at most 1. Time complexity: O(n), space complexity: O(h).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to solve the ‘Coin Change’ problem.",
+        "answer": "Use dynamic programming to compute the minimum number of coins for each amount up to the target. Time complexity: O(amount * coins), space complexity: O(amount).",
+        "difficulty": "advanced",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to design an online bookstore system.",
+        "answer": "Use a database for inventory, a search engine for queries, and caching for popular books. Scale with load balancers and microservices. Time complexity: O(1) for lookups.",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you find the kth largest element in a binary search tree?",
+        "answer": "Perform reverse in-order traversal, counting nodes until the kth node is reached. Time complexity: O(n), space complexity: O(h).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to solve the ‘Product of Array Except Self’ problem.",
+        "answer": "Compute left and right product arrays, then multiply corresponding elements for each index. Time complexity: O(n), space complexity: O(1) excluding output array.",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to design a notification system.",
+        "answer": "Use a message queue (e.g., SNS/SQS) for event-driven notifications, with a database for user preferences. Scale with pub-sub model. Time complexity: O(1) per notification.",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you implement a stack using two queues?",
+        "answer": "Use one queue for storage. For push, enqueue the new element and rotate existing elements to maintain LIFO order. Time complexity: O(n) for push, space complexity: O(n).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to solve the ‘Clone Graph’ problem.",
+        "answer": "Use DFS or BFS with a hash map to store copied nodes, recursively or iteratively copying nodes and their neighbors. Time complexity: O(V + E), space complexity: O(V).",
+        "difficulty": "advanced",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to check if a string has all unique characters.",
+        "answer": "Use a hash set to track seen characters or sort the string and check for adjacent duplicates. Time complexity: O(n) or O(n log n), space complexity: O(n) or O(1).",
+        "difficulty": "beginner",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you design a distributed file backup system?",
+        "answer": "Use chunking to split files, store chunks in S3 with versioning, and maintain metadata in DynamoDB. Ensure redundancy with replication. Time complexity: O(1) for metadata access.",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to solve the ‘Subarray Sum Equals K’ problem.",
+        "answer": "Use a hash map to store cumulative sums and their frequencies, checking for sums that differ by k. Time complexity: O(n), space complexity: O(n).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to implement a binary search tree iterator.",
+        "answer": "Use a stack to perform an in-order traversal incrementally, pushing leftmost nodes and popping as needed. Time complexity: O(1) average, space complexity: O(h).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you solve the ‘Task Scheduler’ problem with cooldown periods?",
+        "answer": "Use a max-heap to schedule tasks by frequency, respecting cooldown periods. Track time and task counts. Time complexity: O(n log n), space complexity: O(n).",
+        "difficulty": "advanced",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to design an e-commerce checkout system.",
+        "answer": "Use a microservices architecture with a payment gateway, inventory service, and order database. Cache cart data and scale with load balancers. Time complexity: O(1) for checkout processing.",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to solve the ‘Spiral Matrix’ problem.",
+        "answer": "Traverse the matrix layer by layer in a spiral order, updating boundaries after each direction. Time complexity: O(mn), space complexity: O(1).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you find the shortest path in an unweighted graph?",
+        "answer": "Use BFS, starting from the source, exploring neighbors level by level until the target is reached. Time complexity: O(V + E), space complexity: O(V).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to implement a min-heap from scratch.",
+        "answer": "Use an array to store elements, maintaining the min-heap property via heapify-up for insertions and heapify-down for deletions. Time complexity: O(log n) for operations, space complexity: O(n).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "A train leaves station A at 8 AM and reaches station B at 12 PM, covering 240 km. Another train leaves B at 9 AM and reaches A at 1 PM. At what time do the trains meet?",
+        "options": ["10 AM", "10:30 AM", "11 AM", "11:30 AM"],
+        "answer": "10:30 AM",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "Which word is most similar to 'resilient'?",
+        "options": ["Fragile", "Adaptable", "Rigid", "Weak"],
+        "answer": "Adaptable",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "The eigenvalues of a 2x2 matrix A are 2 and 3. If det(A) = 6, what is trace(A)?",
+        "options": ["4", "5", "6", "7"],
+        "answer": "5",
+        "difficulty": "intermediate",
+        "topic": "Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "For a damped single degree of freedom system, the damping ratio is 0.2. The natural frequency is 10 rad/s. What is the damped frequency?",
+        "options": ["8 rad/s", "9.6 rad/s", "10 rad/s", "12 rad/s"],
+        "answer": "9.6 rad/s",
+        "difficulty": "intermediate",
+        "topic": "Mechanics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "In a supersonic flow, a Prandtl-Meyer expansion fan occurs at a convex corner. If the upstream Mach number is 2 and the turning angle is 10°, what is the downstream Mach number (γ = 1.4)?",
+        "options": ["2.1", "2.2", "2.3", "2.4"],
+        "answer": "2.2",
+        "difficulty": "advanced",
+        "topic": "Aerodynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "In a gas turbine cycle, the compressor pressure ratio is 8, and the turbine inlet temperature is 1400 K. Assuming ideal conditions and γ = 1.4, what is the cycle efficiency?",
+        "options": ["0.35", "0.40", "0.45", "0.50"],
+        "answer": "0.40",
+        "difficulty": "intermediate",
+        "topic": "Aerospace Propulsion"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "An aircraft in a steady climb has a climb angle of 10°. If the lift coefficient is 0.6, what is the thrust-to-weight ratio?",
+        "options": ["0.15", "0.20", "0.25", "0.30"],
+        "answer": "0.20",
+        "difficulty": "intermediate",
+        "topic": "Flight Dynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "A thin-walled beam with a rectangular cross-section is subjected to a bending moment. The maximum normal stress occurs at:",
+        "options": ["Center of the section", "Top edge", "Bottom edge", "Mid-height"],
+        "answer": "Top edge",
+        "difficulty": "beginner",
+        "topic": "Mechanics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "In a rocket, the exhaust velocity is 2500 m/s, and the mass flow rate is 10 kg/s. What is the thrust produced (g = 9.81 m/s²)?",
+        "options": ["24.5 kN", "25.0 kN", "25.5 kN", "26.0 kN"],
+        "answer": "25.0 kN",
+        "difficulty": "beginner",
+        "topic": "Aerospace Propulsion"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "For an incompressible flow over a flat plate, the boundary layer thickness δ at a distance x from the leading edge is proportional to:",
+        "options": ["x", "x^(1/2)", "x^(3/2)", "x^2"],
+        "answer": "x^(1/2)",
+        "difficulty": "intermediate",
+        "topic": "Aerodynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "The ratio of the number of ways to arrange 5 distinct objects in a row to the number of ways to arrange them in a circle is:",
+        "options": ["5:1", "5:4", "6:1", "6:5"],
+        "answer": "5:1",
+        "difficulty": "intermediate",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "The solution to the differential equation y'' + 4y = 0 with y(0) = 1, y'(0) = 0 is:",
+        "options": ["sin(2x)", "cos(2x)", "sin(x)", "cos(x)"],
+        "answer": "cos(2x)",
+        "difficulty": "intermediate",
+        "topic": "Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "In a turbojet engine, the compressor pressure ratio is 10, and the ambient temperature is 288 K. Assuming isentropic compression and γ = 1.4, what is the compressor exit temperature?",
+        "options": ["500 K", "550 K", "600 K", "650 K"],
+        "answer": "550 K",
+        "difficulty": "intermediate",
+        "topic": "Aerospace Propulsion"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "An aircraft has a wing aspect ratio of 8 and an elliptic lift distribution. If the lift coefficient is 0.5, what is the induced drag coefficient?",
+        "options": ["0.005", "0.010", "0.015", "0.020"],
+        "answer": "0.010",
+        "difficulty": "intermediate",
+        "topic": "Aerodynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "For a satellite in a circular orbit at 500 km altitude (Earth radius = 6371 km, μ = 398600 km³/s²), what is the orbital period in minutes?",
+        "options": ["90.0", "92.5", "95.0", "97.5"],
+        "answer": "92.5",
+        "difficulty": "intermediate",
+        "topic": "Flight Dynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "A cantilever beam of length 1 m carries a point load of 1000 N at the free end. If E = 200 GPa and I = 10^-6 m^4, what is the deflection at the free end?",
+        "options": ["1 mm", "2 mm", "3 mm", "4 mm"],
+        "answer": "1 mm",
+        "difficulty": "intermediate",
+        "topic": "Mechanics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "If 40% of a number is 80, what is 25% of the same number?",
+        "options": ["40", "50", "60", "70"],
+        "answer": "50",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "The matrix [[1, 2], [3, 4]] has an inverse. What is the determinant of its inverse?",
+        "options": ["-2", "-1", "1", "2"],
+        "answer": "-2",
+        "difficulty": "intermediate",
+        "topic": "Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "An aircraft in steady level flight has a lift-to-drag ratio of 12. If the lift coefficient is 0.4, what is the drag coefficient?",
+        "options": ["0.033", "0.044", "0.055", "0.066"],
+        "answer": "0.033",
+        "difficulty": "intermediate",
+        "topic": "Flight Dynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "Which of the following is NOT a type of aircraft stability?",
+        "options": ["Longitudinal", "Lateral", "Directional", "Vertical"],
+        "answer": "Vertical",
+        "difficulty": "beginner",
+        "topic": "Flight Dynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A shop sells items at a 25% profit. If the selling price is Rs. 500, what is the cost price (in Rs.)?",
+        "answer": "400",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the value of the integral ∫(0 to π/2) sin²(x) dx?",
+        "answer": "π/4",
+        "difficulty": "intermediate",
+        "topic": "Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A particle moves with velocity v(t) = 2t - 3. What is the displacement from t = 0 to t = 2 seconds?",
+        "answer": "2",
+        "difficulty": "intermediate",
+        "topic": "Mechanics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "In a Rayleigh flow with γ = 1.4, the Mach number increases from 0.5 to 1.0. If the initial temperature is 300 K, what is the final temperature (in K, rounded to 2 decimal places)?",
+        "answer": "360.00",
+        "difficulty": "advanced",
+        "topic": "Aerodynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A rocket has a specific impulse of 250 s and a thrust of 50 kN. What is the propellant mass flow rate (in kg/s, rounded to 1 decimal place)?",
+        "answer": "20.4",
+        "difficulty": "intermediate",
+        "topic": "Aerospace Propulsion"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "An aircraft flies at 200 m/s at an altitude where ρ = 0.9 kg/m³. If the wing area is 20 m² and lift coefficient is 0.5, what is the lift force (in kN, rounded to 1 decimal place)?",
+        "answer": "36.0",
+        "difficulty": "intermediate",
+        "topic": "Flight Dynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A thin circular shaft of diameter 50 mm is subjected to a torque of 200 Nm. What is the maximum shear stress (in MPa, rounded to 2 decimal places)?",
+        "answer": "20.37",
+        "difficulty": "intermediate",
+        "topic": "Mechanics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "Complete the sentence: 'The engineer’s design was ___.'",
+        "answer": "innovative",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the eccentricity of an elliptical orbit with perigee altitude 200 km and apogee altitude 800 km (Earth radius = 6371 km, rounded to 2 decimal places)?",
+        "answer": "0.08",
+        "difficulty": "advanced",
+        "topic": "Flight Dynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "In a wind tunnel, the test section velocity is 50 m/s, and the density is 1.2 kg/m³. If the dynamic pressure is 1500 Pa, what is the test section area (in m², rounded to 2 decimal places)?",
+        "answer": "1.00",
+        "difficulty": "intermediate",
+        "topic": "Aerodynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A person invests Rs. 2000 at 6% simple interest for 3 years. What is the total amount (in Rs.)?",
+        "answer": "2360",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "Solve the differential equation y' + 2y = 0 with y(0) = 1. What is y(1) (rounded to 2 decimal places)?",
+        "answer": "0.14",
+        "difficulty": "intermediate",
+        "topic": "Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A simply supported beam of length 2 m carries a uniformly distributed load of 5 kN/m. What is the maximum bending moment (in kNm)?",
+        "answer": "5",
+        "difficulty": "intermediate",
+        "topic": "Mechanics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "In a turbojet engine, the compressor exit pressure is 300 kPa, and the ambient pressure is 100 kPa. If the nozzle is ideally expanded, what is the exhaust velocity (in m/s, rounded to 1 decimal place, γ = 1.4)?",
+        "answer": "346.4",
+        "difficulty": "advanced",
+        "topic": "Aerospace Propulsion"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A wing with a span of 10 m and lift of 10,000 N flies at 100 m/s (ρ = 1.2 kg/m³). What is the vortex drag (in N, rounded to 2 decimal places)?",
+        "answer": "132.63",
+        "difficulty": "advanced",
+        "topic": "Aerodynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the value of the determinant of the matrix [[2, 1], [1, 2]]?",
+        "answer": "3",
+        "difficulty": "beginner",
+        "topic": "Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A thin plate under biaxial stress has σ_x = 100 MPa and σ_y = 50 MPa. Using Mohr’s circle, what is the maximum shear stress (in MPa, rounded to 2 decimal places)?",
+        "answer": "25.00",
+        "difficulty": "advanced",
+        "topic": "Mechanics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "In a group of 5 people, if A is taller than B and B is taller than C, how many are taller than C?",
+        "answer": "2",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A rocket engine produces 100 kN thrust with an exhaust velocity of 3000 m/s. What is the mass flow rate (in kg/s, rounded to 2 decimal places)?",
+        "answer": "33.33",
+        "difficulty": "intermediate",
+        "topic": "Aerospace Propulsion"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "An aircraft has a mass of 5000 kg and flies at 150 m/s. If the turn radius is 1000 m, what is the load factor (rounded to 2 decimal places)?",
+        "answer": "1.34",
+        "difficulty": "intermediate",
+        "topic": "Flight Dynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the value of ∫(0 to 1) x e^x dx (rounded to 2 decimal places)?",
+        "answer": "1.00",
+        "difficulty": "intermediate",
+        "topic": "Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A thin-walled pressure vessel has a diameter of 1 m and thickness of 10 mm. If the internal pressure is 2 MPa, what is the hoop stress (in MPa)?",
+        "answer": "50",
+        "difficulty": "intermediate",
+        "topic": "Mechanics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "In a flow with Mach number 0.3, the stagnation pressure is 101 kPa. What is the static pressure (in kPa, rounded to 2 decimal places, γ = 1.4)?",
+        "answer": "99.47",
+        "difficulty": "intermediate",
+        "topic": "Aerodynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A satellite orbits Earth at 400 km altitude (R = 6371 km, μ = 398600 km³/s²). What is the orbital velocity (in km/s, rounded to 2 decimal places)?",
+        "answer": "7.67",
+        "difficulty": "intermediate",
+        "topic": "Flight Dynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A gas with γ = 1.4 undergoes isentropic expansion from 200 kPa to 100 kPa. If the initial temperature is 400 K, what is the final temperature (in K, rounded to 2 decimal places)?",
+        "answer": "336.89",
+        "difficulty": "intermediate",
+        "topic": "Aerospace Propulsion"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the probability of drawing an ace from a standard deck of 52 cards (as a fraction)?",
+        "answer": "1/13",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A thin flat plate at 3° angle of attack has a lift coefficient of 0.18. If the free stream velocity is 50 m/s and ρ = 1.2 kg/m³, what is the lift force per unit span for a chord of 1 m (in N/m, rounded to 2 decimal places)?",
+        "answer": "27.00",
+        "difficulty": "intermediate",
+        "topic": "Aerodynamics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A single degree of freedom system has a mass of 1 kg, stiffness of 100 N/m, and damping ratio of 0.1. What is the natural frequency (in rad/s)?",
+        "answer": "10",
+        "difficulty": "intermediate",
+        "topic": "Mechanics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the value of the sum of the series 1 + 2 + 3 + ... + 10?",
+        "answer": "55",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A matrix A has eigenvalues 1 and 4. If trace(A) = 5, what is det(A)?",
+        "answer": "4",
+        "difficulty": "intermediate",
+        "topic": "Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "If 20% of a number is 50, what is 60% of the same number?",
+        "options": ["100", "125", "150", "175"],
+        "answer": "150",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "Which word is most similar to 'pragmatic'?",
+        "options": ["Idealistic", "Practical", "Optimistic", "Theoretical"],
+        "answer": "Practical",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "The determinant of a 3x3 matrix A is 10, and its trace is 12. If one eigenvalue is 2, what is the product of the other two eigenvalues?",
+        "options": ["4", "5", "6", "7"],
+        "answer": "5",
+        "difficulty": "intermediate",
+        "topic": "Engineering Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "In a common-emitter BJT amplifier, the collector resistance is 5 kΩ, and the DC supply voltage is 12 V. If the transistor operates at a quiescent current of 2 mA, what is the collector-emitter voltage?",
+        "options": ["2 V", "4 V", "6 V", "8 V"],
+        "answer": "2 V",
+        "difficulty": "intermediate",
+        "topic": "Analog Circuits"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "The minimum frequency of a signal to avoid aliasing, given a sampling frequency of 10 kHz, is:",
+        "options": ["5 kHz", "10 kHz", "20 kHz", "40 kHz"],
+        "answer": "5 kHz",
+        "difficulty": "intermediate",
+        "topic": "Signals and Systems"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "In a 4-bit binary counter using JK flip-flops, the output frequency of the last flip-flop is 1/16th of the clock frequency. If the clock frequency is 16 MHz, what is the output frequency?",
+        "options": ["0.5 MHz", "1 MHz", "2 MHz", "4 MHz"],
+        "answer": "1 MHz",
+        "difficulty": "intermediate",
+        "topic": "Digital Circuits"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "For a control system with transfer function G(s) = 10/(s + 2), the steady-state error for a unit step input is:",
+        "options": ["0", "0.2", "0.5", "1"],
+        "answer": "0",
+        "difficulty": "intermediate",
+        "topic": "Control Systems"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "In an AM signal with a modulation index of 0.8, the carrier power is 100 W. What is the total power of the modulated signal?",
+        "options": ["128 W", "132 W", "136 W", "140 W"],
+        "answer": "132 W",
+        "difficulty": "intermediate",
+        "topic": "Communications"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "The electric field intensity of a plane wave in free space is 10 V/m. What is the magnetic field intensity (in A/m)?",
+        "options": ["0.0265", "0.0530", "0.0795", "0.1060"],
+        "answer": "0.0265",
+        "difficulty": "intermediate",
+        "topic": "Electromagnetics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "In a PN junction diode under forward bias, the current is primarily due to:",
+        "options": ["Diffusion", "Drift", "Tunneling", "Avalanche"],
+        "answer": "Diffusion",
+        "difficulty": "beginner",
+        "topic": "Electronic Devices"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "A coin is tossed three times. What is the probability of getting exactly two heads?",
+        "options": ["1/8", "3/8", "5/8", "7/8"],
+        "answer": "3/8",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "The Laplace transform of a unit step function is:",
+        "options": ["1/s", "s", "1/(s + 1)", "e^(-s)"],
+        "answer": "1/s",
+        "difficulty": "beginner",
+        "topic": "Signals and Systems"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "In a logic circuit, the output of a 2-input XOR gate is fed to an AND gate with another input. If the inputs to the XOR gate are 1 and 0, and the other AND input is 1, what is the output?",
+        "options": ["0", "1", "2", "3"],
+        "answer": "1",
+        "difficulty": "beginner",
+        "topic": "Digital Circuits"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "The phase margin of a control system with transfer function G(s) = 1/(s(s + 1)) is:",
+        "options": ["45°", "60°", "90°", "180°"],
+        "answer": "90°",
+        "difficulty": "advanced",
+        "topic": "Control Systems"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "In a differential amplifier, the common-mode gain is ideally:",
+        "options": ["0", "1", "10", "∞"],
+        "answer": "0",
+        "difficulty": "intermediate",
+        "topic": "Analog Circuits"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "The Fourier transform of a rectangular pulse is a:",
+        "options": ["Sinc function", "Gaussian function", "Delta function", "Exponential function"],
+        "answer": "Sinc function",
+        "difficulty": "intermediate",
+        "topic": "Signals and Systems"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "In a communication system, the signal-to-noise ratio (SNR) is 20 dB. What is the SNR in linear scale?",
+        "options": ["10", "100", "1000", "10000"],
+        "answer": "100",
+        "difficulty": "intermediate",
+        "topic": "Communications"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "The divergence of the electric field in free space is:",
+        "options": ["0", "ε₀", "μ₀", "∞"],
+        "answer": "0",
+        "difficulty": "intermediate",
+        "topic": "Electromagnetics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "The solution to the differential equation y'' + y = 0 with y(0) = 0, y'(0) = 1 is:",
+        "options": ["sin(x)", "cos(x)", "sin(x) + cos(x)", "e^x"],
+        "answer": "sin(x)",
+        "difficulty": "intermediate",
+        "topic": "Engineering Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "mcq",
+        "question": "A shop offers a 15% discount on an item priced at Rs. 1000. What is the selling price?",
+        "options": ["Rs. 750", "Rs. 800", "Rs. 850", "Rs. 900"],
+        "answer": "Rs. 850",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A train travels 120 km in 2 hours. What is its speed in m/s (rounded to 2 decimal places)?",
+        "answer": "16.67",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the value of the integral ∫(0 to 1) x² dx (rounded to 2 decimal places)?",
+        "answer": "0.33",
+        "difficulty": "beginner",
+        "topic": "Engineering Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "An op-amp in inverting configuration has R₁ = 10 kΩ and R₂ = 20 kΩ. What is the voltage gain (in magnitude)?",
+        "answer": "2",
+        "difficulty": "intermediate",
+        "topic": "Analog Circuits"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "In a 3-bit ripple counter using T flip-flops, what is the output frequency if the clock frequency is 8 MHz (in MHz)?",
+        "answer": "1",
+        "difficulty": "intermediate",
+        "topic": "Digital Circuits"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the Z-transform of the sequence x(n) = δ(n) (unit impulse)?",
+        "answer": "1",
+        "difficulty": "intermediate",
+        "topic": "Signals and Systems"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "For a control system with transfer function G(s) = 4/(s + 2), what is the gain margin (in dB, rounded to 1 decimal place)?",
+        "answer": "∞",
+        "difficulty": "advanced",
+        "topic": "Control Systems"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "In a FM signal with a modulation index of 2 and carrier power of 50 W, what is the total power (in W, rounded to 2 decimal places)?",
+        "answer": "54.00",
+        "difficulty": "intermediate",
+        "topic": "Communications"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A plane wave in free space has an electric field amplitude of 20 V/m. What is the power density (in W/m², rounded to 2 decimal places)?",
+        "answer": "1.06",
+        "difficulty": "intermediate",
+        "topic": "Electromagnetics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "In a MOSFET, the threshold voltage is 1 V, and V_GS = 3 V. If K = 0.5 mA/V², what is the drain current (in mA, rounded to 2 decimal places)?",
+        "answer": "2.00",
+        "difficulty": "intermediate",
+        "topic": "Electronic Devices"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "If a:b = 2:3 and b:c = 4:5, what is a:c?",
+        "answer": "8:15",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the Fourier transform of x(t) = e^(-at)u(t), a > 0?",
+        "answer": "1/(jω + a)",
+        "difficulty": "intermediate",
+        "topic": "Signals and Systems"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A 4-bit DAC has a reference voltage of 5 V. What is the output voltage for the digital input 1010 (in V)?",
+        "answer": "3.125",
+        "difficulty": "intermediate",
+        "topic": "Digital Circuits"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the steady-state error for a unit ramp input in a system with transfer function G(s) = 10/(s(s + 1)) (rounded to 2 decimal places)?",
+        "answer": "0.10",
+        "difficulty": "advanced",
+        "topic": "Control Systems"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A BJT amplifier has a collector resistance of 10 kΩ and a quiescent current of 1 mA. What is the output voltage swing (in V)?",
+        "answer": "10",
+        "difficulty": "intermediate",
+        "topic": "Analog Circuits"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the number of 1s in the 8-bit binary representation of 45?",
+        "answer": "4",
+        "difficulty": "beginner",
+        "topic": "Digital Circuits"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A signal has a bandwidth of 4 kHz. What is the minimum sampling frequency to avoid aliasing (in kHz)?",
+        "answer": "8",
+        "difficulty": "intermediate",
+        "topic": "Signals and Systems"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the value of ∫(0 to 2) e^x dx (rounded to 2 decimal places)?",
+        "answer": "6.39",
+        "difficulty": "intermediate",
+        "topic": "Engineering Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "In a communication channel, the noise power is 0.01 W, and the signal power is 1 W. What is the SNR (in dB, rounded to 1 decimal place)?",
+        "answer": "20.0",
+        "difficulty": "intermediate",
+        "topic": "Communications"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "A uniform plane wave has a wavelength of 0.3 m in free space. What is its frequency (in GHz, rounded to 2 decimal places)?",
+        "answer": "1.00",
+        "difficulty": "intermediate",
+        "topic": "Electromagnetics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "In a CMOS inverter, the supply voltage is 5 V, and the threshold voltage is 1 V. What is the output voltage for an input of 4 V?",
+        "answer": "0",
+        "difficulty": "intermediate",
+        "topic": "Electronic Devices"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the sum of the first 5 terms of the series 2, 4, 6, 8, ...?",
+        "answer": "30",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the determinant of the matrix [[3, 1], [2, 4]]?",
+        "answer": "10",
+        "difficulty": "beginner",
+        "topic": "Engineering Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "An op-amp non-inverting amplifier has R₁ = 5 kΩ and R₂ = 15 kΩ. What is the voltage gain?",
+        "answer": "4",
+        "difficulty": "intermediate",
+        "topic": "Analog Circuits"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "In a control system, the characteristic equation is s² + 2s + 2 = 0. What is the damping ratio (rounded to 2 decimal places)?",
+        "answer": "0.71",
+        "difficulty": "advanced",
+        "topic": "Control Systems"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the convolution of x(n) = {1, 2} and h(n) = {1, 1} at n = 1?",
+        "answer": "3",
+        "difficulty": "intermediate",
+        "topic": "Signals and Systems"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "In a 4-bit binary adder, the inputs are 1011 and 1100. What is the sum (in decimal)?",
+        "answer": "23",
+        "difficulty": "intermediate",
+        "topic": "Digital Circuits"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the probability of rolling a 6 on a fair die (as a fraction)?",
+        "answer": "1/6",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "Complete the sentence: 'The researcher’s findings were ___.'",
+        "answer": "significant",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the trace of the matrix [[1, 2], [3, 4]]?",
+        "answer": "5",
+        "difficulty": "beginner",
+        "topic": "Engineering Mathematics"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "An op-amp differentiator has R = 10 kΩ and C = 1 μF. What is the output voltage for an input of 2 sin(1000t) V (in V)?",
+        "answer": "-2 cos(1000t)",
+        "difficulty": "advanced",
+        "topic": "Analog Circuits"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "In a control system with G(s) = 5/(s(s + 1)), what is the time constant (in seconds)?",
+        "answer": "1",
+        "difficulty": "intermediate",
+        "topic": "Control Systems"
+    },
+    {
+        "goal": "GATE",
+        "type": "short_answer",
+        "question": "What is the number of ways to arrange 3 distinct objects in a row?",
+        "answer": "6",
+        "difficulty": "beginner",
+        "topic": "General Aptitude"
     }
 ] 

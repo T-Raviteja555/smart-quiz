@@ -6,7 +6,7 @@ from app.utils.exceptions import exception_handlers
 
 app = FastAPI(
     title="Questions API",
-    description="API for retrieving GATE AE and Amazon SDE questions",
+    description="API for retrieving GATE , CAT and Amazon SDE questions",
     version="1.0.0",
     lifespan=lifespan
 )
@@ -22,4 +22,4 @@ app.middleware("http")(track_metrics)
 app.include_router(router)
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000, workers=4)
+    uvicorn.run(app, host="127.0.0.1", port=8000, workers=4) 

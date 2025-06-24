@@ -227,4 +227,4 @@ def append_questions_to_bank(questions: List[QuizQuestion]):
         logger.info(f"Appended {len(questions)} questions to question bank")
     except Exception as e:
         logger.error(f"Failed to append questions to question bank: {str(e)}")
-        raise ValueError(f"Failed to append questions: {str(e)}")
+        raise ValueError(f"Failed to append questions: {str(e)}") 

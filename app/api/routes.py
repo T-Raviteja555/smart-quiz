@@ -51,7 +51,7 @@ async def get_questions(service: QuestionService = Depends(get_question_service)
     description=(
         "Generates a specified number of questions based on goal, difficulty, and mode.\n\n"
         "### Parameters\n"
-        "- **goal**: A supported goal (e.g., 'GATE AE', managed via POST /goals)\n"
+        "- **goal**: A supported goal (e.g., 'GATE', managed via POST /goals)\n"
         "- **difficulty**: Supported values: `beginner`, `intermediate`, `advanced`\n"
         "- **num_questions**: Integer between 1 and 10\n"
         "- **mode**: Optional generation mode: `retrieval` (TF-IDF) or `template` (formula-driven). Defaults to config.generator_mode.\n\n"
@@ -80,13 +80,13 @@ async def generate_questions_post(
         400: {"description": "Invalid goal, action, questions, or insufficient questions"},
         401: {"description": "Invalid API token"},
         422: {"description": "Validation error for request payload"},
-        500: {"description": "Internal server error"}
+        500: {"description": "Internal server error"} 
     },
     summary="Add or remove a supported goal",
     description=(
         "Adds a new goal to or removes an existing goal from the supported goals list, or appends questions to an existing goal, updating config.json and schema.json as needed.\n\n"
         "### Parameters\n"
-        "- **goal**: The goal to add or remove (e.g., 'GATE AE')\n"
+        "- **goal**: The goal to add or remove (e.g., 'GATE')\n"
         "- **action**: Action to perform: `add` or `remove`\n"
         "- **api_token**: API token for authentication\n"
         "- **questions**: Optional list of questions to add for the goal (requires at least 10 questions total for new goals)\n\n"
