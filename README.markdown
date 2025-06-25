@@ -13,7 +13,7 @@ The Smart Quiz Generator Microservice is a production-ready, FastAPI-based REST 
 
 - **RESTful API**: Endpoints for retrieving questions, generating customized quizzes, managing goals, and monitoring health/performance.
 - **Question Generation**: TF-IDF-based retrieval (`tfidfGenerator.py`) and template-based generation (`templateGenerator.py`) for dynamic questions.
-- **Dataset**: 672 questions (GATE: 219, Amazon SDE: 195, CAT: 213) in `consolidated_questions_updated.json`.
+- **Dataset**: 657 questions (GATE: 219, Amazon SDE: 225, CAT: 213) in `consolidated_questions_updated.json`.
 - **Production-Ready**:
   - Thread-safe file operations with `filelock`.
   - Structured JSON logging with daily rotation (`structlog`).
