@@ -6632,5 +6632,244 @@
         "answer": "6",
         "difficulty": "beginner",
         "topic": "General Aptitude"
+    },{
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to solve the ‘Median of Two Sorted Arrays’ problem.",
+        "answer": "Use binary search to partition both arrays such that the left halves have equal or nearly equal elements, ensuring the median is the average of max(left) and min(right). Time complexity: O(log(min(n, m))), space complexity: O(1).",
+        "difficulty": "advanced",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to reverse a linked list iteratively.",
+        "answer": "Use three pointers (prev, curr, next) to reverse the direction of links while traversing the list. Time complexity: O(n), space complexity: O(1).",
+        "difficulty": "beginner",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you design a distributed job scheduler system?",
+        "answer": "Use a distributed queue (e.g., SQS) for task scheduling, with a coordinator to assign tasks to workers. Store job states in DynamoDB and scale with load balancers. Time complexity: O(1) for task assignment.",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to solve the ‘Two Sum’ problem.",
+        "answer": "Use a hash map to store numbers and their indices. For each number, check if the complement (target - number) exists in the map. Time complexity: O(n), space complexity: O(n).",
+        "difficulty": "beginner",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to serialize and deserialize a binary tree.",
+        "answer": "Serialize using preorder traversal, storing node values as a string with delimiters. Deserialize by reconstructing the tree using the same traversal. Time complexity: O(n), space complexity: O(n).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you find the intersection of two linked lists?",
+        "answer": "Calculate lengths of both lists, align them by advancing the longer list, then traverse both to find the first common node. Time complexity: O(n + m), space complexity: O(1).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to solve the ‘Longest Palindromic Substring’ problem.",
+        "answer": "Use Manacher’s algorithm or expand around each character and center between characters to find the longest palindrome. Time complexity: O(n), space complexity: O(n).",
+        "difficulty": "advanced",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to design a recommendation engine for an e-commerce platform.",
+        "answer": "Use collaborative filtering with user-item interaction data stored in DynamoDB. Cache recommendations in Redis and update via batch processing. Time complexity: O(mn) for matrix factorization.",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you implement a function to detect a loop in a linked list?",
+        "answer": "Use Floyd’s cycle-finding algorithm with a slow and fast pointer. If they meet, a loop exists. Time complexity: O(n), space complexity: O(1).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to solve the ‘K Closest Points to Origin’ problem.",
+        "answer": "Use a max-heap of size k to store points by their Euclidean distance from the origin, maintaining the k closest points. Time complexity: O(n log k), space complexity: O(k).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to design a real-time analytics dashboard.",
+        "answer": "Use Kinesis for real-time data streaming, Lambda for processing, and DynamoDB for storage. Cache results in ElastiCache for fast retrieval. Time complexity: O(1) per data point.",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you find the lowest common ancestor in a binary search tree?",
+        "answer": "Traverse from the root, moving left if both nodes are smaller, right if both are larger, or return the current node if they diverge. Time complexity: O(h), space complexity: O(1).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to solve the ‘Valid Sudoku’ problem.",
+        "answer": "Check each row, column, and 3x3 subgrid for duplicate numbers (1-9) using a hash set. Time complexity: O(1) for 9x9 grid, space complexity: O(1).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to implement a segment tree for range sum queries.",
+        "answer": "Build a binary tree where leaves store array elements and internal nodes store sums of their children. Update and query in logarithmic time. Time complexity: O(log n), space complexity: O(n).",
+        "difficulty": "advanced",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you solve the ‘Word Break’ problem?",
+        "answer": "Use dynamic programming to check if a string can be segmented into dictionary words, storing results for prefixes. Time complexity: O(n²), space complexity: O(n).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to design a scalable inventory management system.",
+        "answer": "Use a distributed database like DynamoDB for inventory data, with caching in Redis for frequent access. Scale with sharding and load balancers. Time complexity: O(1) for updates.",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to find the first and last position of an element in a sorted array.",
+        "answer": "Use binary search to find the leftmost and rightmost occurrences by adjusting the search range. Time complexity: O(log n), space complexity: O(1).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you implement a queue using two stacks?",
+        "answer": "Use one stack for enqueue and another for dequeue. Transfer elements to the second stack for FIFO order. Time complexity: O(1) amortized, space complexity: O(n).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to solve the ‘Combination Sum’ problem.",
+        "answer": "Use backtracking to find all combinations of numbers that sum to the target, allowing reuse of numbers. Time complexity: O(2^n), space complexity: O(n).",
+        "difficulty": "advanced",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to design a scalable payment processing system.",
+        "answer": "Use a microservices architecture with a payment gateway, DynamoDB for transaction storage, and SQS for asynchronous processing. Scale with load balancers. Time complexity: O(1) per transaction.",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you check if a binary tree is a valid binary search tree?",
+        "answer": "Perform an in-order traversal, ensuring each node’s value is greater than the previous. Alternatively, check each node against a valid range. Time complexity: O(n), space complexity: O(h).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to solve the ‘Maximum Product Subarray’ problem.",
+        "answer": "Track maximum and minimum products ending at each index, accounting for negative numbers. Update global maximum. Time complexity: O(n), space complexity: O(1).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to implement a suffix array for string matching.",
+        "answer": "Sort all suffixes of the string lexicographically and store their starting indices. Use for efficient substring searches. Time complexity: O(n log n), space complexity: O(n).",
+        "difficulty": "advanced",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you solve the ‘Path Sum’ problem in a binary tree?",
+        "answer": "Use recursion to traverse the tree, tracking the current sum from root to leaf, checking if it equals the target. Time complexity: O(n), space complexity: O(h).",
+        "difficulty": "intermediate",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to design a scalable logging system for AWS.",
+        "answer": "Use CloudWatch for log storage and analysis, with Lambda for real-time processing and S3 for long-term archival. Scale with sharding. Time complexity: O(1) per log entry.",
+        "difficulty": "advanced",
+        "topic": "System Design"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to find the shortest path in a weighted graph using A* search.",
+        "answer": "Use a priority queue with a heuristic function (e.g., Euclidean distance) to guide the search, updating costs for each node. Time complexity: O(E log V), space complexity: O(V).",
+        "difficulty": "advanced",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you implement a hash map from scratch?",
+        "answer": "Use an array with linked lists for collision handling. Implement hash function, put, get, and remove operations. Time complexity: O(1) average, space complexity: O(n).",
+        "difficulty": "intermediate",
+        "topic": "Data Structures"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Explain how to apply the ‘Dive Deep’ Leadership Principle in debugging a system issue.",
+        "answer": "Analyze logs, trace data flow, and use metrics (e.g., CloudWatch) to identify root causes. Test hypotheses systematically to resolve issues. Time complexity: problem-dependent.",
+        "difficulty": "intermediate",
+        "topic": "Amazon Principles"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "Describe the approach to solve the ‘Permutations’ problem.",
+        "answer": "Use backtracking to generate all permutations by swapping elements and exploring all possibilities. Time complexity: O(n!), space complexity: O(n).",
+        "difficulty": "advanced",
+        "topic": "Algorithms"
+    },
+    {
+        "goal": "Amazon SDE",
+        "type": "short_answer",
+        "question": "How would you apply the ‘Customer Obsession’ Leadership Principle in designing an API?",
+        "answer": "Prioritize user-friendly endpoints, clear documentation, and robust error handling to enhance customer experience. Ensure low latency with caching. Time complexity: O(1) per request.",
+        "difficulty": "intermediate",
+        "topic": "Amazon Principles"
     }
 ] 
