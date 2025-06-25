@@ -13,7 +13,7 @@ The Smart Quiz Generator Microservice is a production-ready, FastAPI-based REST 
 
 - **RESTful API**: Endpoints for retrieving questions, generating customized quizzes, managing goals, and monitoring health/performance.
 - **Question Generation**: TF-IDF-based retrieval (`tfidfGenerator.py`) and template-based generation (`templateGenerator.py`) for dynamic questions.
-- **Dataset**: 657 questions (GATE: 219, Amazon SDE: 225, CAT: 213) in `consolidated_questions_updated.json`.
+- **Dataset**: 657 questions (GATE: 219, Amazon SDE: 225, CAT: 213) in `question_bank.json`.
 - **Production-Ready**:
   - Thread-safe file operations with `filelock`.
   - Structured JSON logging with daily rotation (`structlog`).
@@ -59,7 +59,7 @@ smart-quiz/
 ├── schema.json                   # JSON schema for validation
 ├── api_tokens.json               # API token for authentication
 ├── data/
-│   ├── consolidated_questions_updated.json  # Question bank (672 questions)
+│   ├── question_bank.json  # Question bank (657 questions)
 ├── logs/
 │   ├── app.log                   # Application logs
 │   ├── metrics.log               # Metrics logs
@@ -79,7 +79,7 @@ smart-quiz/
 - **Python**: 3.10+ (optional for local development).
 - **Git**: For cloning the repository.
 - **Host Directories**:
-  - `E:/smart-quiz/data/`: Contains `consolidated_questions_updated.json`.
+  - `E:/smart-quiz/data/`: Contains `question_bank.json`.
   - `E:/smart-quiz/logs/`: Stores `app.log`, `metrics.log`, `performance.log`.
 
 ## Setup Instructions
@@ -94,7 +94,7 @@ smart-quiz/
    ```bash
    mkdir -p E:/smart-quiz/data E:/smart-quiz/logs
    ```
-   - Place `consolidated_questions_updated.json` in `E:/smart-quiz/data/`.
+   - Place `question_bank.json` in `E:/smart-quiz/data/`.
    - Ensure `config.json`, `schema.json`, `api_tokens.json`, and `performance_metrics.json` are in the project root.
 
 3. **Build and Run with Docker**:
@@ -117,7 +117,7 @@ smart-quiz/
 ## Usage
 
 - **API Endpoints** (available at `http://localhost:8000/docs`):
-  - `GET /questions`: Retrieve all 672 questions.
+  - `GET /questions`: Retrieve all 657 questions.
   - `GET /questions/{question_id}`: Fetch a specific question by ID (if implemented).
   - `POST /generate`: Generate a quiz based on `goal`, `num_questions`, and `difficulty`.
     ```json
@@ -147,7 +147,7 @@ smart-quiz/
 ## Configuration
 
 - **config.json**: Defines:
-  - Data paths (`DATA_DIR: /data`, `DATASET: consolidated_questions_updated.json`).
+  - Data paths (`DATA_DIR: /data`, `DATASET: question_bank.json`).
   - Logging (`logpath: /app/logs/app.log`, daily rotation, 7-day retention).
   - Question limits (`default_num_questions: 5`, `max_questions: 10`).
   - Supported goals (`GATE`, `Amazon SDE`, `CAT`).
@@ -200,7 +200,7 @@ smart-quiz/
 ## Troubleshooting
 
 - **Log Errors**: Verify `E:/smart-quiz/logs` exists and is writable.
-- **Data Issues**: Ensure `E:/smart-quiz/data/consolidated_questions_updated.json` matches `schema.json`.
+- **Data Issues**: Ensure `E:/smart-quiz/data/question_bank.json` matches `schema.json`.
 - **Docker Issues**: Check logs with `docker-compose logs` or rebuild with `docker-compose build`.
 - **Health Dashboard Blank**: Confirm `performance_metrics.json` exists and internet access for Chart.js CDN (`https://cdn.jsdelivr.net/npm/chart.js`).
 - **API Errors**: Inspect `app.log` for details; enable debug logging by setting `"level": "DEBUG"` in `config.json`.
