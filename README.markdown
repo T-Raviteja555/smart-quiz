@@ -86,8 +86,8 @@ smart-quiz/
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/smart-quiz-generator.git
-   cd smart-quiz-generator
+   git clone https://github.com/your-username/smart-quiz.git
+   cd smart-quiz
    ```
 
 2. **Create Host Directories**:
